@@ -1,5 +1,7 @@
 import { Label } from '@components/label'
 import { SvgColor } from '@components/svg-color'
+import { AUTH_ROOT_PATH } from '@src/modules/auth/auth.route'
+import { BLOG_PATH, PRODUCTS_PATH, USER_PATH } from '@src/modules/home/home.route'
 
 // ----------------------------------------------------------------------
 
@@ -35,10 +37,5 @@ export const navData = [
     title: 'Sign in',
     path: '/sign-in',
     icon: icon('ic-lock')
-  },
-  {
-    title: 'Not found',
-    path: '/404',
-    icon: icon('ic-disabled')
   }
 ]

@@ -5,7 +5,7 @@ import Card from '@mui/material/Card'
 import CardHeader from '@mui/material/CardHeader'
 import Typography from '@mui/material/Typography'
 
-import { fShortenNumber } from '@src/utils/format-number'
+import { fShortenNumber } from '@src/shared/utils/format-number'
 
 import { varAlpha } from '@src/theme/styles'
 

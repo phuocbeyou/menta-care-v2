@@ -1,8 +1,8 @@
-import type { Theme } from '@mui/material/styles';
+import type { Theme } from '@mui/material/styles'
 
-import { experimental_extendTheme as extendTheme } from '@mui/material/styles';
+import { extendTheme } from '@mui/material/styles'
 
-import { shadows, typography, components, colorSchemes, customShadows } from './core';
+import { shadows, typography, components, colorSchemes, customShadows } from './core'
 
 // ----------------------------------------------------------------------
 
@@ -15,12 +15,12 @@ export function createTheme(): Theme {
     components,
     typography,
     cssVarPrefix: '',
-    shouldSkipGeneratingVar,
-  };
+    shouldSkipGeneratingVar
+  }
 
-  const theme = extendTheme(initialTheme);
+  const theme = extendTheme(initialTheme)
 
-  return theme;
+  return theme
 }
 
 // ----------------------------------------------------------------------
@@ -34,25 +34,25 @@ function shouldSkipGeneratingVar(keys: string[], value: string | number): boolea
     'breakpoints',
     'transitions',
     'cssVarPrefix',
-    'unstable_sxConfig',
-  ];
+    'unstable_sxConfig'
+  ]
 
   const skipPaletteKeys: {
-    [key: string]: string[];
+    [key: string]: string[]
   } = {
     global: ['tonalOffset', 'dividerChannel', 'contrastThreshold'],
     grey: ['A100', 'A200', 'A400', 'A700'],
-    text: ['icon'],
-  };
-
-  const isPaletteKey = keys[0] === 'palette';
-
-  if (isPaletteKey) {
-    const paletteType = keys[1];
-    const skipKeys = skipPaletteKeys[paletteType] || skipPaletteKeys.global;
-
-    return keys.some((key) => skipKeys?.includes(key));
+    text: ['icon']
   }
 
-  return keys.some((key) => skipGlobalKeys?.includes(key));
+  const isPaletteKey = keys[0] === 'palette'
+
+  if (isPaletteKey) {
+    const paletteType = keys[1]
+    const skipKeys = skipPaletteKeys[paletteType] || skipPaletteKeys.global
+
+    return keys.some((key) => skipKeys?.includes(key))
+  }
+
+  return keys.some((key) => skipGlobalKeys?.includes(key))
 }

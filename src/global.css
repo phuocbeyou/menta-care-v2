@@ -1,4 +1,14 @@
 /** **************************************
+* Tailwind CSS
+*************************************** */
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-primary: #123456;
+}
+
+/** **************************************
 * Fonts: app
 *************************************** */
 @import '@fontsource-variable/dm-sans';

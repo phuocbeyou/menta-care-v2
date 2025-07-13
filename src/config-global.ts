@@ -1,15 +1,15 @@
-import packageJson from '../package.json';
+import packageJson from '../package.json'
 
 // ----------------------------------------------------------------------
 
 export type ConfigValue = {
-  appName: string;
-  appVersion: string;
-};
+  appName: string
+  appVersion: string
+}
 
 // ----------------------------------------------------------------------
 
 export const CONFIG: ConfigValue = {
   appName: 'Minimal UI',
-  appVersion: packageJson.version,
-};
+  appVersion: packageJson.version
+}

@@ -13,7 +13,7 @@ import { Iconify } from '@components/iconify'
 import { Main } from './main'
 import { layoutClasses } from '../classes'
 import { NavMobile, NavDesktop } from './nav'
-import { navData } from '../config-nav-dashboard'
+import { navData } from './config-nav-dashboard'
 import { Searchbar } from '../components/searchbar'
 import { MenuButton } from '../components/menu-button'
 import { LayoutSection } from '../core/layout-section'
@@ -21,9 +21,8 @@ import { HeaderSection } from '../core/header-section'
 import { AccountPopover } from '../components/account-popover'
 import { LanguagePopover } from '../components/language-popover'
 import { NotificationsPopover } from '../components/notifications-popover'
-import { LinearProgress, linearProgressClasses } from '@mui/material'
 import { Outlet } from 'react-router-dom'
-import { varAlpha } from '@src/theme/styles'
+import { Fallback } from '@src/layouts/components/Fallback'
 
 // ----------------------------------------------------------------------
 
@@ -33,19 +32,6 @@ export type DashboardLayoutProps = {
     sx?: SxProps<Theme>
   }
 }
-
-const renderFallback = (
-  <Box display='flex' alignItems='center' justifyContent='center' flex='1 1 auto'>
-    <LinearProgress
-      sx={{
-        width: 1,
-        maxWidth: 320,
-        bgcolor: (theme) => varAlpha(theme.vars.palette.text.primaryChannel, 0.16),
-        [`& .${linearProgressClasses.bar}`]: { bgcolor: 'text.primary' }
-      }}
-    />
-  </Box>
-)
 
 export function DashboardLayout({ sx, header }: DashboardLayoutProps) {
   const theme = useTheme()
@@ -144,7 +130,7 @@ export function DashboardLayout({ sx, header }: DashboardLayoutProps) {
     >
       <Main>
         {
-          <Suspense fallback={renderFallback}>
+          <Suspense fallback={Fallback}>
             <Outlet />
           </Suspense>
         }

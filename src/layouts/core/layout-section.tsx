@@ -1,22 +1,22 @@
-import type { Theme, SxProps, CSSObject } from '@mui/material/styles';
+import type { Theme, SxProps, CSSObject } from '@mui/material/styles'
 
-import Box from '@mui/material/Box';
-import { useTheme } from '@mui/material/styles';
-import GlobalStyles from '@mui/material/GlobalStyles';
+import Box from '@mui/material/Box'
+import { useTheme } from '@mui/material/styles'
+import GlobalStyles from '@mui/material/GlobalStyles'
 
-import { baseVars } from '../config-vars';
-import { layoutClasses } from '../classes';
+import { baseVars } from '../config-vars'
+import { layoutClasses } from '../classes'
 
 // ----------------------------------------------------------------------
 
 export type LayoutSectionProps = {
-  sx?: SxProps<Theme>;
-  cssVars?: CSSObject;
-  children?: React.ReactNode;
-  footerSection?: React.ReactNode;
-  headerSection?: React.ReactNode;
-  sidebarSection?: React.ReactNode;
-};
+  sx?: SxProps<Theme>
+  cssVars?: CSSObject
+  children?: React.ReactNode
+  footerSection?: React.ReactNode
+  headerSection?: React.ReactNode
+  sidebarSection?: React.ReactNode
+}
 
 export function LayoutSection({
   sx,
@@ -24,32 +24,33 @@ export function LayoutSection({
   children,
   footerSection,
   headerSection,
-  sidebarSection,
+  sidebarSection
 }: LayoutSectionProps) {
-  const theme = useTheme();
+  const theme = useTheme()
 
   const inputGlobalStyles = (
     <GlobalStyles
       styles={{
         body: {
           ...baseVars(theme),
-          ...cssVars,
-        },
+          ...cssVars
+        }
       }}
     />
-  );
+  )
 
   return (
     <>
       {inputGlobalStyles}
 
-      <Box id="root__layout" className={layoutClasses.root} sx={sx}>
+      <Box id='root__layout' className={layoutClasses.root} sx={sx}>
         {sidebarSection}
         <Box
-          display="flex"
-          flex="1 1 auto"
-          flexDirection="column"
+          display='flex'
+          flex='1 1 auto'
+          flexDirection='column'
           className={layoutClasses.hasSidebar}
+          sx={{ backgroundColor: 'white' }}
         >
           {headerSection}
           {children}
@@ -57,5 +58,5 @@ export function LayoutSection({
         </Box>
       </Box>
     </>
-  );
+  )
 }

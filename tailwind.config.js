@@ -3,8 +3,31 @@ module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}', './index.html'],
   theme: {
     extend: {
-      colors: {
-        // primary: '#1877F2'
+      colors: {},
+      screens: {
+        sm: '640px',
+        // => @media (min-width: 640px) { ... }
+
+        md: '768px',
+        // => @media (min-width: 768px) { ... }
+
+        lg: '1024px',
+        // => @media (min-width: 1024px) { ... }
+
+        '2lg': '1100px',
+        // => @media (min-width: 1100px) { ... }
+
+        xl: '1280px',
+        // => @media (min-width: 1280px) { ... }
+
+        '1xl': '1480px',
+        // => @media (min-width: 1480px) { ... }
+
+        '2xl': '1536px',
+        // => @media (min-width: 1536px) { ... }
+
+        '3xl': '1800px'
+        // => @media (min-width: 1800px) { ... },
       }
     }
   },

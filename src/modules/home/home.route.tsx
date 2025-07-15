@@ -1,4 +1,4 @@
-import { DashboardLayout } from '@src/layouts/dashboard'
+import { HomeLayout } from '@src/layouts/home'
 import { Router } from '@src/routes'
 import { lazy } from 'react'
 
@@ -14,7 +14,7 @@ export const BLOG_PATH = 'blog'
 
 export const homeRouter: Router[] = [
   {
-    element: <DashboardLayout />,
+    element: <HomeLayout />,
     children: [
       { element: <HomePage />, index: true, path: HOME_ROOT_PATH },
       { path: USER_PATH, element: <UserPage /> },

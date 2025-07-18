@@ -1,15 +1,14 @@
 import { Helmet } from 'react-helmet-async'
 import { CONFIG } from '@src/config-global'
-import { HeaderHome } from '../components/header-home'
-import { NavigateBox } from '../components/NavigateBox'
+import { HeaderHome } from '../components/home/header-home'
+import { NavigateBox } from '../components/home/NavigateBox'
 import { Box, Button } from '@mui/material'
-import { AiBox } from '../components/AiBox'
-import { PhoneBanner } from '../components/PhoneBanner'
-import { SupportBanner } from '../components/SupportBanner'
-import CategoriesExpert from '../components/CategoriesExpert'
-import TeamExpert from '../components/TeamExpert'
-import AdviceOnline from '../components/AdviceOnline'
-import Sponsor from '../components/Sponsor'
+import { PhoneBanner } from '../components/home/PhoneBanner'
+import { SupportBanner } from '../components/home/SupportBanner'
+import CategoriesExpert from '../components/home/CategoriesExpert'
+import TeamExpert from '../components/home/TeamExpert'
+import AdviceOnline from '../components/home/AdviceOnline'
+import Sponsor from '../components/home/Sponsor'
 
 export default function Home() {
   return (
@@ -42,17 +41,11 @@ export default function Home() {
             icon='/assets/images/components/cer.png'
           />
         </Box>
-        <Box className='flex my-15 justify-end'>
-          <AiBox height={100} />
-        </Box>
+
         <PhoneBanner />
-        <Box className='flex justify-end'>
-          <AiBox height={100} />
-        </Box>
+
         <SupportBanner />
-        <Box className='flex my-8 justify-end'>
-          <AiBox height={100} />
-        </Box>
+
         <CategoriesExpert />
         <TeamExpert />
         <AdviceOnline />
@@ -80,8 +73,6 @@ export default function Home() {
           >
             TRỞ THÀNH ĐỐI TÁC CỦA CHÚNG TÔI
           </Button>
-
-          <AiBox />
         </Box>
       </Box>
     </>

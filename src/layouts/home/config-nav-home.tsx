@@ -6,32 +6,32 @@ export const navData = [
   },
   {
     title: 'Trợ lý AI',
-    path: '/user',
+    path: '#',
     icon: 'majesticons:home'
   },
   {
     title: 'Well-being',
-    path: '/products',
+    path: '/wellbeing',
     icon: 'majesticons:home'
   },
   {
     title: 'Kết nối Chuyên Gia',
-    path: '/blog',
+    path: '#',
     icon: 'majesticons:home'
   },
   {
     title: 'Forum',
-    path: '/sign-in',
+    path: '#',
     icon: 'majesticons:home'
   },
   {
     title: 'Blog',
-    path: '/sign-in',
+    path: '#',
     icon: 'majesticons:home'
   },
   {
     title: 'Giới Thiệu',
-    path: '/sign-in',
+    path: '#',
     icon: 'majesticons:home'
   }
 ]

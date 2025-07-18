@@ -1,7 +1,5 @@
 import { Label } from '@components/label'
 import { SvgColor } from '@components/svg-color'
-import { AUTH_ROOT_PATH } from '@src/modules/auth/auth.route'
-import { BLOG_PATH, PRODUCTS_PATH, USER_PATH } from '@src/modules/home/home.route'
 
 // ----------------------------------------------------------------------
 
@@ -15,12 +13,12 @@ export const navData = [
   },
   {
     title: 'User',
-    path: '/user',
+    path: '#',
     icon: icon('ic-user')
   },
   {
     title: 'Product',
-    path: '/products',
+    path: '#',
     icon: icon('ic-cart'),
     info: (
       <Label color='error' variant='inverted'>
@@ -30,12 +28,12 @@ export const navData = [
   },
   {
     title: 'Blog',
-    path: '/blog',
+    path: '#',
     icon: icon('ic-blog')
   },
   {
     title: 'Sign in',
-    path: '/sign-in',
+    path: '#',
     icon: icon('ic-lock')
   }
 ]

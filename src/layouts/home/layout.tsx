@@ -7,6 +7,7 @@ import { Main } from '../dashboard/main'
 import { HomeNav } from './nav'
 import { CONFIG } from '@src/config-global'
 import { HomeFooter } from './Footer'
+import { AiBox } from '@src/modules/home/components/home/AiBox'
 
 export const HomeLayout = () => {
   return (
@@ -16,6 +17,7 @@ export const HomeLayout = () => {
           <Suspense fallback={Fallback}>
             <Box sx={{ width: '100%', maxWidth: CONFIG.maxWidth, mx: 'auto' }}>
               <Outlet />
+              <AiBox />
             </Box>
             <HomeFooter />
           </Suspense>

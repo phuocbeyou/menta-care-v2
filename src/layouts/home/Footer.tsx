@@ -1,7 +1,6 @@
 import { Box, Stack, Typography, Button, Link, Grid2 } from '@mui/material'
 import { SlideUp } from '@src/components/animation/SlideUp'
 import { CONFIG } from '@src/config-global'
-import { AiBox } from '@src/modules/home/components/AiBox'
 
 export function HomeFooter() {
   return (
@@ -240,10 +239,6 @@ export function HomeFooter() {
                   </Link>
                 </Stack>
               </div>
-
-              <Box className='mt-auto'>
-                <AiBox height={65} />
-              </Box>
             </Grid2>
           </Grid2>
         </Box>

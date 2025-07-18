@@ -2,7 +2,7 @@ import { Helmet } from 'react-helmet-async'
 
 import { CONFIG } from '@src/config-global'
 
-import { SignInView } from '@sections/auth'
+// import { SignInView } from '@sections/auth'
 
 // ----------------------------------------------------------------------
 
@@ -13,7 +13,7 @@ export default function Page() {
         <title> {`Sign in - ${CONFIG.appName}`}</title>
       </Helmet>
 
-      <SignInView />
+      {/* <SignInView /> */}
     </>
   )
 }

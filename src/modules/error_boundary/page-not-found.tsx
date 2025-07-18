@@ -2,7 +2,7 @@ import { Helmet } from 'react-helmet-async'
 
 import { CONFIG } from '@src/config-global'
 
-import { NotFoundView } from '@sections/error'
+// import { NotFoundView } from '@sections/error'
 
 // ----------------------------------------------------------------------
 
@@ -13,7 +13,8 @@ export default function Page() {
         <title> {`404 page not found! | Error - ${CONFIG.appName}`}</title>
       </Helmet>
 
-      <NotFoundView />
+      {/* <NotFoundView /> */}
+      <div>404</div>
     </>
   )
 }

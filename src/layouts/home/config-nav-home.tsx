@@ -1,7 +1,7 @@
 export const navData = [
   {
     title: 'Trang Chủ',
-    path: '/',
+    path: '/home',
     icon: 'majesticons:home'
   },
   {

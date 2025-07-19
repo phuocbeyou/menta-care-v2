@@ -34,13 +34,13 @@ export function AiBox({ height = 80, onClick }: AiBoxProps) {
           component='img'
           src='/assets/images/components/ai-box.png'
           alt='AI Chat'
-          height={height}
+          height={{ xs: 50, md: height }}
           sx={{
             filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.15))'
           }}
         />
         <Box
-          className={`bg-primary rounded-lg ${padding} text-center font-medium underline ${textSize} shadow-lg`}
+          className={`bg-primary rounded-lg ${padding} text-center font-medium underline ${textSize} shadow-lg hidden md:block`}
           sx={{
             boxShadow: '0 4px 15px rgba(0,0,0,0.15)',
             '&:hover': {

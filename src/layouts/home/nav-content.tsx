@@ -99,13 +99,12 @@ export function NavContent({ data, slots, sx }: NavContentProps) {
                       pr: 1.5,
                       borderRadius: 0.75,
                       typography: 'body2',
-                      fontWeight: 'fontWeightMedium',
                       color: 'var(--layout-nav-item-color)',
                       minHeight: 'var(--layout-nav-item-height)',
                       ...(isActived && {
                         fontWeight: 'fontWeightSemiBold',
                         bgcolor: 'var(--layout-nav-item-active-bg)',
-                        color: 'var(--layout-nav-item-active-color)',
+                        color: 'secondary.main',
                         '&:hover': {
                           bgcolor: 'var(--layout-nav-item-hover-bg)'
                         }

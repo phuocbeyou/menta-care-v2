@@ -1,6 +1,7 @@
-import { Box, Stack, Typography, Button, Link, Grid2 } from '@mui/material'
+import { Box, Stack, Typography, Button, Link, Grid2, Divider } from '@mui/material'
 import { SlideUp } from '@src/components/animation/SlideUp'
 import { CONFIG } from '@src/config-global'
+import { NavLink } from 'react-router-dom'
 
 export function HomeFooter() {
   return (
@@ -241,6 +242,18 @@ export function HomeFooter() {
               </div>
             </Grid2>
           </Grid2>
+        </Box>
+      </Box>
+      <Divider />
+      <Box className='bg-secondary' sx={{ py: 1 }}>
+        <Box sx={{ width: '100%', maxWidth: CONFIG.maxWidth, mx: 'auto', px: 4 }}>
+          <NavLink to={'/cookie'} className='text-white underline text-xl'>
+            Chính sách Cookie | Thông báo bảo mật | Điều khoản & Điều kiện | Chính sách Bảo mật & An toàn thông tin
+          </NavLink>
+          <div className='text-[1rem] mt-[0.5rem] text-[#00542B]'>
+            Bằng việc tiếp tục sử dụng website này, bạn đồng ý cho phép chúng tôi sử dụng cookie nhằm nâng cao trải
+            nghiệm và phân tích hành vi người dùng.
+          </div>
         </Box>
       </Box>
     </Box>

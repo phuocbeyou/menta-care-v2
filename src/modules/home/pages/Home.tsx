@@ -21,7 +21,7 @@ export default function Home() {
         />
         <meta name='keywords' content='react,material,kit,application,dashboard,admin,template' />
       </Helmet>
-      <Box className='mx-auto px-6 py-6 flex flex-col bg-white'>
+      <Box className='mx-auto px-3 py-6 flex flex-col bg-white'>
         <HeaderHome />
         <Box className='flex flex-col md:flex-row gap-4 mt-36 justify-end'>
           <NavigateBox

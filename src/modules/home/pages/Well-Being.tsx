@@ -11,7 +11,7 @@ export default function WellBeing() {
       <Helmet>
         <title> {`Well-Being - ${CONFIG.appName}`}</title>
       </Helmet>
-      <Box className='mx-auto px-6 py-6 flex flex-col bg-white'>
+      <Box className='mx-auto px-3 py-6 flex flex-col bg-white'>
         <HeaderWellBeing />
         <CategoriesWellBeing />
         <AdviceOnline />

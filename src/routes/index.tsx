@@ -2,6 +2,7 @@ import { Navigate, RouteObject } from 'react-router-dom'
 import React, { lazy } from 'react'
 import { authRouter } from '@src/modules/auth/auth.route'
 import { homeRouter } from '@src/modules/home/home.route'
+import { Cookie } from '@src/modules/home/pages/Cookie'
 
 export const Page404 = lazy(() => import('@src/modules/error_boundary/page-not-found'))
 

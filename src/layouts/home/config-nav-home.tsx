@@ -16,7 +16,7 @@ export const navData = [
   },
   {
     title: 'Kết nối Chuyên Gia',
-    path: '#',
+    path: '/expert',
     icon: 'majesticons:home'
   },
   {

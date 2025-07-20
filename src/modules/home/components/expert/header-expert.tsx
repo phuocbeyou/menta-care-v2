@@ -1,0 +1,67 @@
+import { SlideUp } from '@src/components/animation/SlideUp'
+
+import { Box, Button, Grid2, Stack } from '@mui/material'
+
+export function HeaderExpert() {
+  return (
+    <Grid2 container className='flex flex-col md:flex-row justify-between mb-20'>
+      <Grid2 size={{ xs: 12, md: 6, lg: 5 }} className='md:w-1/2  h-[350px] md:h-[400px]'>
+        <Box className='flex flex-col justify-between h-full'>
+          <SlideUp delay={0.1} className='relative'>
+            <div className='text-secondary font-bold text-[3rem] md:text-[4.1rem] lg:text-[4.5rem] z-10 leading-8 md:leading-10'>
+              KẾT NỐI CHUYÊN GIA
+            </div>
+          </SlideUp>
+          <SlideUp delay={0.2} className='mt-2'>
+            <div className='font-semibold text-2xl leading-5 md:text-4xl md:leading-6'>
+              CHỈ BẰNG VÀI CÚ CLICK
+              <br />
+              CÙNG AI MENCARE
+            </div>
+          </SlideUp>
+
+          <Stack direction={{ xs: 'row', md: 'row' }} className='flex mt-10'>
+            <Button
+              className='w-[80%] h-[70px] cursor-pointer'
+              variant='contained'
+              color='primary'
+              size='large'
+              sx={{
+                fontSize: { xs: '0.7rem', lg: '0.9rem' },
+                '&:hover': {
+                  backgroundColor: 'primary.main'
+                }
+              }}
+            >
+              <div className='flex items-center gap-2'>
+                <div className='text-black underline text-sm md:text-lg font-medium'> TÌM CHUYÊN GIA CỦA BẠN NGAY</div>
+                {/* next icon*/}
+                <Box
+                  component='img'
+                  src='/assets/images/components/next.png'
+                  alt='Arrow'
+                  height={41}
+                  sx={{ filter: 'brightness(0)' }}
+                />
+              </div>
+            </Button>
+          </Stack>
+        </Box>
+      </Grid2>
+      <Grid2 size={{ xs: 12, md: 6 }} className='md:w-1/2 mt-10 md:mt-10 lg:mt-0 flex justify-center '>
+        <Box className='relative w-full h-[400px] '>
+          <Box
+            component='img'
+            src='/assets/images/expert/earth.png'
+            alt='Effect'
+            className='absolute w-full h-full object-contain z-10 top-0'
+            sx={{
+              transform: 'rotate(0deg)'
+            }}
+            height={444}
+          />
+        </Box>
+      </Grid2>
+    </Grid2>
+  )
+}

@@ -11,7 +11,7 @@ export interface ItemExpertProps {
   field: string
 }
 
-export const ItemExpert = ({ name, avatar, category, exp, rating, field }: ItemExpertProps) => {
+export const ItemExpert = ({ name, avatar, exp, rating, field }: ItemExpertProps) => {
   return (
     <div className='bg-primary rounded-xl w-25 md:w-30  p-1 flex flex-col items-center h-[360px]'>
       <Box

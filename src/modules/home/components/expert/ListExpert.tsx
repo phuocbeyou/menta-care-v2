@@ -2,7 +2,6 @@ import { Autocomplete, Box, TextField } from '@mui/material'
 import { useRef, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { ItemExpert, ItemExpertProps } from './ItemExpert'
-import { Virtual } from 'swiper/modules'
 
 // Add basic Swiper styles
 const swiperStyles = `
@@ -222,8 +221,8 @@ export function ListExpert() {
 
   const handleSlideChange = (swiper: any) => {
     console.log(swiper)
-    // setIsBeginning(swiper.isBeginning)
-    // setIsEnd(swiper.isEnd)
+    setIsBeginning(swiper.isBeginning)
+    setIsEnd(swiper.isEnd)
   }
   return (
     <div className='my-4 mb-14'>
@@ -237,7 +236,7 @@ export function ListExpert() {
           isOptionEqualToValue={(option, value) => option.id === value.id}
           clearIcon={false}
           value={listCategory.find((item) => item.id === value)}
-          onChange={(event, newValue) => {
+          onChange={(_, newValue) => {
             setValue(newValue?.id || 1)
           }}
         />

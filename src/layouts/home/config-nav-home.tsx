@@ -31,7 +31,7 @@ export const navData = [
   },
   {
     title: 'Giới Thiệu',
-    path: '#',
+    path: '/introduce',
     icon: 'majesticons:home'
   }
 ]

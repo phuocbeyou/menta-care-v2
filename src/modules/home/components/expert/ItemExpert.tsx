@@ -1,4 +1,5 @@
 import { Box, Button, Rating } from '@mui/material'
+import { useNavigate } from 'react-router-dom'
 
 export interface ItemExpertProps {
   id: number
@@ -12,6 +13,7 @@ export interface ItemExpertProps {
 }
 
 export const ItemExpert = ({ name, avatar, exp, rating, field }: ItemExpertProps) => {
+  const navigate = useNavigate()
   return (
     <div className='bg-primary rounded-xl w-25 md:w-30  p-1 flex flex-col items-center h-[360px]'>
       <Box
@@ -30,6 +32,7 @@ export const ItemExpert = ({ name, avatar, exp, rating, field }: ItemExpertProps
       </p>
       <Rating name='simple-controlled' value={rating} readOnly />
       <Button
+        onClick={() => navigate(`/expert-detail/${name}`)}
         variant='outlined'
         sx={{
           borderRadius: 1,

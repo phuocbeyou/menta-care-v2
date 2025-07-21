@@ -1,31 +1,7 @@
-import { Autocomplete, Box, TextField } from '@mui/material'
-import { useRef, useState } from 'react'
-import { Swiper, SwiperSlide } from 'swiper/react'
+import { Autocomplete, TextField } from '@mui/material'
+import { useState } from 'react'
+import { CustomSwiper, SwiperSlide } from '@components/swiper'
 import { ItemExpert, ItemExpertProps } from './ItemExpert'
-
-// Add basic Swiper styles
-const swiperStyles = `
-  .swiper {
-    width: 100%;
-    height: auto;
-    overflow: visible;
-  }
-  .swiper-slide {
-    text-align: center;
-    font-size: 18px;
-    background: transparent;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    height: auto;
-    width: auto;
-  }
-  .swiper-wrapper {
-    align-items: flex-start;
-    display: flex;
-    flex-direction: row;
-  }
-`
 
 const listCategory = [
   {
@@ -203,30 +179,8 @@ const listExpert: ItemExpertProps[] = [
 
 export function ListExpert() {
   const [value, setValue] = useState<number>(1)
-  const [isBeginning, setIsBeginning] = useState(true)
-  const [isEnd, setIsEnd] = useState(false)
-  const swiperRef = useRef<any>(null)
-
-  const scrollUp = () => {
-    if (swiperRef.current && swiperRef.current.swiper) {
-      swiperRef.current.swiper.slidePrev()
-    }
-  }
-
-  const scrollDown = () => {
-    if (swiperRef.current && swiperRef.current.swiper) {
-      swiperRef.current.swiper.slideNext()
-    }
-  }
-
-  const handleSlideChange = (swiper: any) => {
-    console.log(swiper)
-    setIsBeginning(swiper.isBeginning)
-    setIsEnd(swiper.isEnd)
-  }
   return (
     <div className='my-4 mb-14'>
-      <style>{swiperStyles}</style>
       <div className='sm:hidden'>
         <Autocomplete
           disablePortal
@@ -257,79 +211,25 @@ export function ListExpert() {
         ))}
       </div>
 
-      <div className='flex mt-4 relative'>
-        <Box
-          component='img'
-          src='/assets/images/well-being/arrow.png'
-          alt='Arrow Up'
-          height={{ xs: 30, md: 48 }}
-          className={`absolute left-2 top-1/2 -translate-y-1/2 z-10 ${isBeginning ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
-          onClick={!isBeginning ? scrollUp : undefined}
-          sx={{
-            transform: 'rotate(180deg)',
-            filter: isBeginning
-              ? 'grayscale(50%) drop-shadow(0 2px 4px rgba(0,0,0,0.1))'
-              : 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))',
-            '&:hover': !isBeginning
-              ? {
-                  filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.2))',
-                  transform: 'rotate(180deg) scale(1.1)',
-                  transition: 'all 0.2s ease-in-out'
-                }
-              : {}
-          }}
-        />
-
-        <Box
-          component='img'
-          src='/assets/images/well-being/arrow.png'
-          alt='Arrow Up'
-          height={{ xs: 30, md: 48 }}
-          className={`absolute right-2 top-1/2 -translate-y-1/2 z-10 ${isEnd ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
-          onClick={!isEnd ? scrollDown : undefined}
-          sx={{
-            transform: 'rotate(0deg)',
-            filter: isEnd
-              ? 'grayscale(50%) drop-shadow(0 2px 4px rgba(0,0,0,0.1))'
-              : 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))',
-            '&:hover': !isEnd
-              ? {
-                  filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.2))',
-                  transform: 'rotate(0deg) scale(1.1)',
-                  transition: 'all 0.2s ease-in-out'
-                }
-              : {}
-          }}
-        />
-
-        {/* Swiper Slider */}
-        <div className='w-[100%] items-center justify-center  overflow-hidden'>
-          <Swiper
-            ref={swiperRef}
-            spaceBetween={10}
-            slidesPerView={'auto'}
-            loop={false}
-            direction='horizontal'
-            className='h-full'
-            style={{
-              width: '100%',
-              height: 'auto',
-              overflow: 'visible'
-            }}
-            onSlideChange={handleSlideChange}
-          >
-            {listExpert
-              ?.filter((e) => e.category === value)
-              .map((item, index) => (
-                <SwiperSlide
-                  key={index}
-                  style={{ height: 'auto', display: 'flex', justifyContent: 'center', width: 'auto' }}
-                >
-                  <ItemExpert {...item} />
-                </SwiperSlide>
-              ))}
-          </Swiper>
-        </div>
+      <div className='mt-4'>
+        <CustomSwiper
+          spaceBetween={10}
+          slidesPerView={'auto'}
+          loop={false}
+          showNavigation={true}
+          navigationPosition={'outside'}
+        >
+          {listExpert
+            ?.filter((e) => e.category === value)
+            .map((item, index) => (
+              <SwiperSlide
+                key={index}
+                style={{ height: 'auto', display: 'flex', justifyContent: 'center', width: 'auto' }}
+              >
+                <ItemExpert {...item} />
+              </SwiperSlide>
+            ))}
+        </CustomSwiper>
       </div>
     </div>
   )

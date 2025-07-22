@@ -4,7 +4,7 @@ export function Cookie() {
   return (
     <Box className='mx-auto px-3 py-6 flex flex-col bg-white text-lg'>
       <div className='prose prose-base max-w-none'>
-        <h2 className='font-bold text-2xl mb-1'>1. Chính sách Cookie</h2>
+        <h2 className='font-semibold text-2xl mb-1'>1. Chính sách Cookie</h2>
         <p>
           Chúng tôi sử dụng cookie và các công nghệ tương tự để cải thiện trải nghiệm người dùng, phân tích lưu lượng
           truy cập và cá nhân hóa nội dung. Khi bạn truy cập vào website, cookie sẽ được lưu trên thiết bị của bạn. Bạn
@@ -25,7 +25,7 @@ export function Cookie() {
           thể tại mục "Giúp đỡ" trên trình duyệt của bạn.
         </p>
 
-        <h2 className='font-bold text-2xl mb-1 mt-6'>2. Thông báo bảo mật</h2>
+        <h2 className='font-semibold text-2xl mb-1 mt-6'>2. Thông báo bảo mật</h2>
         <p>
           Chúng tôi cam kết bảo vệ toàn vẹn hệ thống và dữ liệu người dùng. Mọi hành vi truy cập trái phép, phá hoại,
           xâm nhập hoặc tấn công mạng đều bị nghiêm cấm và sẽ bị xử lý theo pháp luật.
@@ -43,7 +43,7 @@ export function Cookie() {
           năng và người dùng liên quan trong thời gian sớm nhất, tuân theo quy định về bảo mật thông tin cá nhân.
         </p>
 
-        <h2 className='font-bold text-2xl mb-1 mt-6'>3. Điều khoản &amp; Điều kiện</h2>
+        <h2 className='font-semibold text-2xl mb-1 mt-6'>3. Điều khoản &amp; Điều kiện</h2>
         <p>
           Khi sử dụng website và dịch vụ của chúng tôi, bạn đồng ý tuân thủ các điều khoản sau:
           <br />
@@ -74,7 +74,7 @@ export function Cookie() {
         </ul>
       </div>
       <div className='mt-6'>
-        <h2 className='font-bold text-2xl mb-1'>4. Chính sách Bảo mật &amp; An toàn thông tin</h2>
+        <h2 className='font-semibold text-2xl mb-1'>4. Chính sách Bảo mật &amp; An toàn thông tin</h2>
         <p className='mb-2'>
           Chúng tôi cam kết thu thập, xử lý và lưu trữ thông tin cá nhân của bạn một cách an toàn, minh bạch, chỉ sử
           dụng cho mục đích đã công bố.
@@ -122,7 +122,7 @@ export function Cookie() {
             </ul>
           </li>
         </ul>
-        <p className='font-bold text-[1.2rem] mt-6'>© 2025 Công ty TNHH Mentacare. Mọi quyền bảo lưu.</p>
+        <p className='font-semibold text-[1.2rem] mt-6'>© 2025 Công ty TNHH Mentacare. Mọi quyền bảo lưu.</p>
       </div>
     </Box>
   )

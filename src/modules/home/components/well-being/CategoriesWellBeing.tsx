@@ -45,7 +45,7 @@ export function CategoriesWellBeing() {
   return (
     <div className='flex flex-col gap-4'>
       <SlideUp className='flex justify-center mb-4 mt-4'>
-        <div className='text-center text-black text-2xl font-bold md:text-5xl md:font-medium md:leading-normal md:w-[60%]'>
+        <div className='text-center text-black text-2xl font-semibold md:text-4xl md:font-medium md:leading-normal md:w-[60%]'>
           GÁC LẠI NHỮNG BỘN BỀ ÂU LO TRỞ VỀ GÓC BÌNH AN TÂM HỒN
         </div>
       </SlideUp>

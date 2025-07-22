@@ -10,7 +10,7 @@ export function CoreValue() {
         </p>
         <div className='flex flex-wrap justify-center gap-2 gap-y-12 lg:gap-y-0'>
           <div className='flex flex-col items-center max-w-[180px] relative'>
-            <span className='text-secondary font-bold text-[72px] leading-none mb-2 select-none absolute top-[-60px] left-1/2 -translate-x-1/2'>
+            <span className='text-secondary font-semibold text-[72px] leading-none mb-2 select-none absolute top-[-60px] left-1/2 -translate-x-1/2'>
               M
             </span>
             <div className='border border-secondary rounded-3xl p-1 text-center flex-1 flex flex-col'>
@@ -26,7 +26,7 @@ export function CoreValue() {
             </div>
           </div>
           <div className='flex flex-col items-center max-w-[180px] relative'>
-            <span className='text-secondary font-bold text-[72px] leading-none mb-2 select-none absolute top-[-60px] left-1/2 -translate-x-1/2'>
+            <span className='text-secondary font-semibold text-[72px] leading-none mb-2 select-none absolute top-[-60px] left-1/2 -translate-x-1/2'>
               E
             </span>
             <div className='border border-secondary rounded-3xl p-1 text-center flex-1 flex flex-col relative'>
@@ -42,7 +42,7 @@ export function CoreValue() {
             </div>
           </div>
           <div className='flex flex-col items-center max-w-[180px] relative'>
-            <span className='text-secondary font-bold text-[72px] leading-none mb-2 select-none absolute top-[-60px] left-1/2 -translate-x-1/2'>
+            <span className='text-secondary font-semibold text-[72px] leading-none mb-2 select-none absolute top-[-60px] left-1/2 -translate-x-1/2'>
               N
             </span>
             <div className='border border-secondary rounded-3xl p-1 text-center flex-1 flex flex-col relative'>
@@ -58,7 +58,7 @@ export function CoreValue() {
             </div>
           </div>
           <div className='flex flex-col items-center max-w-[180px] relative'>
-            <span className='text-secondary font-bold text-[72px] leading-none mb-2 select-none absolute top-[-60px] left-1/2 -translate-x-1/2'>
+            <span className='text-secondary font-semibold text-[72px] leading-none mb-2 select-none absolute top-[-60px] left-1/2 -translate-x-1/2'>
               T
             </span>
             <div className='border border-secondary rounded-3xl p-1 text-center flex-1 flex flex-col relative'>
@@ -74,7 +74,7 @@ export function CoreValue() {
             </div>
           </div>
           <div className='flex flex-col items-center max-w-[180px] relative'>
-            <span className='text-secondary font-bold text-[72px] leading-none mb-2 select-none absolute top-[-60px] left-1/2 -translate-x-1/2'>
+            <span className='text-secondary font-semibold text-[72px] leading-none mb-2 select-none absolute top-[-60px] left-1/2 -translate-x-1/2'>
               A
             </span>
             <div className='border border-secondary rounded-3xl p-1 text-center flex-1 flex flex-col relative'>

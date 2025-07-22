@@ -50,7 +50,7 @@ export default function CategoriesExpert() {
           >
             <a
               href={category.url}
-              className='text-secondary text-[22px] md:text-[32.4px] md:leading-[44px] font-medium underline text-center'
+              className='text-secondary text-[22px] md:text-[32.4px] md:leading-[44px] font-medium text-center'
             >
               {category.title}
             </a>

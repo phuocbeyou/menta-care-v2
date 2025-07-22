@@ -3,7 +3,7 @@ import { Box, Button } from '@mui/material'
 export function WriteDiary() {
   return (
     <div className='bg-primary rounded-3xl p-2 md:p-4 w-full flex flex-col gap-3 relative items-center'>
-      <div className='text-4xl font-bold  text-secondary'>Viết tự do</div>
+      <div className='text-4xl font-semibold  text-secondary'>Viết tự do</div>
 
       <Box borderRadius={4} width='100%'>
         <textarea

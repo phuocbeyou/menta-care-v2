@@ -40,7 +40,7 @@ export function AiBox({ height = 80, onClick }: AiBoxProps) {
           }}
         />
         <Box
-          className={`bg-primary rounded-lg ${padding} text-center font-medium underline ${textSize} shadow-lg hidden md:block`}
+          className={`bg-primary rounded-lg ${padding} text-center font-medium ${textSize} shadow-lg hidden md:block`}
           sx={{
             boxShadow: '0 4px 15px rgba(0,0,0,0.15)',
             '&:hover': {
@@ -51,11 +51,9 @@ export function AiBox({ height = 80, onClick }: AiBoxProps) {
           Trò chuyện với
           <br />
           <Box
-            className='font-bold'
+            className='font-semibold'
             sx={{
-              textDecoration: 'underline',
-              color: 'rgb(0, 84, 43)',
-              textShadow: '0 1px 2px rgba(0,0,0,0.1)'
+              color: 'secondary.main'
             }}
           >
             Trợ Lý AI Mentacare

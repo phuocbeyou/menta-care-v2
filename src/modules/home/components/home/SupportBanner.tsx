@@ -28,7 +28,7 @@ export function SupportBanner() {
             <br />
             gợi ý
           </h3>
-          <p className='text-black underline decoration-black underline-offset-2 leading-relaxed max-w-xs text-[1.3rem]'>
+          <p className='text-black  decoration-black leading-relaxed max-w-xs text-[1.3rem]'>
             Nhận câu trả lời cho
             <br />
             thắc mắc chuyên môn.
@@ -42,7 +42,7 @@ export function SupportBanner() {
             <br />
             chuyên gia
           </h3>
-          <p className='text-black underline decoration-black underline-offset-2 leading-relaxed max-w-xs text-[1.3rem]'>
+          <p className='text-black  decoration-black  leading-relaxed max-w-xs text-[1.3rem]'>
             Khi cần ý kiến sâu hoặc
             <br />
             hỗ trợ cá nhân hóa.
@@ -57,7 +57,7 @@ export function SupportBanner() {
               <br />
               đa dạng
             </h3>
-            <p className='text-black underline decoration-black underline-offset-2 leading-relaxed max-w-xs text-[1.3rem]'>
+            <p className='text-black decoration-black  leading-relaxed max-w-xs text-[1.3rem]'>
               Truy cập nhanh đến các
               <br />
               bài viết, mẫu tài liệu,

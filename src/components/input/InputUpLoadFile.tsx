@@ -58,7 +58,7 @@ export function InputUpLoadFile({
         </Box>
 
         {/* Text */}
-        <div className='text-secondary text-xl font-bold'>{selectedFile ? selectedFile.name : text}</div>
+        <div className='text-secondary text-xl font-semibold'>{selectedFile ? selectedFile.name : text}</div>
 
         {/* Hover effect */}
         <Box

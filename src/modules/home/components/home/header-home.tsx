@@ -9,7 +9,7 @@ export function HeaderHome() {
       <Grid2 size={{ xs: 12, md: 6, lg: 5 }} className='md:w-1/2  h-[350px] md:h-[400px]'>
         <Box className='flex flex-col justify-between h-full'>
           <SlideUp delay={0.1}>
-            <div className='text-secondary font-bold text-[3rem] md:text-[4.1rem] lg:text-[5rem]'>MENTACARE</div>
+            <div className='text-secondary font-semibold text-[3rem] md:text-[4.1rem] lg:text-[5rem]'>MENTACARE</div>
           </SlideUp>
           <SlideUp delay={0.2} className='mt-4'>
             <div className='font-medium text-3xl leading-5 md:text-4xl md:leading-6'>

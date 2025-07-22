@@ -27,7 +27,7 @@ export default function TeamExpert() {
   return (
     <div>
       <SlideUp className='text-center mb-1 flex flex-col items-center'>
-        <h2 className='text-black text-5xl font-semibold leading-tight md:w-[60%]'>
+        <h2 className='text-black text-4xl font-semibold leading-tight md:w-[60%]'>
           Đội Ngũ Chuyên Gia hàng đầu Được Chứng Nhận
         </h2>
       </SlideUp>

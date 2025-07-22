@@ -56,7 +56,7 @@ export function HeaderExpertDetail() {
           <p className='text-secondary text-sm font-semibold uppercase tracking-wide mb-3'>Experience</p>
           <div className='flex flex-col gap-3 max-w-xl'>
             <div className='flex gap-6'>
-              <p className='font-bold text-base min-w-[48px]'>2018</p>
+              <p className='font-semibold text-base min-w-[48px]'>2018</p>
               <div>
                 <p className='font-semibold text-base'>High School Teacher</p>
                 <p className='text-gray-900 text-sm'>Cordale High School</p>
@@ -69,7 +69,7 @@ export function HeaderExpertDetail() {
           <p className='text-secondary text-sm font-semibold uppercase tracking-wide mb-3'>Education</p>
           <div className='flex flex-col gap-3 max-w-xl'>
             <div className='flex gap-6'>
-              <p className='font-bold text-base min-w-[48px]'>2006</p>
+              <p className='font-semibold text-base min-w-[48px]'>2006</p>
               <div>
                 <p className='font-semibold text-base'>Master of Fine Arts in Photography and New Media</p>
                 <p className='text-gray-900 text-sm'>Tresswood University</p>

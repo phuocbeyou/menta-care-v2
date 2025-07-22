@@ -57,10 +57,10 @@ export default function HorizontalScrollItems({
       <style>{`
         @keyframes scroll {
           0% {
-            transform: translateX(0);
+            transform: translateX(-33.33%);
           }
           100% {
-            transform: translateX(-33.33%);
+            transform: translateX(0);
           }
         }
       `}</style>

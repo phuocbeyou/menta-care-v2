@@ -202,7 +202,7 @@ export function ListExpert() {
           <button
             key={item.id}
             className={`border cursor-pointer border-secondary text-secondary rounded-2xl text-1xl py-2 px-4 whitespace-nowrap ${
-              value === item.id ? 'bg-secondary text-white font-bold' : ''
+              value === item.id ? 'bg-secondary text-white font-semibold' : ''
             }`}
             onClick={() => setValue(item.id)}
           >

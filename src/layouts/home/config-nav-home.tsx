@@ -21,7 +21,7 @@ export const navData = [
   },
   {
     title: 'Forum',
-    path: '#',
+    path: '/forum',
     icon: 'majesticons:home'
   },
   {

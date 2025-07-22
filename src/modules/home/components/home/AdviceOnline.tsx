@@ -7,13 +7,13 @@ export default function AdviceOnline() {
       {/* <!-- Left side --> */}
       <section className='flex-1'>
         <h1 className='text-black text-3xl font-normal mb-8  leading-snug text-center '>
-          <span className='font-bold'>3 Bước</span> chọn chuyên gia tư vấn <br />
-          <span className='font-bold'>đơn giản - hiệu quả</span> cùng Mentacare
+          <span className='font-semibold'>3 Bước</span> chọn chuyên gia tư vấn <br />
+          <span className='font-semibold'>đơn giản - hiệu quả</span> cùng Mentacare
         </h1>
 
         <div className='space-y-3 '>
           <div className='bg-secondary rounded-2xl p-3 text-white'>
-            <p className='font-bold text-xl'>BƯỚC 1</p>
+            <p className='font-semibold text-xl'>BƯỚC 1</p>
             <p className='font-semibold text-[1.1rem]'>Xác định vấn đề</p>
             <p className='text-[1rem] font-normal leading-tight'>
               Hãy để chatbot AI cùng bạn khám phá vấn đề thực sự bạn đang gặp phải &amp; đầu sẽ là những hỗ trợ phù hợp
@@ -21,7 +21,7 @@ export default function AdviceOnline() {
           </div>
 
           <div className='bg-secondary rounded-2xl p-3 text-white'>
-            <p className='font-bold text-xl'>BƯỚC 2</p>
+            <p className='font-semibold text-xl'>BƯỚC 2</p>
             <p className='font-semibold text-[1.1rem]'>Xem chuyên gia phù hợp</p>
             <p className='text-[1rem] font-normal leading-tight'>
               Nhận danh sách các chuyên gia phù hợp với mục tiêu và nhu cầu cụ thể của bạn.
@@ -29,7 +29,7 @@ export default function AdviceOnline() {
           </div>
 
           <div className='bg-secondary rounded-2xl p-3 text-white'>
-            <p className='font-bold text-xl'>BƯỚC 3</p>
+            <p className='font-semibold text-xl'>BƯỚC 3</p>
             <p className='font-semibold text-[1.1rem]'>Chọn gói dịch vụ</p>
             <p className='text-[1rem] font-normal leading-tight'>
               Chọn lịch làm việc với chuyên gia sao cho phù hợp nhất với mục tiêu và nhịp sống của bạn.
@@ -41,7 +41,7 @@ export default function AdviceOnline() {
       {/* <!-- Right side --> */}
       <section className='flex-1 bg-primary rounded-3xl p-3 mx-auto md:mx-0 flex flex-col '>
         <div>
-          <h2 className='font-bold text-3xl mb-6 text-black leading-6 text-center '>
+          <h2 className='font-semibold text-3xl mb-6 text-black leading-6 text-center '>
             Tham gia ngay để biết <br />
             <span className='decoration-black decoration-2'>"VẤN ĐỀ"</span> của bạn!
           </h2>
@@ -81,7 +81,7 @@ export default function AdviceOnline() {
             color: 'white',
             fontWeight: 800,
             fontSize: '1.125rem',
-            textDecoration: 'underline',
+
             textDecorationColor: 'white',
             textDecorationThickness: 2,
             py: 1,

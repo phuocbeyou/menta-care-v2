@@ -13,7 +13,7 @@ export function CvExpert() {
           />
         </div>
         <div className='flex flex-col'>
-          <h1 className='text-4xl sm:text-5xl font-extrabold leading-tight text-[#2E3843] uppercase tracking-wide'>
+          <h1 className='text-4xl sm:text-4xl font-extrabold leading-tight text-[#2E3843] uppercase tracking-wide'>
             HỒ SƠ CHUYÊN SÂU
             <br />
             PALMERSTON
@@ -48,13 +48,13 @@ export function CvExpert() {
           <div className='mb-8'>
             <h2 className='font-extrabold text-3xl tracking-widest mb-3 border-b border-white pb-1'>Education</h2>
             <div className='mb-5'>
-              <p className='font-bold text-xl mb-1'>Bachelor of Design</p>
+              <p className='font-semibold text-xl mb-1'>Bachelor of Design</p>
               <p className='text-lg font-light leading-tight'>Really Great University</p>
               <p className='text-lg font-light leading-tight'>2012-2016</p>
               <p className='text-lg font-light leading-tight'>123 Anywhere St., Any City</p>
             </div>
             <div>
-              <p className='font-bold text-xl mb-1'>Master of Design</p>
+              <p className='font-semibold text-xl mb-1'>Master of Design</p>
               <p className='text-lg font-light leading-tight'>Really Great University</p>
               <p className='text-lg font-light leading-tight'>2016-2020</p>
               <p className='text-lg font-light leading-tight'>123 Anywhere St., Any City</p>
@@ -100,7 +100,7 @@ export function CvExpert() {
           <section className='mb-8'>
             <h2 className='font-extrabold text-3xl tracking-widest mb-2 border-b border-gray-400 pb-1'>Experience</h2>
             <article className='mb-6'>
-              <div className='flex justify-between text-lg sm:text-xl font-bold mb-0.5'>
+              <div className='flex justify-between text-lg sm:text-xl font-semibold mb-0.5'>
                 <span>Graphic Designer</span>
                 <span>Jan 2021 - Jan 2022</span>
               </div>
@@ -112,7 +112,7 @@ export function CvExpert() {
               </p>
             </article>
             <article className='mb-6'>
-              <div className='flex justify-between text-lg sm:text-xl font-bold mb-0.5'>
+              <div className='flex justify-between text-lg sm:text-xl font-semibold mb-0.5'>
                 <span>Graphic Designer</span>
                 <span>Jan 2020 - Dec 2020</span>
               </div>
@@ -124,7 +124,7 @@ export function CvExpert() {
               </p>
             </article>
             <article>
-              <div className='flex justify-between text-lg sm:text-xl font-bold mb-0.5'>
+              <div className='flex justify-between text-lg sm:text-xl font-semibold mb-0.5'>
                 <span>Graphic Designer</span>
                 <span>Jan 2017 - Dec 2029</span>
               </div>

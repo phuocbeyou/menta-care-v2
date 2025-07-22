@@ -8,7 +8,7 @@ export function HeaderExpert() {
       <Grid2 size={{ xs: 12, md: 6, lg: 5 }} className='md:w-1/2  h-[350px] md:h-[400px]'>
         <Box className='flex flex-col justify-between h-full'>
           <SlideUp delay={0.1} className='relative'>
-            <div className='text-secondary font-bold text-[3rem] md:text-[4.1rem] lg:text-[4.5rem] z-10 leading-8 md:leading-10'>
+            <div className='text-secondary font-semibold text-[3rem] md:text-[4.1rem] lg:text-[4.5rem] z-10 leading-8 md:leading-10'>
               KẾT NỐI CHUYÊN GIA
             </div>
           </SlideUp>
@@ -34,7 +34,7 @@ export function HeaderExpert() {
               }}
             >
               <div className='flex items-center gap-2'>
-                <div className='text-black underline text-sm md:text-lg font-medium'> TÌM CHUYÊN GIA CỦA BẠN NGAY</div>
+                <div className='text-black text-sm md:text-lg font-medium'> TÌM CHUYÊN GIA CỦA BẠN NGAY</div>
                 {/* next icon*/}
                 <Box
                   component='img'

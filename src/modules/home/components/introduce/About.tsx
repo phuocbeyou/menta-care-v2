@@ -3,10 +3,10 @@ export function About() {
     <div className='py-8'>
       <h1 className='text-center text-secondary font-semibold text-4xl leading-tight'>MEMTACARE</h1>
       <h2 className='text-center font-semibold text-2xl leading-tight mt-1'>BALANCE YOUR LIFE - EMPOWER YOUR MIND</h2>
-      <h3 className='text-center italic text-2xl mt-2 leading-tight'>
+      <h3 className='text-center text-2xl mt-2 leading-tight'>
         <span className='font-semibold'>Nơi Chia Sẻ – Kết Nối</span>
       </h3>
-      <p className='text-center italic text-2xl mt-1 leading-tight max-w-2xl mx-auto'>
+      <p className='text-center text-2xl mt-1 leading-tight max-w-2xl mx-auto'>
         Giải pháp AI tiên phong kết nối &amp; phát triển cộng đồng HR
       </p>
 

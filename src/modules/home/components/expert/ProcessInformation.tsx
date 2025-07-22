@@ -4,7 +4,7 @@ export function ProcessInformation() {
   return (
     <div>
       <SlideUp delay={0.1} className='flex justify-center'>
-        <h1 className='text-center text-black text-5xl font-bold mb-4'>QUY TRÌNH XÁC THỰC CHUYÊN GIA</h1>
+        <h1 className='text-center text-black text-4xl font-semibold mb-4'>QUY TRÌNH XÁC THỰC CHUYÊN GIA</h1>
       </SlideUp>
       <div className='bg-primary rounded-2xl p-3'>
         <h2 className='text-center text-secondary text-3xl font-semibold mb-6'>CAM KẾT VỀ CHẤT LƯỢNG VÀ SỰ TIN CẬY</h2>

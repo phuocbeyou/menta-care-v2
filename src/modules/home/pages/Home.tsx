@@ -60,7 +60,6 @@ export default function Home() {
               fontWeight: 500,
               px: 8,
               fontSize: '1.125rem',
-              textDecoration: 'underline',
               textDecorationColor: 'white',
               textDecorationThickness: 2,
               py: 1.4,

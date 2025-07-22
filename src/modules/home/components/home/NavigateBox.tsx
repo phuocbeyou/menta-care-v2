@@ -70,7 +70,7 @@ export function NavigateBox({
             sx={{
               color: 'white',
               fontWeight: 500,
-              textDecoration: 'underline',
+
               lineHeight: 1.4,
               fontSize: { xs: '1rem', md: '1.4rem' }
             }}
@@ -83,7 +83,7 @@ export function NavigateBox({
               sx={{
                 color: 'white',
                 fontWeight: 500,
-                textDecoration: 'underline',
+
                 lineHeight: 1.4,
                 fontSize: { xs: '1rem', md: '1.4rem' }
               }}

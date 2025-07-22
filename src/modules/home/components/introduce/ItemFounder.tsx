@@ -11,7 +11,7 @@ export function ItemFounder() {
       />
       <div className='relative top-[-35px]'>
         <p className='text-[14px] leading-relaxed'>Chuyên gia Quản trị</p>
-        <h3 className='font-bold text-[14px] leading-relaxed mb-2'>TS Hồng Duyên</h3>
+        <h3 className='font-semibold text-[14px] leading-relaxed mb-2'>TS Hồng Duyên</h3>
         <p className='text-[14px] leading-relaxed text-white'>
           Gần 25 năm công tác tại các Tập đoàn lớn như Vingroup, Doji, VMG với các vị trí GĐ Nhân sự, GĐ Vận hành, GĐ
           Sale &amp; Marketing. Chuyên gia tư vấn, giám đốc chiến lược cho các doanh nghiệp vừa và nhỏ

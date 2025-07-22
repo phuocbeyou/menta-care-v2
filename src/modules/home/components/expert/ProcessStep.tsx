@@ -15,7 +15,7 @@ export function ProcessStep() {
   const Step1 = () => {
     return (
       <div className='bg-primary rounded-[30px] w-full p-3'>
-        <div className='bg-white rounded-[50px] max-w-[420px] mx-auto py-3 px-8 text-center text-black text-xl md:text-2xl font-bold leading-4'>
+        <div className='bg-white rounded-[50px] max-w-[420px] mx-auto py-3 px-8 text-center text-black text-xl md:text-2xl font-semibold leading-4'>
           SÀNG LỌC HỒ SƠ VÀ KINH NGHIỆM
         </div>
         <p className='mt-6 text-black text-xl md:text-2xl font-normal leading-relaxed'>
@@ -29,7 +29,7 @@ export function ProcessStep() {
   const Step2 = () => {
     return (
       <div className='bg-primary rounded-[30px] w-full p-3'>
-        <div className='bg-white rounded-[50px] max-w-[500px] mx-auto py-3 px-8 text-center text-black text-xl md:text-2xl font-bold leading-4'>
+        <div className='bg-white rounded-[50px] max-w-[500px] mx-auto py-3 px-8 text-center text-black text-xl md:text-2xl font-semibold leading-4'>
           XÁC THỰC BẰNG CẤP VÀ CHỨNG CHỈ CHUYÊN MÔN
         </div>
         <p className='text-black leading-relaxed text-xl md:text-2xl mt-4'>
@@ -51,7 +51,7 @@ export function ProcessStep() {
   const Step3 = () => {
     return (
       <div className='bg-primary rounded-[30px] w-full p-3'>
-        <div className='bg-white rounded-[50px] max-w-[500px] mx-auto py-3 px-8 text-center text-black text-xl md:text-2xl font-bold leading-4'>
+        <div className='bg-white rounded-[50px] max-w-[500px] mx-auto py-3 px-8 text-center text-black text-xl md:text-2xl font-semibold leading-4'>
           PHỎNG VẤN CHUYÊN MÔN <br />& ĐÁNH GIÁ NĂNG LỰC
         </div>
         <p className='text-black leading-relaxed text-xl md:text-2xl mt-4'>
@@ -71,7 +71,7 @@ export function ProcessStep() {
   const Step4 = () => {
     return (
       <div className='bg-primary rounded-[30px] w-full p-3'>
-        <div className='bg-white rounded-[50px] max-w-[500px] mx-auto py-3 px-8 text-center text-black text-xl md:text-2xl font-bold leading-4 uppercase'>
+        <div className='bg-white rounded-[50px] max-w-[500px] mx-auto py-3 px-8 text-center text-black text-xl md:text-2xl font-semibold leading-4 uppercase'>
           Đào tạo Hội nhập và Cam kết Tuân thủ Quy tắc
         </div>
         <p className='text-black leading-relaxed text-xl md:text-2xl mt-4'>
@@ -108,7 +108,7 @@ export function ProcessStep() {
   return (
     <div className='flex flex-col gap-4 mt-15'>
       <SlideUp className='flex justify-center mb-4 mt-4'>
-        <div className='text-center text-secondary text-2xl font-bold md:text-4xl md:leading-normal md:w-[60%]'>
+        <div className='text-center text-secondary text-2xl font-semibold md:text-4xl md:leading-normal md:w-[60%]'>
           Quy trình xác thực 4 bước của chúng tôi
         </div>
       </SlideUp>

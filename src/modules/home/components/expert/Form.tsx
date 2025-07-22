@@ -13,7 +13,7 @@ export function Form() {
         {/* <!-- Left side --> */}
         <section className='flex-1 bg-primary rounded-3xl p-3 mx-auto md:mx-0 flex flex-col '>
           <div>
-            <h2 className='font-bold text-3xl mb-6 text-black leading-6 text-center '>
+            <h2 className='font-semibold text-3xl mb-6 text-black leading-6 text-center '>
               Đăng ký để trở thành <br />
               chuyên gia của chúng tôi!
             </h2>
@@ -65,7 +65,7 @@ export function Form() {
               color: 'white',
               fontWeight: 800,
               fontSize: '1.125rem',
-              textDecoration: 'underline',
+
               textDecorationColor: 'white',
               textDecorationThickness: 2,
               py: 1,
@@ -83,7 +83,7 @@ export function Form() {
         {/* <!-- Right side --> */}
         <section className='flex-1 bg-primary rounded-3xl p-3 mx-auto md:mx-0 flex flex-col '>
           <div>
-            <h2 className='font-bold text-3xl mb-6 text-black leading-6 text-center '>
+            <h2 className='font-semibold text-3xl mb-6 text-black leading-6 text-center '>
               Tìm kiếm chuyên gia <br />
               phù hợp của mình!
             </h2>
@@ -123,7 +123,7 @@ export function Form() {
               color: 'white',
               fontWeight: 800,
               fontSize: '1.125rem',
-              textDecoration: 'underline',
+
               textDecorationColor: 'white',
               textDecorationThickness: 2,
               py: 1,

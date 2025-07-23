@@ -1,7 +1,7 @@
 export function About() {
   return (
     <div className='py-8'>
-      <h1 className='text-center text-secondary font-semibold text-4xl leading-tight'>MEMTACARE</h1>
+      <h1 className='text-center text-secondary font-semibold text-4xl leading-tight'>MENTACARE</h1>
       <h2 className='text-center font-semibold text-2xl leading-tight mt-1'>BALANCE YOUR LIFE - EMPOWER YOUR MIND</h2>
       <h3 className='text-center text-2xl mt-2 leading-tight'>
         <span className='font-semibold'>Nơi Chia Sẻ – Kết Nối</span>

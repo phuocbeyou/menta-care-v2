@@ -6,6 +6,8 @@ import Expert from './pages/Expert'
 import ExpertDetail from './pages/ExpertDetail'
 import Introduce from './pages/Introduce'
 import { Forum } from './pages/Forum'
+import Blog from './pages/Blog'
+import BlogDetail from './pages/BlogDetail'
 
 const HomePage = lazy(() => import('@src/modules/home/pages/Home'))
 const WellBeingPage = lazy(() => import('@src/modules/home/pages/Well-Being'))
@@ -17,6 +19,8 @@ export const EXPERT_PATH = 'expert'
 export const EXPERT_DETAIL_PATH = 'expert-detail/:id'
 export const INTRODUCE_PATH = 'introduce'
 export const FORUM_PATH = 'forum'
+export const BLOG_PATH = 'blog'
+export const BLOG_DETAIL_PATH = 'blog/:id'
 
 export const homeRouter: Router[] = [
   {
@@ -28,7 +32,9 @@ export const homeRouter: Router[] = [
       { element: <Expert />, path: EXPERT_PATH },
       { element: <ExpertDetail />, path: EXPERT_DETAIL_PATH },
       { element: <Introduce />, path: INTRODUCE_PATH },
-      { element: <Forum />, path: FORUM_PATH }
+      { element: <Forum />, path: FORUM_PATH },
+      { element: <Blog />, path: BLOG_PATH },
+      { element: <BlogDetail />, path: BLOG_DETAIL_PATH }
     ]
   }
 ]

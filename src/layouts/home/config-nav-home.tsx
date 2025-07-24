@@ -26,7 +26,7 @@ export const navData = [
   },
   {
     title: 'Blog',
-    path: '#',
+    path: '/blog',
     icon: 'majesticons:home'
   },
   {

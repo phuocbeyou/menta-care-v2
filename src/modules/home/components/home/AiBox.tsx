@@ -1,18 +1,19 @@
 import { Box } from '@mui/material'
+import { useNavigate } from 'react-router-dom'
 
 interface AiBoxProps {
   height?: number
   onClick?: () => void
 }
 
-export function AiBox({ height = 80, onClick }: AiBoxProps) {
+export function AiBox({ height = 80 }: AiBoxProps) {
   const textSize = height <= 80 ? 'text-xs' : height <= 120 ? 'text-sm' : 'text-base'
   const padding = height <= 80 ? 'p-1 px-2' : height <= 120 ? 'p-2 px-3' : 'p-[8px] px-3'
-
+  const navigate = useNavigate()
   return (
     <Box
       className='fixed bottom-6 right-6 z-50 cursor-pointer'
-      onClick={onClick}
+      onClick={() => navigate('/chatting')}
       sx={{
         animation: 'float 3s ease-in-out infinite',
         '&:hover': {

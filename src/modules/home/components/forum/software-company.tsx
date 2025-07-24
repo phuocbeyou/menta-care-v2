@@ -198,7 +198,7 @@ export function SoftwareCompany() {
   }
 
   return (
-    <div className='pt-10 pb-16'>
+    <div id='software-company' className='pt-10 pb-16'>
       <h2 className='text-center text-black text-4xl font-semibold mb-8'>CÁC PHẦN MỀM CHO DOANH NGHIỆP</h2>
 
       <div className='flex flex-wrap gap-4 justify-center lg:justify-between'>

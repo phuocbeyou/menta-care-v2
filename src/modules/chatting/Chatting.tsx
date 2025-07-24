@@ -11,7 +11,7 @@ interface Message {
 const initialMessages: Message[] = [
   {
     id: 1,
-    text: 'Xin chào! 😊 Tôi là MindHaven, trợ lý giúp bạn chăm sóc Thân, Tâm, Trí. Hôm nay bạn cảm thấy thế nào? Có điều gì đang khiến bạn trăn trở không?',
+    text: 'Xin chào! 😊 Tôi là MentaCare Bot, trợ lý giúp bạn chăm sóc Thân, Tâm, Trí. Hôm nay bạn cảm thấy thế nào? Có điều gì đang khiến bạn trăn trở không?',
     isBot: true,
     timestamp: '15:36'
   }

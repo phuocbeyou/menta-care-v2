@@ -1,7 +1,10 @@
 import { Box } from '@mui/material'
 import { SlideUp } from '@src/components/animation/SlideUp'
+import { useNavigate } from 'react-router-dom'
 
 export function SupportBanner() {
+  const navigate = useNavigate()
+
   return (
     <div className='w-full relative mt-10'>
       <SlideUp className='text-center mb-6 flex flex-col items-center'>
@@ -28,7 +31,10 @@ export function SupportBanner() {
             <br />
             gợi ý
           </h3>
-          <p className='text-black  decoration-black leading-relaxed max-w-xs text-[1.3rem]'>
+          <p
+            className='text-black  decoration-black leading-relaxed max-w-xs text-[1.3rem] cursor-pointer hover:underline'
+            onClick={() => navigate('/chatting')}
+          >
             Nhận câu trả lời cho
             <br />
             thắc mắc chuyên môn.
@@ -42,7 +48,10 @@ export function SupportBanner() {
             <br />
             chuyên gia
           </h3>
-          <p className='text-black  decoration-black  leading-relaxed max-w-xs text-[1.3rem]'>
+          <p
+            className='text-black  decoration-black  leading-relaxed max-w-xs text-[1.3rem] cursor-pointer hover:underline'
+            onClick={() => navigate('/expert')}
+          >
             Khi cần ý kiến sâu hoặc
             <br />
             hỗ trợ cá nhân hóa.
@@ -57,7 +66,10 @@ export function SupportBanner() {
               <br />
               đa dạng
             </h3>
-            <p className='text-black decoration-black  leading-relaxed max-w-xs text-[1.3rem]'>
+            <p
+              className='text-black decoration-black  leading-relaxed max-w-xs text-[1.3rem] cursor-pointer hover:underline'
+              onClick={() => navigate('/blog')}
+            >
               Truy cập nhanh đến các
               <br />
               bài viết, mẫu tài liệu,

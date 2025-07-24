@@ -2,8 +2,10 @@ import { SlideUp } from '@src/components/animation/SlideUp'
 
 import { Box, Button, Grid2, Stack } from '@mui/material'
 import { Fade } from '@src/components/animation/Fade'
+import { useNavigate } from 'react-router-dom'
 
 export function HeaderHome() {
+  const navigate = useNavigate()
   return (
     <Grid2 container className='flex flex-col md:flex-row justify-between'>
       <Grid2 size={{ xs: 12, md: 6, lg: 5 }} className='md:w-1/2  h-[350px] md:h-[400px]'>
@@ -31,6 +33,7 @@ export function HeaderHome() {
 
           <Stack direction={{ xs: 'row', md: 'row' }} className='flex justify-between gap-2 mt-8'>
             <Button
+              onClick={() => navigate('/expert')}
               className=' w-[70%] h-[44px]'
               variant='contained'
               color='secondary'
@@ -42,6 +45,7 @@ export function HeaderHome() {
               TÌM CHUYÊN GIA PHÙ HỢP
             </Button>
             <Button
+              onClick={() => navigate('/auth')}
               size='large'
               className=' w-[30%] h-[44px]'
               variant='outlined'

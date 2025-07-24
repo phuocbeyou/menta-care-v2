@@ -27,7 +27,7 @@ export const ItemBlog = ({ image, fullTitle, excerpt, author, date, id }: BlogIt
       <div className='relative'>
         <img
           alt='People working with laptops and notebooks on wooden table, top view'
-          className='w-full h-30 object-cover'
+          className='w-full h-40 object-cover'
           src={image}
         />
         <div className='absolute bottom-0 left-0 -mb-8 ml-2  rounded-full p-3 w-14 h-14 flex items-center justify-center'>
@@ -44,12 +44,12 @@ export const ItemBlog = ({ image, fullTitle, excerpt, author, date, id }: BlogIt
           />
         </div>
       </div>
-      <div className='pt-5 px-5 pb-2 flex flex-col h-full'>
+      <div className='pt-5 px-5 pb-2 flex flex-col flex-1'>
         <div>
           <h3 className='font-semibold text-md leading-snug mb-2'>{fullTitle}</h3>
           <p className='text-gray-500 text-sm leading-relaxed mb-1 line-clamp-3'>{excerpt}</p>
         </div>
-        <div className='flex flex-col '>
+        <div className='flex flex-col mt-auto'>
           <Divider />
           <div className='flex items-center text-gray-500 text-xs font-light space-x-2 mt-1'>
             <span>{author}</span>

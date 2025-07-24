@@ -8,6 +8,10 @@ import Introduce from './pages/Introduce'
 import { Forum } from './pages/Forum'
 import Blog from './pages/Blog'
 import BlogDetail from './pages/BlogDetail'
+import ListCompany from './pages/ListCompany'
+import { ContactCompany } from './components/list-company/ContactCompany'
+import { OrderExpert } from './pages/OrderExpert'
+import Profile from './pages/Profile'
 
 const HomePage = lazy(() => import('@src/modules/home/pages/Home'))
 const WellBeingPage = lazy(() => import('@src/modules/home/pages/Well-Being'))
@@ -21,6 +25,10 @@ export const INTRODUCE_PATH = 'introduce'
 export const FORUM_PATH = 'forum'
 export const BLOG_PATH = 'blog'
 export const BLOG_DETAIL_PATH = 'blog/:id'
+export const LIST_COMPANY_PATH = 'list-company'
+export const CONTACT_PATH = 'contact-company'
+export const ORDER_EXPERT_PATH = 'order-expert'
+export const PROFILE_PATH = 'profile'
 
 export const homeRouter: Router[] = [
   {
@@ -34,7 +42,11 @@ export const homeRouter: Router[] = [
       { element: <Introduce />, path: INTRODUCE_PATH },
       { element: <Forum />, path: FORUM_PATH },
       { element: <Blog />, path: BLOG_PATH },
-      { element: <BlogDetail />, path: BLOG_DETAIL_PATH }
+      { element: <BlogDetail />, path: BLOG_DETAIL_PATH },
+      { element: <ListCompany />, path: LIST_COMPANY_PATH },
+      { element: <ContactCompany />, path: CONTACT_PATH },
+      { element: <OrderExpert />, path: ORDER_EXPERT_PATH },
+      { element: <Profile />, path: PROFILE_PATH }
     ]
   }
 ]

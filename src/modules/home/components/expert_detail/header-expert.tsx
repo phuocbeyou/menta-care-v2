@@ -1,6 +1,8 @@
 import { Box } from '@mui/material'
+import { useNavigate } from 'react-router-dom'
 
 export function HeaderExpertDetail() {
+  const navigate = useNavigate()
   return (
     <main className='flex flex-col md:flex-row gap-6 md:gap-12 mt-6'>
       {/* <!-- Left side --> */}
@@ -37,6 +39,7 @@ export function HeaderExpertDetail() {
           </a>
         </div>
         <button
+          onClick={() => navigate('/order-expert')}
           className='mt-8 bg-secondary hover:bg-green-700 text-white font-semibold text-2xl rounded-md px-6 py-2 w-full max-w-md'
           type='button'
         >

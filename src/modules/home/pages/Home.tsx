@@ -9,8 +9,10 @@ import CategoriesExpert from '../components/home/CategoriesExpert'
 import TeamExpert from '../components/home/TeamExpert'
 import AdviceOnline from '../components/home/AdviceOnline'
 import Sponsor from '../components/home/Sponsor'
+import { useNavigate } from 'react-router-dom'
 
 export default function Home() {
+  const navigate = useNavigate()
   return (
     <>
       <Helmet>
@@ -25,17 +27,20 @@ export default function Home() {
         <HeaderHome />
         <Box className='flex flex-col md:flex-row gap-4 mt-36 justify-end'>
           <NavigateBox
+            onClick={() => navigate('/chatting')}
             className='w-full md:w-[30%] '
             title='Trò chuyện hỗ'
             subtitle='trợ 24/7'
             icon='/assets/images/components/ai.png'
           />{' '}
           <NavigateBox
+            onClick={() => navigate('/expert')}
             className='w-full md:w-[30%]'
             title='Ghép nối chuyên gia được hỗ trợ bởi AI'
             icon='/assets/images/components/chip-ai.png'
           />{' '}
           <NavigateBox
+            onClick={() => navigate('/list-company')}
             className='w-full md:w-[30%]'
             title='Các chuyên gia hàng đầu trong từng lĩnh vực'
             icon='/assets/images/components/cer.png'

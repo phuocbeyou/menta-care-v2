@@ -1,8 +1,10 @@
 import { SlideUp } from '@src/components/animation/SlideUp'
 
 import { Box, Button, Grid2, Stack } from '@mui/material'
+import { useNavigate } from 'react-router-dom'
 
 export function HeaderExpert() {
+  const navigate = useNavigate()
   return (
     <Grid2 container className='flex flex-col md:flex-row justify-between mb-20'>
       <Grid2 size={{ xs: 12, md: 6, lg: 5 }} className='md:w-1/2  h-[350px] md:h-[400px]'>
@@ -22,6 +24,7 @@ export function HeaderExpert() {
 
           <Stack direction={{ xs: 'row', md: 'row' }} className='flex mt-10'>
             <Button
+              onClick={() => navigate('/chatting')}
               className='w-[80%] h-[70px] cursor-pointer'
               variant='contained'
               color='primary'

@@ -1,6 +1,8 @@
 import { SlideUp } from '@src/components/animation/SlideUp'
+import { useNavigate } from 'react-router-dom'
 
 export function Explore() {
+  const navigate = useNavigate()
   return (
     <div className='py-10'>
       <SlideUp className='flex justify-center'>
@@ -48,7 +50,10 @@ export function Explore() {
         </div>
       </div>
       <div className='flex'>
-        <button className='bg-secondary text-white font-semibold rounded-2xl md:w-[500px] w-full mx-auto py-2 text-center text-base leading-tight'>
+        <button
+          onClick={() => navigate('/auth')}
+          className='bg-secondary text-white font-semibold rounded-2xl md:w-[500px] w-full mx-auto py-2 text-center text-base leading-tight'
+        >
           TẠO TÀI KHOẢN ĐỂ ĐƯỢC MỞ KHÓA TÍNH NĂNG
         </button>
       </div>

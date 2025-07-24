@@ -1,6 +1,8 @@
 import { Box, Button } from '@mui/material'
+import { useNavigate } from 'react-router-dom'
 
 export function WriteDiary() {
+  const navigate = useNavigate()
   return (
     <div className='bg-primary rounded-3xl p-2 md:p-4 w-full flex flex-col gap-3 relative items-center'>
       <div className='text-4xl font-semibold  text-secondary'>Viết tự do</div>
@@ -26,6 +28,7 @@ export function WriteDiary() {
           borderRadius: 999,
           textTransform: 'none'
         }}
+        onClick={() => navigate('/auth')}
       >
         Đăng nhập để lưu nhật ký
       </Button>

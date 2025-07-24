@@ -3,17 +3,24 @@ import { HeaderIntroduce } from '../components/introduce/header-introduce'
 import { CoreValue } from '../components/introduce/CoreValue'
 import { About } from '../components/introduce/About'
 import { ListFounder } from '../components/introduce/ListFounder'
+import { Helmet } from 'react-helmet-async'
+import { CONFIG } from '@src/config-global'
 
 export default function Introduce() {
   return (
-    <Box className='mx-auto px-3 py-6 flex flex-col bg-white'>
-      <HeaderIntroduce />
+    <>
+      <Helmet>
+        <title> {`Introduce - ${CONFIG.appName}`}</title>
+      </Helmet>
+      <Box className='mx-auto px-3 py-6 flex flex-col bg-white'>
+        <HeaderIntroduce />
 
-      <CoreValue />
+        <CoreValue />
 
-      <About />
+        <About />
 
-      <ListFounder />
-    </Box>
+        <ListFounder />
+      </Box>
+    </>
   )
 }

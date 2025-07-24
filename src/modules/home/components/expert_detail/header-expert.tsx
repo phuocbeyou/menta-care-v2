@@ -13,8 +13,10 @@ export function HeaderExpertDetail() {
           sx={{ filter: 'brightness(0)', borderRadius: '50%' }}
         />
 
-        <h1 className='mt-4 text-secondary text-2xl font-semibold text-center'>Martha Blevins (she/her)</h1>
-        <p className='text-secondary text-sm font-semibold uppercase mt-1 tracking-wide'>Art Teacher</p>
+        <h1 className='mt-4 text-secondary text-2xl font-semibold text-center'>NGUYỄN THỊ MINH KHANG</h1>
+        <p className='text-secondary text-sm font-semibold uppercase mt-1 tracking-wide'>
+          Proactive Mental Health Coach
+        </p>
         <hr className='border-gray-300 w-full my-6' />
         <p className='text-secondary text-xs font-semibold uppercase tracking-widest mb-3'>Liên hệ</p>
         <div className='flex gap-6 text-gray-800 text-2xl'>
@@ -45,10 +47,13 @@ export function HeaderExpertDetail() {
       <section className='md:w-1/2 flex flex-col'>
         <div>
           <p className='text-secondary text-sm font-semibold uppercase tracking-wide mb-1'>About me</p>
-          <h2 className='text-secondary text-3xl font-semibold mb-3'>Art changes us</h2>
+          <h2 className='text-secondary text-3xl font-semibold mb-3'>Proactive Mental Health Coach</h2>
           <p className='text-gray-900 text-base leading-relaxed max-w-xl'>
-            I am a high school art teacher with years of experience in teaching art history and in managing challenging
-            classroom environments. I am eager to share expert knowledge in photography, graphic design, and new media.
+            Huấn luyện viên sức khỏe tinh thần chủ động với hơn 6 năm kinh nghiệm trong lĩnh vực tư vấn và chăm sóc sức
+            khỏe toàn diện. Tôi kết hợp chuyên môn về tâm lý học, huấn luyện sức khỏe và thực hành chánh niệm để hỗ trợ
+            thân chủ quản lý căng thẳng, nâng cao trí tuệ cảm xúc và tìm lại sự an yên, cân bằng trong cuộc sống. Là
+            đồng sáng lập SMILE MIND, tôi đồng hành cùng nhiều chương trình phát triển nội tâm như “Sống An” và “Thiền &
+            Sống Tỉnh Thức”, mang lại giá trị thiết thực cho cộng đồng. new media.
           </p>
         </div>
         <hr className='border-gray-300 w-full my-6' />
@@ -58,8 +63,15 @@ export function HeaderExpertDetail() {
             <div className='flex gap-6'>
               <p className='font-semibold text-base min-w-[48px]'>2018</p>
               <div>
-                <p className='font-semibold text-base'>High School Teacher</p>
-                <p className='text-gray-900 text-sm'>Cordale High School</p>
+                <p className='font-semibold text-base'>Thạc sĩ Ngôn ngữ Anh</p>
+                <p className='text-gray-900 text-sm'> Đại học Victoria, Australia</p>
+              </div>
+            </div>
+            <div className='flex gap-6'>
+              <p className='font-semibold text-base min-w-[48px]'>2018</p>
+              <div>
+                <p className='font-semibold text-base'>Cử nhân Tâm lý học</p>
+                <p className='text-gray-900 text-sm'> Đại học Hutech, TP. Hồ Chí Minh</p>
               </div>
             </div>
           </div>
@@ -71,9 +83,9 @@ export function HeaderExpertDetail() {
             <div className='flex gap-6'>
               <p className='font-semibold text-base min-w-[48px]'>2006</p>
               <div>
-                <p className='font-semibold text-base'>Master of Fine Arts in Photography and New Media</p>
-                <p className='text-gray-900 text-sm'>Tresswood University</p>
-                <p className='text-gray-900 text-sm'>Phyllis Schwaiger Memorial Award</p>
+                <p className='font-semibold text-base'>Thạc sĩ Ngôn ngữ Anh</p>
+                <p className='text-gray-900 text-sm'>Đại học Victoria, Australia</p>
+                <p className='text-gray-900 text-sm'> (26 năm kinh nghiệm giảng dạy)</p>
               </div>
             </div>
           </div>

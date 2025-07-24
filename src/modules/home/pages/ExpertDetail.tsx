@@ -14,7 +14,7 @@ const ExpertDetail = () => {
       <Box className='mx-auto px-3 py-6 flex flex-col bg-white'>
         <HeaderExpertDetail />
         <CvExpert />
-        <FormBooking />
+        {/* <FormBooking /> */}
       </Box>
     </>
   )

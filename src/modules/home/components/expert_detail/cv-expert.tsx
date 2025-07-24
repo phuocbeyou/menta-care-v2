@@ -16,9 +16,11 @@ export function CvExpert() {
           <h1 className='text-4xl sm:text-4xl font-extrabold leading-tight text-[#2E3843] uppercase tracking-wide'>
             HỒ SƠ CHUYÊN SÂU
             <br />
-            PALMERSTON
+            NGUYỄN THỊ MINH KHANG
           </h1>
-          <p className='mt-1 text-lg sm:text-xl text-[#2E3843] tracking-widest uppercase'>CHUYÊN VIÊN TƯ VẤN</p>
+          <p className='mt-1 text-lg sm:text-xl text-[#2E3843] tracking-widest uppercase'>
+            Proactive Mental Health Coach
+          </p>
         </div>
       </div>
       {/* <!-- Contact bar --> */}
@@ -64,25 +66,25 @@ export function CvExpert() {
           <div className='mb-8'>
             <h2 className='font-extrabold text-3xl tracking-widest mb-3 border-b border-white pb-1'>Certifications</h2>
             <ul className='list-disc list-inside text-lg font-light space-y-1'>
-              <li>Certified Graphic Designer.</li>
-              <li>User Experience (UX) Design Certificate.</li>
+              <li>Chứng nhận Kỹ năng tham vấn tâm lý – Viện tâm lý Việt Pháp.</li>
+              <li>Chứng chỉ Health Coaching Mastery.</li>
+              <li>Chứng chỉ Health Coach chuyên nghiệp – CĐ Dược TW Hải Dương.</li>
             </ul>
           </div>
           {/* <!-- Skills --> */}
           <div className='mb-8'>
             <h2 className='font-extrabold text-3xl tracking-widest mb-3 border-b border-white pb-1'>Skills</h2>
-            <p className='text-lg font-light mb-1'>Organized</p>
-            <p className='text-lg font-light mb-1'>Creativity</p>
-            <p className='text-lg font-light mb-1'>Teamwork</p>
-            <p className='text-lg font-light mb-1'>Meeting deadlines</p>
-            <p className='text-lg font-light'>Critical thinking</p>
+            <p className='text-lg font-light mb-1'>Tư vấn – Huấn luyện</p>
+            <p className='text-lg font-light mb-1'>Chăm sóc sức khỏe toàn diện</p>
+            <p className='text-lg font-light mb-1'>Quản lý stress</p>
+            <p className='text-lg font-light mb-1'>Trí tuệ cảm xúc</p>
+            <p className='text-lg font-light'>Kết nối nội tâm</p>
           </div>
           {/* <!-- Language --> */}
           <div>
             <h2 className='font-extrabold text-3xl tracking-widest mb-3 border-b border-white pb-1'>Language</h2>
-            <p className='text-lg font-light mb-1'>French</p>
-            <p className='text-lg font-light mb-1'>Spanish</p>
-            <p className='text-lg font-light'>English</p>
+            <p className='text-lg font-light mb-1'>Vietnamese</p>
+            <p className='text-lg font-light mb-1'>English</p>
           </div>
         </div>
         {/* <!-- Right content --> */}
@@ -91,9 +93,11 @@ export function CvExpert() {
           <section className='mb-8'>
             <h2 className='font-extrabold text-3xl tracking-widest mb-2 border-b border-gray-400 pb-1'>About me</h2>
             <p className='leading-tight'>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation. Lorem ipsum dolor sit amet,
-              consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.
+              Huấn luyện viên sức khỏe tinh thần chủ động với hơn 6 năm kinh nghiệm trong lĩnh vực tư vấn và chăm sóc
+              sức khỏe toàn diện. Tôi kết hợp chuyên môn về tâm lý học, huấn luyện sức khỏe và thực hành chánh niệm để
+              hỗ trợ thân chủ quản lý căng thẳng, nâng cao trí tuệ cảm xúc và tìm lại sự an yên, cân bằng trong cuộc
+              sống. Là đồng sáng lập SMILE MIND, tôi đồng hành cùng nhiều chương trình phát triển nội tâm như “Sống An”
+              và “Thiền & Sống Tỉnh Thức”, mang lại giá trị thiết thực cho cộng đồng. new media.
             </p>
           </section>
           {/* <!-- Experience --> */}
@@ -101,10 +105,13 @@ export function CvExpert() {
             <h2 className='font-extrabold text-3xl tracking-widest mb-2 border-b border-gray-400 pb-1'>Experience</h2>
             <article className='mb-6'>
               <div className='flex justify-between text-lg sm:text-xl font-semibold mb-0.5'>
-                <span>Graphic Designer</span>
+                <span>Huấn luyện viên sức khỏe toàn diện</span>
                 <span>Jan 2021 - Jan 2022</span>
               </div>
-              <p className='text-base sm:text-lg font-light mb-1.5'>Aldenaire &amp; Partners</p>
+              <p className='text-base sm:text-lg font-light mb-1.5'>
+                {' '}
+                SMILE MIND – Công ty Cổ phần Chăm sóc sức khỏe tinh thần chủ động
+              </p>
               <p className='leading-tight text-base sm:text-lg'>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
                 dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation. Lorem ipsum dolor sit amet,

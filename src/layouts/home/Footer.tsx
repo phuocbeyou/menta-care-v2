@@ -82,7 +82,7 @@ export function HomeFooter() {
                   />
                   <Box
                     component='img'
-                    src='/assets/images/logo/facebook.png'
+                    src='/assets/images/logo/fb.svg'
                     alt='facebook'
                     sx={{ width: 36, height: 36, borderRadius: '50%' }}
                   />
@@ -94,7 +94,7 @@ export function HomeFooter() {
                   />
                   <Box
                     component='img'
-                    src='/assets/icons/pinterest.svg'
+                    src='/assets/images/logo/print.svg'
                     alt='pinterest'
                     sx={{ width: 36, height: 36, borderRadius: '50%' }}
                   />

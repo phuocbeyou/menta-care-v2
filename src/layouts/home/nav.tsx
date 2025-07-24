@@ -11,6 +11,7 @@ import { Breakpoint, Toolbar } from '@mui/material'
 import { navData } from './config-nav-home'
 import { bgBlur } from '@src/theme/styles'
 import { NavMobile } from './nav-content'
+import { useNavigate } from 'react-router-dom'
 
 function MenuLink({ children, href }: { children: React.ReactNode; href: string }) {
   return (
@@ -33,6 +34,7 @@ function MenuLink({ children, href }: { children: React.ReactNode; href: string 
 export function HomeNav() {
   const [navOpen, setNavOpen] = useState(false)
   const theme = useTheme()
+  const navigate = useNavigate()
   const layoutQuery: Breakpoint = 'lg'
 
   const toolbarStyles = {
@@ -95,6 +97,7 @@ export function HomeNav() {
           </Box>
           {/* Button */}
           <Button
+            onClick={() => navigate('/auth/sign-up')}
             variant='contained'
             color='secondary'
             sx={{

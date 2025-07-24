@@ -18,7 +18,7 @@ export interface MoodModalRef {
   close: () => void
 }
 
-const MoodModal = forwardRef<MoodModalRef>((props, ref) => {
+const MoodModal = forwardRef<MoodModalRef>((_, ref) => {
   const [open, setOpen] = useState(false)
   const [value, setValue] = useState(9)
 

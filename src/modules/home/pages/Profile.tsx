@@ -35,7 +35,7 @@ export default function Profile() {
               {
                 data: Array.from({ length: 20 }, (_, i) => `${8 + i} Tháng 6`),
                 scaleType: 'point',
-                tickLabelInterval: (value, index) => index % 7 === 0
+                tickLabelInterval: (_, index) => index % 7 === 0
               }
             ]}
             yAxis={[

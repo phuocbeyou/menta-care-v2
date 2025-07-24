@@ -2,6 +2,7 @@ import { Navigate, RouteObject } from 'react-router-dom'
 import React, { lazy } from 'react'
 import { authRouter } from '@src/modules/auth/auth.route'
 import { homeRouter } from '@src/modules/home/home.route'
+import { chattingRouter } from '@src/modules/chatting/chat.route'
 
 export const Page404 = lazy(() => import('@src/modules/error_boundary/page-not-found'))
 
@@ -21,6 +22,7 @@ export const rootRouter: Router[] = [
   },
   ...authRouter,
   ...homeRouter,
+  ...chattingRouter,
   {
     path: '404',
     element: <Page404 />

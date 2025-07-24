@@ -6,7 +6,7 @@ export const navData = [
   },
   {
     title: 'Trợ lý AI',
-    path: '#',
+    path: '/chatting',
     icon: 'majesticons:home'
   },
   {

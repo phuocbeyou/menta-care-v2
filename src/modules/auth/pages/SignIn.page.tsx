@@ -3,12 +3,14 @@ import { Helmet } from 'react-helmet-async'
 import { CONFIG } from '@src/config-global'
 import { Box, Button, Typography } from '@mui/material'
 import InputBase from '@src/components/input/InputBase'
+import { useNavigate } from 'react-router-dom'
 
 // import { SignInView } from '@sections/auth'
 
 // ----------------------------------------------------------------------
 
 export default function Page() {
+  const navigate = useNavigate()
   return (
     <>
       <Helmet>
@@ -42,6 +44,7 @@ export default function Page() {
 
           <div className='flex flex-col justify-center'>
             <Button
+              onClick={() => navigate('/profile')}
               type='submit'
               fullWidth
               variant='contained'

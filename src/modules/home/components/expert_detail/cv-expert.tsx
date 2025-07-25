@@ -25,19 +25,19 @@ export function CvExpert() {
       </div>
       {/* <!-- Contact bar --> */}
       <div className='bg-secondary rounded-2 lg:rounded-full mt-6 flex flex-wrap justify-between text-white text-base sm:text-lg px-6 py-2 gap-2 sm:gap-0'>
-        <div className='flex items-center space-x-2 min-w-[120px]'>
+        <div className='flex items-center space-x-2 min-w-[120px] text-[16px]'>
           <i className='fas fa-phone-alt text-base'></i>
           <span>+84-912-345-678890</span>
         </div>
-        <div className='flex items-center space-x-2 min-w-[180px]'>
+        <div className='flex items-center space-x-2 min-w-[180px] text-[16px]'>
           <i className='fas fa-envelope text-base'></i>
           <span>hieu.duong@example.com</span>
         </div>
-        <div className='flex items-center space-x-2 min-w-[180px]'>
+        <div className='flex items-center space-x-2 min-w-[180px] text-[16px]'>
           <i className='fas fa-globe text-base'></i>
           <span>www.hieumindfulness.com</span>
         </div>
-        <div className='flex items-center space-x-2 min-w-[180px]'>
+        <div className='flex items-center space-x-2 min-w-[180px] text-[16px]'>
           <i className='fas fa-home text-base'></i>
           <span> 123 Đường An Tĩnh, Hà Nội, Việt Nam</span>
         </div>

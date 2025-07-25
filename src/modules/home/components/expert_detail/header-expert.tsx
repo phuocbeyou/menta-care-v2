@@ -9,15 +9,15 @@ export function HeaderExpertDetail() {
       <section className='md:w-1/2 flex flex-col items-center'>
         <Box
           component='img'
-          src='https://storage.googleapis.com/a1aa/image/96cab06c-fdee-49dc-2dd6-a9bbcab441aa.jpg'
+          src='/assets/images/cv/cv-avt-tmp.jpg'
           alt='Arrow'
-          height={160}
-          sx={{ filter: 'brightness(0)', borderRadius: '50%' }}
+          height={170}
+          sx={{ borderRadius: '100%', objectFit: 'cover' }}
         />
 
-        <h1 className='mt-4 text-secondary text-2xl font-semibold text-center'>NGUYỄN THỊ MINH KHANG</h1>
+        <h1 className='mt-4 text-secondary text-2xl font-semibold text-center'>DƯƠNG MINH HIẾU</h1>
         <p className='text-secondary text-sm font-semibold uppercase mt-1 tracking-wide'>
-          Proactive Mental Health Coach
+          Chiến lược gia | Mindfulness Coach | Corporate Advisor
         </p>
         <hr className='border-gray-300 w-full my-6' />
         <p className='text-secondary text-xs font-semibold uppercase tracking-widest mb-3'>Liên hệ</p>
@@ -50,13 +50,12 @@ export function HeaderExpertDetail() {
       <section className='md:w-1/2 flex flex-col'>
         <div>
           <p className='text-secondary text-sm font-semibold uppercase tracking-wide mb-1'>About me</p>
-          <h2 className='text-secondary text-3xl font-semibold mb-3'>Proactive Mental Health Coach</h2>
+          <h2 className='text-secondary text-3xl font-semibold mb-3'>Chiến lược gia</h2>
           <p className='text-gray-900 text-base leading-relaxed max-w-xl'>
-            Huấn luyện viên sức khỏe tinh thần chủ động với hơn 6 năm kinh nghiệm trong lĩnh vực tư vấn và chăm sóc sức
-            khỏe toàn diện. Tôi kết hợp chuyên môn về tâm lý học, huấn luyện sức khỏe và thực hành chánh niệm để hỗ trợ
-            thân chủ quản lý căng thẳng, nâng cao trí tuệ cảm xúc và tìm lại sự an yên, cân bằng trong cuộc sống. Là
-            đồng sáng lập SMILE MIND, tôi đồng hành cùng nhiều chương trình phát triển nội tâm như “Sống An” và “Thiền &
-            Sống Tỉnh Thức”, mang lại giá trị thiết thực cho cộng đồng. new media.
+            Với hơn 16 năm nghiên cứu và thực hành sâu về thiền truyền thống và trí tuệ cảm xúc trong phát triển lãnh
+            đạo và bản thân, tôi lựa chọn con đường lan tỏa Thiền & Trí tuệ cảm xúc đến cộng đồng. Sứ mệnh của tôi là
+            giúp mọi người đạt được sự hạnh phúc, cân bằng và lãnh đạo bản thân hiệu quả, từ đó xây dựng cuộc sống vững
+            bên trong – sáng bên ngoài.
           </p>
         </div>
         <hr className='border-gray-300 w-full my-6' />
@@ -66,17 +65,17 @@ export function HeaderExpertDetail() {
             <div className='flex gap-6'>
               <p className='font-semibold text-base min-w-[48px]'>2018</p>
               <div>
-                <p className='font-semibold text-base'>Thạc sĩ Ngôn ngữ Anh</p>
-                <p className='text-gray-900 text-sm'> Đại học Victoria, Australia</p>
+                <p className='font-semibold text-base'>Cố vấn chiến lược</p>
+                <p className='text-gray-900 text-sm'>Công ty Cổ phần SMILE MIND</p>
               </div>
             </div>
-            <div className='flex gap-6'>
+            {/* <div className='flex gap-6'>
               <p className='font-semibold text-base min-w-[48px]'>2018</p>
               <div>
                 <p className='font-semibold text-base'>Cử nhân Tâm lý học</p>
                 <p className='text-gray-900 text-sm'> Đại học Hutech, TP. Hồ Chí Minh</p>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
         <hr className='border-gray-300 w-full my-6' />
@@ -84,11 +83,19 @@ export function HeaderExpertDetail() {
           <p className='text-secondary text-sm font-semibold uppercase tracking-wide mb-3'>Education</p>
           <div className='flex flex-col gap-3 max-w-xl'>
             <div className='flex gap-6'>
-              <p className='font-semibold text-base min-w-[48px]'>2006</p>
+              <p className='font-semibold text-base min-w-[48px]'>2010 - 2012</p>
               <div>
-                <p className='font-semibold text-base'>Thạc sĩ Ngôn ngữ Anh</p>
-                <p className='text-gray-900 text-sm'>Đại học Victoria, Australia</p>
-                <p className='text-gray-900 text-sm'> (26 năm kinh nghiệm giảng dạy)</p>
+                <p className='font-semibold text-base'>Executive MBA</p>
+                <p className='text-gray-900 text-sm'>Đại học Ngoại thương</p>
+                {/* <p className='text-gray-900 text-sm'> (26 năm kinh nghiệm giảng dạy)</p> */}
+              </div>
+            </div>
+            <div className='flex gap-6'>
+              <p className='font-semibold text-base min-w-[48px]'>2000-2004</p>
+              <div>
+                <p className='font-semibold text-base'>Bachelor of Business Administration</p>
+                <p className='text-gray-900 text-sm'>Đại học Kinh tế Quốc dân</p>
+                {/* <p className='text-gray-900 text-sm'> (26 năm kinh nghiệm giảng dạy)</p> */}
               </div>
             </div>
           </div>

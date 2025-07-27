@@ -24,11 +24,11 @@ declare module '@mui/material/styles' {
 
 // ----------------------------------------------------------------------
 
-export const defaultFont = 'Be Vietnam Pro'
+export const defaultFont = 'Mulish'
 
 export const primaryFont = setFont(defaultFont)
 
-export const secondaryFont = setFont('Be Vietnam Pro')
+export const secondaryFont = setFont('Mulish')
 
 // ----------------------------------------------------------------------
 

@@ -32,15 +32,14 @@ const MoodModal = forwardRef<MoodModalRef>((_, ref) => {
 
   return (
     <div>
-      <Modal open={open} onClose={handleClose}>
+      <Modal closeAfterTransition={true} open={open}>
         <Box className='bg-primary' sx={style}>
           <IconButton
             onClick={handleClose}
             sx={{
               position: 'absolute',
               top: 8,
-              right: 8,
-              color: '#666'
+              right: 8
             }}
           >
             ×
@@ -59,10 +58,10 @@ const MoodModal = forwardRef<MoodModalRef>((_, ref) => {
             max={10}
             valueLabelDisplay='off'
             sx={{
-              color: '#2e7d32',
+              color: 'secondary.main',
               '& .MuiSlider-thumb': {
-                height: 24,
-                width: 24,
+                height: 20,
+                width: 20,
                 backgroundColor: 'black'
               }
             }}

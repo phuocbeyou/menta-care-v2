@@ -168,7 +168,7 @@ export const Chatting = () => {
             />
             <button
               aria-label='Gửi tin nhắn'
-              className='w-5 h-5 md:w-10 md:h-10 rounded-full bg-secondary hover:bg-green-500 transition flex justify-center items-center text-white'
+              className='w-5 h-5 md:w-8 md:h-[42px] md:w-[42px] rounded-full bg-secondary hover:bg-green-500 transition flex justify-center items-center text-white'
               type='submit'
             >
               <i className='fas fa-paper-plane text-sm'></i>

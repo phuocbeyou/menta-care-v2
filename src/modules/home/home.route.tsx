@@ -11,7 +11,7 @@ import BlogDetail from './pages/BlogDetail'
 import ListCompany from './pages/ListCompany'
 import { ContactCompany } from './components/list-company/ContactCompany'
 import { OrderExpert } from './pages/OrderExpert'
-import Profile from './pages/Profile'
+import BecomePartner from './pages/BecomePartner'
 
 const HomePage = lazy(() => import('@src/modules/home/pages/Home'))
 const WellBeingPage = lazy(() => import('@src/modules/home/pages/Well-Being'))
@@ -28,7 +28,7 @@ export const BLOG_DETAIL_PATH = 'blog/:id'
 export const LIST_COMPANY_PATH = 'list-company'
 export const CONTACT_PATH = 'contact-company'
 export const ORDER_EXPERT_PATH = 'order-expert'
-export const PROFILE_PATH = 'profile'
+export const BECOME_PARTNER_PATH = 'become-partner'
 
 export const homeRouter: Router[] = [
   {
@@ -46,7 +46,7 @@ export const homeRouter: Router[] = [
       { element: <ListCompany />, path: LIST_COMPANY_PATH },
       { element: <ContactCompany />, path: CONTACT_PATH },
       { element: <OrderExpert />, path: ORDER_EXPERT_PATH },
-      { element: <Profile />, path: PROFILE_PATH }
+      { element: <BecomePartner />, path: BECOME_PARTNER_PATH }
     ]
   }
 ]

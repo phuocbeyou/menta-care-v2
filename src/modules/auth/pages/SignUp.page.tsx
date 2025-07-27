@@ -22,23 +22,40 @@ export default function SignUpPage() {
                 <br />
                 Tôn trọng riêng tư của bạn
               </p>
-              <p className='text-[10px] leading-tight text-black mb-4'>
+              <p className='text-sm leading-tight text-black mb-4'>
                 Mọi thông tin bạn cung cấp được bảo mật tuyệt đối và chỉ sử dụng nhằm giúp bạn hiểu rõ bản thân, nhận
                 được lời khuyên phù hợp và kết nối đúng chuyên gia khi cần. Chúng tôi không chia sẻ thông tin cá nhân
                 của bạn với bất kỳ bên thứ ba nào mà không có sự đồng ý.
               </p>
-              <p className='text-[10px] leading-tight text-black mb-6'>
+              <p className='text-sm leading-tight text-black mb-3'>
                 Bạn là người duy nhất quyết định mình muốn chia sẻ đến đâu.
               </p>
-              <button className='bg-secondary text-white text-[14px] font-normal rounded-full px-6 py-2' type='button'>
+              <Button
+                className='bg-secondary text-white text-[14px] rounded-full px-6 py-2'
+                sx={{
+                  bgcolor: 'secondary.main',
+                  color: 'white',
+                  fontWeight: 800,
+                  fontSize: '0.875rem',
+                  height: '53px',
+                  px: 3,
+
+                  borderRadius: '100px',
+                  '&:hover': {
+                    bgcolor: 'secondary.main',
+                    color: 'white'
+                  }
+                }}
+                type='button'
+              >
                 Lần đầu tới MentaCare?
-              </button>
+              </Button>
             </div>
           </div>
 
           {/* Middle registration form */}
           <form className='flex flex-col gap-3 max-w-md w-full'>
-            <h2 className='bg-[#D7F0D9] text-[#8B1D1D] font-extrabold text-[18px] rounded-full px-6 py-2 w-max m-auto'>
+            <h2 className='bg-primary text-[#8B1D1D] font-extrabold text-[18px] rounded-full px-6 py-2 w-max m-auto'>
               ĐĂNG KÝ TÀI KHOẢN
             </h2>
             <InputBase label='Tên đầy đủ' placeholder='Nhập họ và tên' />
@@ -58,7 +75,7 @@ export default function SignUpPage() {
                 color: 'white',
                 fontWeight: 800,
                 fontSize: '1.125rem',
-                height: '48px',
+                height: '53px',
                 borderRadius: '100px',
                 '&:hover': {
                   bgcolor: 'secondary.main',
@@ -75,13 +92,27 @@ export default function SignUpPage() {
             {/* //logo */}
             <Box component='img' src='/assets/images/logo/logo.png' alt='logo' height={94} />
             <p className='text-secondary font-normal text-2xl my-3'>ĐĂNG NHẬP | ĐĂNG KÝ</p>
-            <button
-              className='bg-secondary text-white text-[14px] font-normal rounded-full px-6 py-2 mb-6'
+            <Button
+              sx={{
+                bgcolor: 'secondary.main',
+                color: 'white',
+                fontWeight: 800,
+                fontSize: '0.875rem',
+                borderRadius: '100px',
+                px: 3,
+                py: 1,
+                height: '53px',
+                mb: 4,
+                '&:hover': {
+                  bgcolor: 'secondary.main',
+                  color: 'white'
+                }
+              }}
               type='button'
             >
               Đăng ký qua
-            </button>
-            <div className='flex gap-3 mb-6'>
+            </Button>
+            <div className='flex gap-3 mb-4'>
               <Box component='img' src='/assets/images/logo/fb.svg' alt='facebook' sx={{ width: 36, height: 36 }} />
               <Box component='img' src='/assets/images/logo/print.svg' alt='print' sx={{ width: 36, height: 36 }} />
               <Box
@@ -94,13 +125,28 @@ export default function SignUpPage() {
             <Typography className='text-center bg-white p-1 rounded-lg text-black text-sm'>
               Tôi là người dùng thường xuyên của App
             </Typography>
-            <button
-              className='bg-[#4B9B6B] text-white text-[14px] font-normal rounded-full px-6 py-2 mt-6 max-w-[280px]'
+            <Button
+              className='max-w-[280px]'
+              sx={{
+                bgcolor: 'secondary.main',
+                color: 'white',
+                fontWeight: 800,
+                fontSize: '0.875rem',
+                borderRadius: '100px',
+                px: 3,
+                py: 1,
+                mt: 4,
+                height: '53px',
+                '&:hover': {
+                  bgcolor: 'secondary.main',
+                  color: 'white'
+                }
+              }}
               type='button'
               onClick={() => navigate('/auth')}
             >
               Đăng nhập ngay
-            </button>
+            </Button>
           </div>
         </div>
       </Box>

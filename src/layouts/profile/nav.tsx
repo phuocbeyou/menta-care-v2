@@ -11,6 +11,7 @@ import { navData } from './config-nav-home'
 import { bgBlur } from '@src/theme/styles'
 import { NavMobile } from './nav-content'
 import { useNavigate } from 'react-router-dom'
+import { AccountPopover } from '../components/account-popover'
 
 // function MenuLink({ children, href }: { children: React.ReactNode; href: string }) {
 //   return (
@@ -115,12 +116,7 @@ export function ProfileNav() {
               ))}
             </Stack>
           </Box>
-          <Box
-            component='img'
-            src='/assets/images/cv/cv-avt-tmp.jpg'
-            sx={{ width: 50, height: 50, border: '1px solid #E0E0E0', objectFit: 'cover' }}
-            className='rounded-full'
-          />
+          <AccountPopover data={[]} />
         </Box>
       </Box>
     </Box>

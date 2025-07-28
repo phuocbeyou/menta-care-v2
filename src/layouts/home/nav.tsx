@@ -12,6 +12,8 @@ import { navData } from './config-nav-home'
 import { bgBlur } from '@src/theme/styles'
 import { NavMobile } from './nav-content'
 import { useNavigate } from 'react-router-dom'
+import { isUserAuthenticated } from '@src/stores/authHelpers'
+import { AccountPopover } from '../components/account-popover'
 
 function MenuLink({ children, href }: { children: React.ReactNode; href: string }) {
   return (
@@ -96,26 +98,30 @@ export function HomeNav() {
             </Stack>
           </Box>
           {/* Button */}
-          <Button
-            onClick={() => navigate('/auth/sign-up')}
-            variant='contained'
-            color='secondary'
-            sx={{
-              height: 41,
-              borderRadius: 999,
-              px: 4,
-              fontWeight: 500,
-              fontSize: '1.1rem',
-              textTransform: 'none',
-              boxShadow: 'none',
-              '&:hover': {
-                opacity: 0.85,
-                textDecoration: 'underline'
-              }
-            }}
-          >
-            Tài Khoản
-          </Button>
+          {isUserAuthenticated() ? (
+            <AccountPopover data={[{ label: 'Thông tin cá nhân', href: '/profile' }]} />
+          ) : (
+            <Button
+              onClick={() => navigate('/auth/sign-up')}
+              variant='contained'
+              color='secondary'
+              sx={{
+                height: 41,
+                borderRadius: 999,
+                px: 4,
+                fontWeight: 500,
+                fontSize: '1.1rem',
+                textTransform: 'none',
+                boxShadow: 'none',
+                '&:hover': {
+                  opacity: 0.85,
+                  textDecoration: 'underline'
+                }
+              }}
+            >
+              Tài Khoản
+            </Button>
+          )}
         </Box>
       </Box>
     </Box>

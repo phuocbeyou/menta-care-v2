@@ -1,6 +1,7 @@
 import { Box, Stack, Typography, Button, Link, Grid2, Divider } from '@mui/material'
 import { SlideUp } from '@src/components/animation/SlideUp'
 import { CONFIG } from '@src/config-global'
+import { isUserAuthenticated } from '@src/stores/authHelpers'
 import { NavLink } from 'react-router-dom'
 
 export function HomeFooter() {
@@ -156,7 +157,8 @@ export function HomeFooter() {
                     color: 'rgb(0, 84, 43)',
                     borderColor: 'white',
                     bgcolor: 'white',
-                    '&:hover': { textDecoration: 'underline' }
+                    '&:hover': { textDecoration: 'underline' },
+                    display: isUserAuthenticated() ? 'none' : 'block'
                   }}
                 >
                   Đăng ký ngay

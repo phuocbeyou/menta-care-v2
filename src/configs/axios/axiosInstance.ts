@@ -1,22 +1,20 @@
 // axios.js
+import { useAuthStore } from '@src/stores/authStore'
 import Axios from 'axios'
 
 const axios = Axios.create({})
 
-const serverUrl = process.env.REACT_APP_SERVER_URL
-export const baseURL = `${serverUrl}`
+// const serverUrl = process.env.REACT_APP_SERVER_URL
+export const baseURL = `https://tsc7n5hcee.execute-api.ap-southeast-1.amazonaws.com`
 
 axios.defaults.timeout = 120000 // Milliseconds
 axios.interceptors.request.use(
   async function (config) {
-    // Retreive token from Redux OR localStorage or ....
-    // const store = await getStore();
-    // const token = store?.getState()?.user?.token;
+    const token = useAuthStore.getState().token
 
-    // if (token) {
-    //   config.headers["Authorization"] = `Bearer ${token}`;
-    //   config.headers["Access-Control-Allow-Credentials"] = true;
-    // }
+    if (token) {
+      config.headers['Authorization'] = `Bearer ${token}`
+    }
     config.headers['Content-Type'] = 'application/json'
     config.baseURL = baseURL
 

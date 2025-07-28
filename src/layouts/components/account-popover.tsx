@@ -15,6 +15,7 @@ import MenuItem, { menuItemClasses } from '@mui/material/MenuItem'
 import { useRouter, usePathname } from '@routes/hooks'
 
 import { _myAccount } from '@mock'
+import { useAuthStore, User } from '@src/stores'
 
 // ----------------------------------------------------------------------
 
@@ -25,9 +26,10 @@ export type AccountPopoverProps = IconButtonProps & {
     icon?: React.ReactNode
     info?: React.ReactNode
   }[]
+  user?: User
 }
 
-export function AccountPopover({ data = [], sx, ...other }: AccountPopoverProps) {
+export function AccountPopover({ data = [], sx, user, ...other }: AccountPopoverProps) {
   const router = useRouter()
 
   const pathname = usePathname()
@@ -91,7 +93,7 @@ export function AccountPopover({ data = [], sx, ...other }: AccountPopoverProps)
           </Typography>
         </Box>
 
-        <Divider sx={{ borderStyle: 'dashed' }} />
+        {data.length > 0 && <Divider sx={{ borderStyle: 'dashed' }} />}
 
         <MenuList
           disablePadding
@@ -129,7 +131,16 @@ export function AccountPopover({ data = [], sx, ...other }: AccountPopoverProps)
         <Divider sx={{ borderStyle: 'dashed' }} />
 
         <Box sx={{ p: 1 }}>
-          <Button fullWidth color='error' size='medium' variant='text'>
+          <Button
+            fullWidth
+            color='error'
+            size='medium'
+            variant='text'
+            onClick={() => {
+              useAuthStore.getState().logout()
+              router.push('/home')
+            }}
+          >
             Logout
           </Button>
         </Box>

@@ -3,6 +3,7 @@ import { SlideUp } from '@src/components/animation/SlideUp'
 import { Box, Button, Grid2, Stack } from '@mui/material'
 import { Fade } from '@src/components/animation/Fade'
 import { useNavigate } from 'react-router-dom'
+import { isUserAuthenticated } from '@src/stores/authHelpers'
 
 export function HeaderHome() {
   const navigate = useNavigate()
@@ -47,11 +48,12 @@ export function HeaderHome() {
             <Button
               onClick={() => navigate('/auth')}
               size='large'
-              className=' w-[30%] h-[44px]'
+              className={`w-[30%] h-[44px]`}
               variant='outlined'
               color='secondary'
               sx={{
-                fontSize: { xs: '0.7rem', lg: '0.9rem' }
+                fontSize: { xs: '0.7rem', lg: '0.9rem' },
+                display: isUserAuthenticated() ? 'none' : 'block'
               }}
             >
               ĐĂNG NHẬP

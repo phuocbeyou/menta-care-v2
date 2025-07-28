@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async'
 import MoodModal, { MoodModalRef } from '../components/profile/MoodModal'
 import { useEffect, useRef } from 'react'
 import { LineChart } from '@mui/x-charts'
-import { Button, Card, LinearProgress, linearProgressClasses, styled } from '@mui/material'
+import { Box, Button, Card, LinearProgress, linearProgressClasses, styled } from '@mui/material'
 import InputBase from '@src/components/input/InputBase'
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
@@ -50,10 +50,46 @@ export default function Profile() {
           <div>
             <div className='text-xl font-semibold'>Thư viện của tôi</div>
             <div className='mt-2 gap-2 flex flex-col'>
-              <div>Âm nhạc thư giãn</div>
-              <div>Bài tập Yoga</div>
-              <div>Tài nguyên quản trị</div>
-              <div>Truyện ngủ ngon</div>
+              <div className='flex items-center gap-1'>
+                <Box
+                  component='img'
+                  src='/assets/images/profile/melody.png'
+                  alt='avatar'
+                  height={30}
+                  sx={{ objectFit: 'cover' }}
+                />
+                Âm nhạc thư giãn
+              </div>
+              <div className='flex items-center gap-1'>
+                <Box
+                  component='img'
+                  src='/assets/images/profile/mindfulness.png'
+                  alt='avatar'
+                  height={30}
+                  sx={{ objectFit: 'cover' }}
+                />
+                Bài tập Yoga
+              </div>
+              <div className='flex items-center gap-1'>
+                <Box
+                  component='img'
+                  src='/assets/images/profile/book.png'
+                  alt='avatar'
+                  height={30}
+                  sx={{ objectFit: 'cover' }}
+                />
+                Tài nguyên quản trị
+              </div>
+              <div className='flex items-center gap-1'>
+                <Box
+                  component='img'
+                  src='/assets/images/profile/sleep.png'
+                  alt='avatar'
+                  height={30}
+                  sx={{ objectFit: 'cover' }}
+                />
+                Truyện ngủ ngon
+              </div>
             </div>
           </div>
 

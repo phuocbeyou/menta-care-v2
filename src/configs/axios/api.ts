@@ -1,3 +1,4 @@
+import { getAuthToken } from '@src/stores/authHelpers'
 import axios from './axiosInstance'
 
 const ENDPOINT = '/default/mentacare-backend'
@@ -6,7 +7,8 @@ export const callingAPI = <Res, Req>(request_type: string, data: Req): Promise<R
   return axios
     .post(`${ENDPOINT}`, {
       request_type,
-      ...data
+      ...data,
+      jwt_token: getAuthToken() || ''
     })
     .then((res) => {
       return res.data

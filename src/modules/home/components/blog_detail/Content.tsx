@@ -1,4 +1,4 @@
-import { Box, Skeleton } from '@mui/material'
+import { Skeleton } from '@mui/material'
 import { BlogDetailRes } from '../../pages/BlogDetail'
 
 export const Content = ({ data, isLoading }: { data?: BlogDetailRes; isLoading?: boolean }) => {

@@ -7,31 +7,31 @@ export const navData = [
   {
     title: 'Trợ lý AI',
     path: '/chatting',
-    icon: 'majesticons:home'
+    icon: 'majesticons:robot'
   },
   {
     title: 'Well-being',
     path: '/wellbeing',
-    icon: 'majesticons:home'
+    icon: 'majesticons:heart'
   },
   {
     title: 'Kết nối Chuyên Gia',
     path: '/expert',
-    icon: 'majesticons:home'
+    icon: 'majesticons:users'
   },
   {
     title: 'Forum',
     path: '/forum',
-    icon: 'majesticons:home'
+    icon: 'majesticons:comment-2'
   },
   {
     title: 'Blog',
     path: '/blog',
-    icon: 'majesticons:home'
+    icon: 'majesticons:article'
   },
   {
     title: 'Giới Thiệu',
     path: '/introduce',
-    icon: 'majesticons:home'
+    icon: 'majesticons:info-circle'
   }
 ]

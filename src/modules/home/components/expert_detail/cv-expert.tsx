@@ -1,4 +1,5 @@
 import { Box, Rating } from '@mui/material'
+import { Expert } from '../expert/ListExpert'
 
 const Line = () => {
   return (
@@ -67,7 +68,11 @@ const ListExperience = [
   }
 ]
 
-export function CvExpert() {
+interface CvExpertProps {
+  expert?: Expert
+}
+
+export function CvExpert({ expert }: CvExpertProps) {
   return (
     <main className='mt-20'>
       <div className='flex flex-col md:flex-row gap-10 md:gap-20'>
@@ -85,7 +90,16 @@ export function CvExpert() {
               <li>+78 Dự án tư vấn thành công</li>
             </ul>
             <p className='font-semibold text-gray-800 mt-2 text-sm'>Thêm phần review của người sau book lịch</p>
-            <Rating name='simple-controlled' value={4.5} readOnly />
+            <div className='flex items-center gap-1 mb-2'>
+              <Rating
+                name='simple-controlled'
+                value={parseFloat(expert?.rating || '') || 0}
+                precision={0.1}
+                readOnly
+                size='small'
+              />
+              <span className='text-xs text-gray-600'>({parseFloat(expert?.rating || '').toFixed(1)})</span>
+            </div>
           </div>
           {/* <!-- DOANH NGHIỆP TỪNG LÀM VIỆC --> */}
           <div>
@@ -122,12 +136,7 @@ export function CvExpert() {
             <h2 className='text-gray-700 font-semibold text-lg relative inline-block text-center w-full'>SKILLS</h2>
             <Line />
             <ul className='text-center text-gray-600 space-y-3 text-base font-normal mt-2 !list-none'>
-              <li>Management Skills</li>
-              <li>Creativity</li>
-              <li>Digital Marketing</li>
-              <li>Negotiation</li>
-              <li>Critical Thinking</li>
-              <li>Leadership</li>
+              {expert?.skills.map((skill) => <li key={skill}>{skill}</li>)}
             </ul>
           </div>
         </section>

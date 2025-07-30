@@ -1,7 +1,12 @@
 import { Box } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
+import { Expert } from '../expert/ListExpert'
 
-export function HeaderExpertDetail() {
+export interface HeaderExpertDetailProps {
+  expert?: Expert
+}
+
+export function HeaderExpertDetail({ expert }: HeaderExpertDetailProps) {
   const navigate = useNavigate()
   return (
     <main className='flex flex-col md:flex-row gap-6 md:gap-12 mt-6'>
@@ -15,10 +20,8 @@ export function HeaderExpertDetail() {
           sx={{ borderRadius: '100%', objectFit: 'cover' }}
         />
 
-        <h1 className='mt-4 text-secondary text-2xl font-semibold text-center'>DƯƠNG MINH HIẾU</h1>
-        <p className='text-secondary text-sm font-semibold uppercase mt-1 tracking-wide'>
-          Chiến lược gia | Mindfulness Coach | Corporate Advisor
-        </p>
+        <h1 className='mt-4 text-secondary text-2xl font-semibold text-center'>{expert?.name}</h1>
+        <p className='text-secondary text-sm font-semibold uppercase mt-1 tracking-wide'>{expert?.title}</p>
         <hr className='border-gray-300 w-full my-6' />
         <p className='text-secondary text-xs font-semibold uppercase tracking-widest mb-3'>Liên hệ</p>
         <div className='flex gap-6 text-gray-800 text-2xl'>
@@ -50,55 +53,46 @@ export function HeaderExpertDetail() {
       <section className='md:w-1/2 flex flex-col'>
         <div>
           <p className='text-secondary text-sm font-semibold uppercase tracking-wide mb-1'>About me</p>
-          <h2 className='text-secondary text-3xl font-semibold mb-3'>Chiến lược gia</h2>
-          <p className='text-gray-900 text-base leading-relaxed max-w-xl'>
-            Với hơn 16 năm nghiên cứu và thực hành sâu về thiền truyền thống và trí tuệ cảm xúc trong phát triển lãnh
-            đạo và bản thân, tôi lựa chọn con đường lan tỏa Thiền & Trí tuệ cảm xúc đến cộng đồng. Sứ mệnh của tôi là
-            giúp mọi người đạt được sự hạnh phúc, cân bằng và lãnh đạo bản thân hiệu quả, từ đó xây dựng cuộc sống vững
-            bên trong – sáng bên ngoài.
-          </p>
+          <h2 className='text-secondary text-3xl font-semibold mb-3'>{expert?.title}</h2>
+          <p className='text-gray-900 text-base leading-relaxed max-w-xl'>{expert?.description}</p>
         </div>
         <hr className='border-gray-300 w-full my-6' />
         <div>
           <p className='text-secondary text-sm font-semibold uppercase tracking-wide mb-3'>Experience</p>
-          <div className='flex flex-col gap-3 max-w-xl'>
-            <div className='flex gap-6'>
-              <p className='font-semibold text-base min-w-[48px]'>2018</p>
-              <div>
-                <p className='font-semibold text-base'>Cố vấn chiến lược</p>
-                <p className='text-gray-900 text-sm'>Công ty Cổ phần SMILE MIND</p>
+          {expert?.experience.map((item) => (
+            <div className='flex flex-col gap-3 max-w-xl'>
+              <div className='flex gap-6'>
+                <p className='font-semibold text-base min-w-[48px]'>{item.duration}</p>
+                <div>
+                  <p className='font-semibold text-base'>{item.position}</p>
+                  <p className='text-gray-900 text-sm'>{item.organization}</p>
+                </div>
               </div>
+              {/* <div className='flex gap-6'>
+         <p className='font-semibold text-base min-w-[48px]'>2018</p>
+         <div>
+           <p className='font-semibold text-base'>Cử nhân Tâm lý học</p>
+           <p className='text-gray-900 text-sm'> Đại học Hutech, TP. Hồ Chí Minh</p>
+         </div>
+       </div> */}
             </div>
-            {/* <div className='flex gap-6'>
-              <p className='font-semibold text-base min-w-[48px]'>2018</p>
-              <div>
-                <p className='font-semibold text-base'>Cử nhân Tâm lý học</p>
-                <p className='text-gray-900 text-sm'> Đại học Hutech, TP. Hồ Chí Minh</p>
-              </div>
-            </div> */}
-          </div>
+          ))}
         </div>
         <hr className='border-gray-300 w-full my-6' />
         <div>
           <p className='text-secondary text-sm font-semibold uppercase tracking-wide mb-3'>Education</p>
-          <div className='flex flex-col gap-3 max-w-xl'>
-            <div className='flex gap-6'>
-              <p className='font-semibold text-base min-w-[48px]'>2010 - 2012</p>
-              <div>
-                <p className='font-semibold text-base'>Executive MBA</p>
-                <p className='text-gray-900 text-sm'>Đại học Ngoại thương</p>
-                {/* <p className='text-gray-900 text-sm'> (26 năm kinh nghiệm giảng dạy)</p> */}
+          {expert?.education.map((item) => (
+            <div className='flex flex-col gap-3 max-w-xl'>
+              <div className='flex gap-6'>
+                <p className='font-semibold text-base min-w-[48px]'>{item.year}</p>
+                <div>
+                  <p className='font-semibold text-base'>{item.institution}</p>
+                  <p className='text-gray-900 text-sm'>{item.degree}</p>
+                  {/* <p className='text-gray-900 text-sm'> (26 năm kinh nghiệm giảng dạy)</p> */}
+                </div>
               </div>
             </div>
-            <div className='flex gap-6'>
-              <p className='font-semibold text-base min-w-[48px]'>2000-2004</p>
-              <div>
-                <p className='font-semibold text-base'>Bachelor of Business Administration</p>
-                <p className='text-gray-900 text-sm'>Đại học Kinh tế Quốc dân</p>
-                {/* <p className='text-gray-900 text-sm'> (26 năm kinh nghiệm giảng dạy)</p> */}
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </section>
     </main>

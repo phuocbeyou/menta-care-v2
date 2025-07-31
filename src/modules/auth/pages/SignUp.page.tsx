@@ -3,9 +3,110 @@ import InputBase from '@src/components/input/InputBase'
 import { CONFIG } from '@src/config-global'
 import { useNavigate } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
+import { useState } from 'react'
+import { InputPassword } from '@src/components/input'
+import { Dialog } from '@src/components/error-dialog'
+import { REQUEST_TYPE } from '../apis/const'
+import { callingAPI } from '@src/configs/axios/api'
+
+interface SignUpReq {
+  name: string
+  email_or_phone: string
+  password: string
+}
+
+interface SignUpRes {
+  message: string
+  user_id: string
+}
 
 export default function SignUpPage() {
   const navigate = useNavigate()
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
+  const [isAcceptTerms, setIsAcceptTerms] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+
+  const submit = async () => {
+    try {
+      setIsLoading(true)
+      const response = await callingAPI<SignUpRes, SignUpReq>(REQUEST_TYPE.user_register, {
+        name: name,
+        email_or_phone: email,
+        password: password
+      })
+
+      if (response.message) {
+        Dialog.success(response.message)
+        // Optional: navigate to login or dashboard after successful registration
+        // navigate('/auth/signin')
+      }
+    } catch (error) {
+      console.log(error)
+      Dialog.error('Có lỗi xảy ra, vui lòng thử lại')
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
+  // Email validation function
+  const isValidEmail = (email: string) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    return emailRegex.test(email)
+  }
+
+  const handleSignUp = async () => {
+    // Check terms acceptance
+    if (!isAcceptTerms) {
+      Dialog.error('Vui lòng đọc và xác nhận cam kết bảo mật')
+      return
+    }
+
+    // Check name
+    if (!name.trim()) {
+      Dialog.error('Vui lòng nhập tên đầy đủ')
+      return
+    }
+
+    // Check email
+    if (!email.trim()) {
+      Dialog.error('Vui lòng nhập email')
+      return
+    }
+
+    if (!isValidEmail(email)) {
+      Dialog.error('Email không đúng định dạng')
+      return
+    }
+
+    // Check password
+    if (!password) {
+      Dialog.error('Vui lòng nhập mật khẩu')
+      return
+    }
+
+    if (password.length < 6) {
+      Dialog.error('Mật khẩu phải có ít nhất 6 ký tự')
+      return
+    }
+
+    // Check confirm password
+    if (!confirmPassword) {
+      Dialog.error('Vui lòng nhập xác nhận mật khẩu')
+      return
+    }
+
+    if (password !== confirmPassword) {
+      Dialog.error('Mật khẩu và xác nhận mật khẩu không khớp')
+      return
+    }
+
+    // All validations passed - proceed with registration
+    submit()
+  }
+
   return (
     <>
       <Helmet>
@@ -58,18 +159,48 @@ export default function SignUpPage() {
             <h2 className='bg-primary text-[#8B1D1D] font-extrabold text-[18px] rounded-full px-6 py-2 w-max m-auto'>
               ĐĂNG KÝ TÀI KHOẢN
             </h2>
-            <InputBase label='Tên đầy đủ' placeholder='Nhập họ và tên' />
-            <InputBase label='Email hoặc Số điện thoại' placeholder='Nhập email hoặc số điện thoại' />
-            <InputBase label='Mật khẩu' placeholder='Nhập mật khẩu' />
-            <InputBase label='Xác nhận mật khẩu' placeholder='Nhập lại mật khẩu' />
+            <InputBase
+              label='Tên đầy đủ'
+              placeholder='Nhập họ và tên'
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              disabled={isLoading}
+            />
+            <InputBase
+              label='Email hoặc Số điện thoại'
+              placeholder='Nhập email hoặc số điện thoại'
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              disabled={isLoading}
+            />
+            <InputPassword
+              label='Mật khẩu'
+              placeholder='Nhập mật khẩu'
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              disabled={isLoading}
+            />
+            <InputPassword
+              label='Xác nhận mật khẩu'
+              placeholder='Nhập lại mật khẩu'
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              disabled={isLoading}
+            />
             <div className='flex items-center gap-2'>
-              <Checkbox color='secondary' />
+              <Checkbox
+                color='secondary'
+                checked={isAcceptTerms}
+                onChange={(e) => setIsAcceptTerms(e.target.checked)}
+                disabled={isLoading}
+              />
               <Typography>Tôi đã đọc cam kết bảo mật và xác nhận.</Typography>
             </div>
             <Button
-              type='submit'
               fullWidth
+              onClick={handleSignUp}
               variant='contained'
+              disabled={isLoading}
               sx={{
                 bgcolor: 'secondary.main',
                 color: 'white',
@@ -80,10 +211,21 @@ export default function SignUpPage() {
                 '&:hover': {
                   bgcolor: 'secondary.main',
                   color: 'white'
+                },
+                '&:disabled': {
+                  bgcolor: 'secondary.light',
+                  color: 'white'
                 }
               }}
             >
-              Đăng ký
+              {isLoading ? (
+                <div className='flex items-center gap-2'>
+                  <div className='w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin'></div>
+                  <span>Đang đăng ký...</span>
+                </div>
+              ) : (
+                'Đăng ký'
+              )}
             </Button>
           </form>
 

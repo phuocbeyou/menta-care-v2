@@ -40,7 +40,7 @@ export default function Home() {
             icon='/assets/images/components/chip-ai.png'
           />{' '}
           <NavigateBox
-            onClick={() => navigate('/list-company')}
+            onClick={() => {}}
             className='w-full md:w-[30%]'
             title='Các chuyên gia hàng đầu trong từng lĩnh vực'
             icon='/assets/images/components/cer.png'

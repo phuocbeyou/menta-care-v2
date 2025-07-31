@@ -1,103 +1,63 @@
-import { Box } from '@mui/material'
+import { Box, Skeleton } from '@mui/material'
 import { CustomSwiper, SwiperSlide } from '@src/components/swiper'
 import { CONFIG } from '@src/config-global'
 import { Helmet } from 'react-helmet-async'
 import ItemCompany from '../components/list-company/ItemCompany'
+import { useParams } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { callingAPI } from '@src/configs/axios/api'
+import { REQUEST_TYPE } from '../apis/const'
 
-const listCompany = [
-  {
-    id: 1,
-    start: 5,
-    title: 'Công ty Công nghệ FPT Software',
-    subtitle: 'Hàng đầu về giải pháp công nghệ thông tin'
-  },
-  {
-    id: 2,
-    start: 4.8,
-    title: 'Tập đoàn Vingroup',
-    subtitle: 'Tổ hợp kinh doanh đa ngành hàng đầu Việt Nam'
-  },
-  {
-    id: 3,
-    start: 4.9,
-    title: 'Ngân hàng Techcombank',
-    subtitle: 'Ngân hàng số đi đầu trong đổi mới sáng tạo'
-  },
-  {
-    id: 4,
-    start: 4.6,
-    title: 'Tập đoàn Masan Group',
-    subtitle: 'Công ty tiêu dùng và tài nguyên hàng đầu'
-  },
-  {
-    id: 5,
-    start: 4.7,
-    title: 'Công ty VNG Corporation',
-    subtitle: 'Công ty công nghệ internet và game hàng đầu'
-  },
-  {
-    id: 6,
-    start: 4.5,
-    title: 'Tập đoàn TH True Milk',
-    subtitle: 'Thương hiệu sữa tươi sạch hàng đầu Việt Nam'
-  },
-  {
-    id: 7,
-    start: 4.8,
-    title: 'Công ty Shopee Việt Nam',
-    subtitle: 'Nền tảng thương mại điện tử hàng đầu Đông Nam Á'
-  },
-  {
-    id: 8,
-    start: 4.4,
-    title: 'Tập đoàn Hòa Phát',
-    subtitle: 'Tập đoàn thép và bất động sản hàng đầu'
-  },
-  {
-    id: 9,
-    start: 4.9,
-    title: 'Ngân hàng VietinBank',
-    subtitle: 'Ngân hàng thương mại cổ phần công nghiệp Việt Nam'
-  },
-  {
-    id: 10,
-    start: 4.6,
-    title: 'Công ty Samsung Việt Nam',
-    subtitle: 'Tập đoàn công nghệ và điện tử hàng đầu thế giới'
-  },
-  {
-    id: 11,
-    start: 4.7,
-    title: 'Tập đoàn Viettel',
-    subtitle: 'Tập đoàn viễn thông và công nghệ hàng đầu'
-  },
-  {
-    id: 12,
-    start: 4.3,
-    title: 'Công ty Grab Việt Nam',
-    subtitle: 'Nền tảng siêu ứng dụng và giao thông hàng đầu'
-  },
-  {
-    id: 13,
-    start: 4.8,
-    title: 'Tập đoàn PNJ',
-    subtitle: 'Công ty vàng bạc đá quý hàng đầu Việt Nam'
-  },
-  {
-    id: 14,
-    start: 4.5,
-    title: 'Công ty Unilever Việt Nam',
-    subtitle: 'Tập đoàn hàng tiêu dùng nhanh toàn cầu'
-  },
-  {
-    id: 15,
-    start: 4.6,
-    title: 'Tập đoàn Mobifone',
-    subtitle: 'Nhà cung cấp dịch vụ viễn thông hàng đầu'
-  }
-]
+export interface CompanyContacts {
+  phone: string
+  email: string
+}
+
+export interface Company {
+  created_at: string
+  contacts: CompanyContacts
+  rating: string
+  thumbnail_uri: string
+  description: string
+  id: string
+  name: string
+  software_ids: string[]
+}
+
+export interface ListCompanyRes {
+  companies: Company[]
+}
+
+export interface ListCompanyReq {
+  software_id: string
+}
 
 export default function ListCompany() {
+  const { id } = useParams() // software_id from URL params
+  const [companies, setCompanies] = useState<Company[]>([])
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    const fetchCompanies = async () => {
+      try {
+        setIsLoading(true)
+        const response = await callingAPI<ListCompanyRes, ListCompanyReq>(REQUEST_TYPE.get_software_companies, {
+          software_id: id || ''
+        })
+        setCompanies(response.companies)
+      } catch (error) {
+        console.error('Error fetching companies:', error)
+        setCompanies([])
+      } finally {
+        setIsLoading(false)
+      }
+    }
+
+    if (id) {
+      fetchCompanies()
+    }
+  }, [id])
+
   return (
     <>
       <Helmet>
@@ -112,14 +72,49 @@ export default function ListCompany() {
             showNavigation={true}
             navigationPosition={'outside'}
           >
-            {listCompany.map((item, index) => (
-              <SwiperSlide
-                key={index}
-                style={{ height: 'auto', display: 'flex', justifyContent: 'center', width: 'auto' }}
-              >
-                <ItemCompany {...item} />
+            {isLoading ? (
+              // Skeleton for companies
+              Array.from({ length: 6 }).map((_, index) => (
+                <SwiperSlide
+                  key={index}
+                  style={{ height: 'auto', display: 'flex', justifyContent: 'center', width: 'auto' }}
+                >
+                  <div className='bg-green-100 rounded-xl p-2 w-[256px] text-center h-[350px] flex flex-col justify-between'>
+                    <Skeleton
+                      variant='rectangular'
+                      width={94}
+                      height={94}
+                      sx={{ borderRadius: 1, mx: 'auto', mb: 2 }}
+                    />
+                    <Skeleton variant='text' width='80%' height={24} sx={{ mb: 1, mx: 'auto' }} />
+                    <Skeleton variant='text' width='100%' height={16} sx={{ mb: 4, mx: 'auto' }} />
+                    <div>
+                      <Skeleton variant='rectangular' width={120} height={20} sx={{ mb: 1, mx: 'auto' }} />
+                      <Skeleton variant='rectangular' width={80} height={32} sx={{ mx: 'auto' }} />
+                    </div>
+                  </div>
+                </SwiperSlide>
+              ))
+            ) : companies.length === 0 ? (
+              <SwiperSlide style={{ height: 'auto', display: 'flex', justifyContent: 'center', width: '100%' }}>
+                <div className='w-full text-center py-12'>
+                  <div className='flex flex-col items-center gap-3'>
+                    <div className='text-4xl'>🏢</div>
+                    <p className='text-gray-500 text-lg'>Không có công ty nào</p>
+                    <p className='text-gray-400 text-sm'>Không tìm thấy công ty sử dụng phần mềm này</p>
+                  </div>
+                </div>
               </SwiperSlide>
-            ))}
+            ) : (
+              companies.map((company) => (
+                <SwiperSlide
+                  key={company.id}
+                  style={{ height: 'auto', display: 'flex', justifyContent: 'center', width: 'auto' }}
+                >
+                  <ItemCompany item={company} />
+                </SwiperSlide>
+              ))
+            )}
           </CustomSwiper>
         </div>
       </Box>

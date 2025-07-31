@@ -4,13 +4,14 @@ import { useNavigate } from 'react-router-dom'
 interface ItemSoftwareProps {
   title: string
   description: string
+  id: string
 }
 
-export function ItemSoftware({ title, description }: ItemSoftwareProps) {
+export function ItemSoftware({ title, description, id }: ItemSoftwareProps) {
   const navigate = useNavigate()
   return (
     <div
-      onClick={() => navigate('/list-company')}
+      onClick={() => navigate(`/list-company/${id}`)}
       className='bg-white rounded-2xl p-1 py-4 flex flex-col items-center text-center w-[250px] h-[300px] cursor-pointer hover:bg-secondary hover:text-white'
     >
       <Box component='img' src={'assets/images/forum/setting.png'} alt={title} height={48} className='mb-2' />

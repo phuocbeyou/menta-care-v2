@@ -7,5 +7,9 @@ export const REQUEST_TYPE = {
   expert_details: 'expert_details',
   get_software_groups: 'get_software_groups',
   get_softwares: 'get_softwares',
-  get_software_companies: 'get_software_companies'
+  get_software_companies: 'get_software_companies',
+  save_emotion_diary: 'save_emotion_diary',
+  get_emotion_diaries: 'get_emotion_diaries',
+  save_diary: 'save_diary',
+  get_diaries: 'get_diaries'
 }

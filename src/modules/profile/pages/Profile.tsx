@@ -9,6 +9,9 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { DateCalendar } from '@mui/x-date-pickers/DateCalendar'
 import dayjs from 'dayjs'
+import { REQUEST_TYPE } from '@src/modules/home/apis/const'
+import { callingAPI } from '@src/configs/axios/api'
+import { getAuthToken } from '@src/stores/authHelpers'
 
 // Custom LinearProgress với custom color
 const CustomLinearProgress = styled(LinearProgress, {
@@ -31,12 +34,53 @@ const CustomLinearProgress = styled(LinearProgress, {
   }
 }))
 
+interface GetEmotionDiaryReq {
+  jwt_token: string
+  pagging: number
+  amount: number
+}
+
+interface GetEmotionDiaryRes {
+  emotion_diaries: {
+    value: string
+    user_id: string
+    id: string
+    created_time: string
+  }[]
+}
+
 export default function Profile() {
   const modalRef = useRef<MoodModalRef>(null)
 
   useEffect(() => {
+    const checkAndOpenModal = async () => {
+      try {
+        const response = await callingAPI<GetEmotionDiaryRes, GetEmotionDiaryReq>(REQUEST_TYPE.get_emotion_diaries, {
+          jwt_token: getAuthToken() || '',
+          pagging: 0,
+          amount: 180500000
+        })
+
+        // Check if any diary entry was created today
+        const today = dayjs().startOf('day')
+        const hasEntryToday = response.emotion_diaries.some((diary) => {
+          const entryDate = dayjs.unix(Number(diary.created_time)).startOf('day')
+          return entryDate.isSame(today)
+        })
+
+        // Only open modal if no entry was created today
+        if (!hasEntryToday) {
+          modalRef.current?.open()
+        }
+      } catch (error) {
+        console.error('Error fetching emotion diaries:', error)
+        // Open modal on error as fallback
+        modalRef.current?.open()
+      }
+    }
+
     setTimeout(() => {
-      modalRef.current?.open()
+      checkAndOpenModal()
     }, 1000)
   }, [])
 

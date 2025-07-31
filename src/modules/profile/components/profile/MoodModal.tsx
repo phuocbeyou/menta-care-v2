@@ -1,5 +1,8 @@
 import { useState, forwardRef, useImperativeHandle } from 'react'
 import { Box, Button, Modal, Slider, Typography, IconButton } from '@mui/material'
+import { getAuthToken } from '@src/stores/authHelpers'
+import { callingAPI } from '@src/configs/axios/api'
+import { REQUEST_TYPE } from '@src/modules/home/apis/const'
 
 const style = {
   position: 'absolute' as const,
@@ -18,10 +21,19 @@ export interface MoodModalRef {
   close: () => void
 }
 
+interface MoodSaveReq {
+  jwt_token: string
+  value: number
+}
+
+interface MoodSaveRes {
+  message: string
+}
+
 const MoodModal = forwardRef<MoodModalRef>((_, ref) => {
   const [open, setOpen] = useState(false)
   const [value, setValue] = useState(9)
-
+  const [isLoading, setIsLoading] = useState(false)
   const handleOpen = () => setOpen(true)
   const handleClose = () => setOpen(false)
 
@@ -29,6 +41,16 @@ const MoodModal = forwardRef<MoodModalRef>((_, ref) => {
     open: handleOpen,
     close: handleClose
   }))
+
+  const handleSave = async () => {
+    setIsLoading(true)
+    await callingAPI<MoodSaveRes, MoodSaveReq>(REQUEST_TYPE.save_emotion_diary, {
+      jwt_token: getAuthToken() || '',
+      value: value
+    })
+    handleClose()
+    setIsLoading(false)
+  }
 
   return (
     <div>
@@ -77,10 +99,9 @@ const MoodModal = forwardRef<MoodModalRef>((_, ref) => {
 
           <Button
             variant='contained'
-            onClick={() => {
-              alert(`Bạn chọn mức ${value}`)
-              handleClose()
-            }}
+            onClick={handleSave}
+            disabled={isLoading}
+            loading={isLoading}
             sx={{ mt: 2, backgroundColor: 'secondary.main' }}
           >
             Xác nhận

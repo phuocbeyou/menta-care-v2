@@ -6,6 +6,7 @@ import { FounderMessage } from '../components/forum/founder-message'
 import { Faq } from '../components/forum/faq'
 import { SoftwareCompany } from '../components/forum/software-company'
 import { Explore } from '../components/forum/explore'
+import ForumDiscussion from '../components/forum/ForumDiscussion'
 
 export function Forum() {
   return (
@@ -19,6 +20,7 @@ export function Forum() {
         <Faq />
         <SoftwareCompany />
         <Explore />
+        <ForumDiscussion />
       </Box>
     </>
   )

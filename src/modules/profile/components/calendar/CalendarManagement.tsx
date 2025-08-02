@@ -236,7 +236,7 @@ export default function CalendarManagement() {
   return (
     <div className='p-4'>
       <Typography variant='h4' sx={{ mb: 3, fontWeight: 'bold' }}>
-        Quản lý lịch hẹn
+        Quản lý đặt lịch
       </Typography>
 
       <div className='grid gap-4'>

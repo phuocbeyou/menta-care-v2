@@ -8,6 +8,7 @@ import ManagementLibrary from '../components/library/ManagementLibrary'
 import PodcastLibrary from '../components/library/PodcastLibrary'
 import EmotionDashboard from '../components/dashboard/EmotionDashboard'
 import CalendarManagement from '../components/calendar/CalendarManagement'
+import DiaryManagement from '../components/diary/DiaryManagement'
 import ComingSoon from '../components/resources/ComingSoon'
 import PersonalInfo from '../components/profile/PersonalInfo'
 import ChangePassword from '../components/password/ChangePassword'
@@ -55,6 +56,7 @@ interface GetEmotionDiaryRes {
 
 type ViewType =
   | 'dashboard'
+  | 'diary'
   | 'calendar'
   | 'resources'
   | 'profile'
@@ -87,6 +89,8 @@ export default function Profile() {
     switch (currentView) {
       case 'dashboard':
         return <EmotionDashboard emotionDiaries={emotionDiaries} />
+      case 'diary':
+        return <DiaryManagement />
       case 'calendar':
         return <CalendarManagement />
       case 'resources':
@@ -155,11 +159,19 @@ export default function Profile() {
               </div>
               <div
                 className={`flex items-center gap-1 cursor-pointer hover:bg-gray-100 rounded-md p-2 transition-colors ${
+                  currentView === 'diary' ? 'bg-gray-100 border-l-4 border-primary' : ''
+                }`}
+                onClick={() => handleMenuClick('diary')}
+              >
+                Nhật ký
+              </div>
+              <div
+                className={`flex items-center gap-1 cursor-pointer hover:bg-gray-100 rounded-md p-2 transition-colors ${
                   currentView === 'calendar' ? 'bg-gray-100 border-l-4 border-primary' : ''
                 }`}
                 onClick={() => handleMenuClick('calendar')}
               >
-                Quản lý lịch
+                Quản lý đặt lịch
               </div>
               {/* <div
                 className={`flex items-center gap-1 cursor-pointer hover:bg-gray-100 rounded-md p-2 transition-colors ${

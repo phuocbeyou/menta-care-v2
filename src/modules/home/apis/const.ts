@@ -12,5 +12,8 @@ export const REQUEST_TYPE = {
   get_emotion_diaries: 'get_emotion_diaries',
   save_diary: 'save_diary',
   get_diaries: 'get_diaries',
-  get_audio_content: 'get_audio_content'
+  get_audio_content: 'get_audio_content',
+  get_booking_history: 'get_booking_history',
+  get_forum_groups: 'get_forum_groups',
+  get_threads_by_group: 'get_threads_by_group'
 }

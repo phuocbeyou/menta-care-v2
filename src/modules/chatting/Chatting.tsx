@@ -1,7 +1,9 @@
-import { Box, Skeleton } from '@mui/material'
+import { Box, Button, Skeleton } from '@mui/material'
 import { callingAPI } from '@src/configs/axios/api'
 import { useState, useEffect, useRef } from 'react'
 import { REQUEST_TYPE } from './api/const'
+import { ResultAnalyze } from './ResultAnalyze'
+import { MOCK_EXPERTS } from './mock/const'
 
 interface Message {
   id: number
@@ -48,7 +50,7 @@ export const Chatting = () => {
   const [triage, setTriage] = useState('')
   const [availableOptions, setAvailableOptions] = useState<string[]>(defaultQuickReplies)
   const messagesContainerRef = useRef<HTMLDivElement>(null)
-
+  const [showResultAnalyze, setShowResultAnalyze] = useState(false)
   const chat = async (userMessage: string) => {
     try {
       setIsLoading(true)
@@ -244,7 +246,7 @@ export const Chatting = () => {
             />
             <button
               aria-label='Gửi tin nhắn'
-              className='w-5 h-5 md:w-8 md:h-[42px] md:w-[42px] rounded-full bg-secondary hover:bg-green-500 transition flex justify-center items-center text-white disabled:opacity-50 disabled:cursor-not-allowed'
+              className='w-5 h-5 md:h-[42px] md:w-[42px] rounded-full bg-secondary hover:bg-green-500 transition flex justify-center items-center text-white disabled:opacity-50 disabled:cursor-not-allowed'
               type='submit'
               disabled={isLoading}
             >
@@ -257,6 +259,19 @@ export const Chatting = () => {
           </form>
         </div>
       </div>
+
+      <Button
+        variant='contained'
+        color='secondary'
+        onClick={() => {
+          setShowResultAnalyze(true)
+        }}
+        className='w-full'
+      >
+        Kết quả phân tích
+      </Button>
+
+      {showResultAnalyze && <ResultAnalyze experts={MOCK_EXPERTS} />}
     </Box>
   )
 }

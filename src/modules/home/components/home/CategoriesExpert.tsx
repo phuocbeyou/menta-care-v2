@@ -1,6 +1,11 @@
 import { Box } from '@mui/material'
 import HorizontalScrollItems from '@src/components/animation/HorizontalScrollItems'
 import { SlideUp } from '@src/components/animation/SlideUp'
+import { useEffect, useState } from 'react'
+import { ExpertTypeRes } from '../expert/ListExpert'
+import { callingAPI } from '@src/configs/axios/api'
+import { REQUEST_TYPE } from '@src/modules/chatting/api/const'
+import { useNavigate } from 'react-router-dom'
 
 const categories = [
   {
@@ -36,23 +41,39 @@ const categories = [
 ]
 
 export default function CategoriesExpert() {
+  const [expertType, setExpertType] = useState<ExpertTypeRes['expert_types']>([])
+  const [isLoadingTypes, setIsLoadingTypes] = useState(true)
+  const navigate = useNavigate()
+  useEffect(() => {
+    const fetchExpertType = async () => {
+      try {
+        setIsLoadingTypes(true)
+        const response = await callingAPI<ExpertTypeRes, object>(REQUEST_TYPE.get_expert_types, {})
+        setExpertType(response.expert_types)
+      } catch (error) {
+        console.error('Error fetching expert types:', error)
+      } finally {
+        setIsLoadingTypes(false)
+      }
+    }
+    fetchExpertType()
+  }, [])
+
   return (
     <div className='mt-10'>
       <SlideUp className='text-center mb-1 flex flex-col items-center'>
         <h2 className='text-black text-4xl font-semibold leading-tight'>LỰA CHỌN HẠNG MỤC CHUYÊN GIA</h2>
       </SlideUp>
       <HorizontalScrollItems>
-        {categories.map((category) => (
+        {expertType.map((category, index) => (
           <div
-            className={`rounded-3xl md:rounded-4xl w-[150px] h-[120px] md:w-[260px] md:h-[230px] relative flex flex-col justify-center items-center p-1 md:p-3 ${
-              category.color === 1 ? 'bg-primary' : 'bg-white'
-            } ${category.color === 0 && 'border-secondary border'}`}
+            onClick={() => navigate(`/expert?type=${category.expert_type_id}`)}
+            className={`rounded-3xl md:rounded-4xl w-[150px] cursor-pointer h-[120px] md:w-[260px] md:h-[230px] relative hover:underline flex flex-col justify-center items-center p-1 md:p-3 ${
+              index % 2 === 0 ? 'bg-primary' : 'bg-white'
+            } ${index % 2 !== 0 && 'border-secondary border'}`}
           >
-            <a
-              href={category.url}
-              className='text-secondary text-[22px] md:text-[32.4px] md:leading-[44px] font-medium text-center'
-            >
-              {category.title}
+            <a className='text-secondary text-[22px] md:text-[32.4px] md:leading-[44px] font-medium text-center '>
+              {category.name}
             </a>
 
             <Box

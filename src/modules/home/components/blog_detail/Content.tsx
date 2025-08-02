@@ -49,7 +49,7 @@ export const Content = ({ data, isLoading }: { data?: BlogDetailRes; isLoading?:
       <section className='mb-8'>
         <h2 className='text-2xl font-bold text-secondary mb-4'>{data?.title || 'Nội dung bài viết'}</h2>
         <div
-          className='text-gray-700 leading-relaxed'
+          className='text-gray-700 leading-relaxed text-justify'
           dangerouslySetInnerHTML={{
             __html: data?.html_content || '<p>Nội dung đang được tải...</p>'
           }}

@@ -185,7 +185,7 @@ export const Chatting = () => {
                       }`}
                       style={{ boxShadow: '0 2px 6px rgb(0 0 0 / 0.05)' }}
                     >
-                      <p className='text-sm'>{message.text}</p>
+                      <p className='text-sm text-justify'>{message.text}</p>
                       <span className={`text-xs mt-0.5 block ${message.isBot ? 'text-gray-400' : 'text-white'}`}>
                         {message.timestamp}
                       </span>

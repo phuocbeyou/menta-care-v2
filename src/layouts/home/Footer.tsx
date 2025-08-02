@@ -2,9 +2,10 @@ import { Box, Stack, Typography, Button, Link, Grid2, Divider } from '@mui/mater
 import { SlideUp } from '@src/components/animation/SlideUp'
 import { CONFIG } from '@src/config-global'
 import { isUserAuthenticated } from '@src/stores/authHelpers'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 
 export function HomeFooter() {
+  const navigate = useNavigate()
   return (
     <Box>
       <Box className='bg-primary' sx={{ py: 2 }}>
@@ -115,34 +116,38 @@ export function HomeFooter() {
                   Tính năng người dùng
                 </Typography>
                 <Stack spacing={0.5}>
-                  <Link href='#' underline='hover' sx={{ color: 'white' }}>
+                  <Link href='/chatting' underline='hover' sx={{ color: 'white' }}>
                     Đánh giá nhu cầu
                   </Link>
-                  <Link href='#' underline='hover' sx={{ color: 'white' }}>
+                  <Link href='/expert' underline='hover' sx={{ color: 'white' }}>
                     Kết nối chuyên gia
                   </Link>
-                  <Link href='#' underline='hover' sx={{ color: 'white' }}>
+                  <Link href='/forum' underline='hover' sx={{ color: 'white' }}>
                     Tư vấn Doanh nghiệp
                   </Link>
-                  <Link href='#' underline='hover' sx={{ color: 'white' }}>
+                  <Link href='/expert' underline='hover' sx={{ color: 'white' }}>
                     Life Coach
                   </Link>
-                  <Link href='#' underline='hover' sx={{ color: 'white' }}>
+                  <Link href='/wellbeing' underline='hover' sx={{ color: 'white' }}>
                     Well-being
                   </Link>
-                  <Link href='#' underline='hover' sx={{ color: 'white' }}>
+                  <Link href='/blog' underline='hover' sx={{ color: 'white' }}>
                     Career Development
                   </Link>
-                  <Link href='#' underline='hover' sx={{ color: 'white' }}>
+                  <Link href='/blog' underline='hover' sx={{ color: 'white' }}>
                     Reskill - Upskilling
                   </Link>
-                  <Link href='#' underline='hover' sx={{ color: 'white' }}>
+                  <Link href='/expert' underline='hover' sx={{ color: 'white' }}>
                     Cố vấn chiến lược
                   </Link>
-                  <Link href='#' underline='hover' sx={{ color: 'white' }}>
+                  <Link
+                    href='https://www.facebook.com/groups/101quantrinhansu'
+                    underline='hover'
+                    sx={{ color: 'white' }}
+                  >
                     Forum thảo luận
                   </Link>
-                  <Link href='#' underline='hover' sx={{ color: 'white' }}>
+                  <Link href='/blog' underline='hover' sx={{ color: 'white' }}>
                     Tài nguyên kiến thức
                   </Link>
                 </Stack>
@@ -175,28 +180,29 @@ export function HomeFooter() {
                   <Link href='#' underline='hover' sx={{ color: 'white' }}>
                     Xây dựng thương hiệu cá nhân
                   </Link>
-                  <Link href='#' underline='hover' sx={{ color: 'white' }}>
+                  <Link href='/expert' underline='hover' sx={{ color: 'white' }}>
                     Kết nối với khách hàng tiềm năng
                   </Link>
-                  <Link href='#' underline='hover' sx={{ color: 'white' }}>
+                  <Link href='/expert' underline='hover' sx={{ color: 'white' }}>
                     Chia sẻ dịch vụ tới cộng đồng
                   </Link>
-                  <Link href='#' underline='hover' sx={{ color: 'white' }}>
+                  <Link href='/forum' underline='hover' sx={{ color: 'white' }}>
                     Tư vấn phần mềm doanh nghiệp
                   </Link>
-                  <Link href='#' underline='hover' sx={{ color: 'white' }}>
+                  <Link href='/blog' underline='hover' sx={{ color: 'white' }}>
                     Chia sẻ tài nguyên
                   </Link>
-                  <Link href='#' underline='hover' sx={{ color: 'white' }}>
+                  <Link href='https://hocvienhr.com/su-kien' underline='hover' sx={{ color: 'white' }}>
                     Đồng tổ chức sự kiện
                   </Link>
-                  <Link href='#' underline='hover' sx={{ color: 'white' }}>
+                  <Link href='https://hocvienhr.com/su-kien' underline='hover' sx={{ color: 'white' }}>
                     Tổ chức khóa đào tạo
                   </Link>
                 </Stack>
                 <Box sx={{ flexGrow: 1 }} />
                 <Button
                   variant='outlined'
+                  onClick={() => navigate('/expert?form-expert=true')}
                   sx={{
                     mt: 4,
                     maxWidth: 190,
@@ -219,25 +225,33 @@ export function HomeFooter() {
                   About us
                 </Typography>
                 <Stack spacing={0.5}>
-                  <Link href='#' underline='hover' sx={{ color: 'white' }}>
+                  <Link href='/introduce' underline='hover' sx={{ color: 'white' }}>
                     Đội ngũ
                   </Link>
-                  <Link href='#' underline='hover' sx={{ color: 'white' }}>
+                  <Link
+                    href='https://www.facebook.com/groups/101quantrinhansu'
+                    underline='hover'
+                    sx={{ color: 'white' }}
+                  >
                     Hoạt động cộng đồng
                   </Link>
-                  <Link href='#' underline='hover' sx={{ color: 'white' }}>
+                  <Link
+                    href='https://hocvienhr.com/danh-muc-san-pham/tai-lieu'
+                    underline='hover'
+                    sx={{ color: 'white' }}
+                  >
                     Tài nguyên nhân sự
                   </Link>
-                  <Link href='#' underline='hover' sx={{ color: 'white' }}>
+                  <Link href='https://hocvienhr.com/dao-tao' underline='hover' sx={{ color: 'white' }}>
                     Khóa đào tạo
                   </Link>
-                  <Link href='#' underline='hover' sx={{ color: 'white' }}>
+                  <Link href='https://hocvienhr.com/tu-van' underline='hover' sx={{ color: 'white' }}>
                     Dịch vụ tư vấn
                   </Link>
-                  <Link href='#' underline='hover' sx={{ color: 'white' }}>
+                  <Link href='https://hocvienhr.com/tu-van' underline='hover' sx={{ color: 'white' }}>
                     Cố vấn chiến lược
                   </Link>
-                  <Link href='#' underline='hover' sx={{ color: 'white' }}>
+                  <Link href='/blog' underline='hover' sx={{ color: 'white' }}>
                     Well-being Blog
                   </Link>
                 </Stack>

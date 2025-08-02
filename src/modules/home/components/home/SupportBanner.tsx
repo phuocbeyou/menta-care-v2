@@ -15,13 +15,27 @@ export function SupportBanner() {
       </SlideUp>
       <div className='border border-secondary rounded-4xl flex flex-col sm:flex-row items-center sm:items-stretch justify-between text-secondary relative '>
         {/* <!-- Arrow icon top-right of container --> */}
-        <div className='absolute top-4 right-4 text-black text-2xl'>
-          <Box
-            component='img'
+        <div
+          className='absolute top-4 right-4 cursor-pointer z-10 hover:opacity-70'
+          onClick={() => {
+            navigate('/chatting')
+          }}
+          style={{
+            width: '41px',
+            height: '41px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}
+        >
+          <img
             src='/assets/images/components/next.png'
             alt='Arrow'
-            height={41}
-            sx={{ filter: 'brightness(0)' }}
+            style={{
+              height: '41px',
+              filter: 'brightness(0)',
+              pointerEvents: 'none'
+            }}
           />
         </div>
 

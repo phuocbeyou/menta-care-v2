@@ -19,7 +19,7 @@ export function CoreValue() {
                 <br />
                 (Chú tâm và tỉnh thức)
               </p>
-              <p className='text-sm leading-relaxed flex-grow'>
+              <p className='text-sm leading-relaxed flex-grow text-justify'>
                 Chúng tôi lắng nghe và thấu hiểu nhu cầu tinh thần – cảm xúc của người dùng, mang đến trải nghiệm đồng
                 cảm, nhân văn và giàu ý nghĩa trong từng tương tác.
               </p>
@@ -35,7 +35,7 @@ export function CoreValue() {
                 <br />
                 (Được trao quyền)
               </p>
-              <p className='text-sm leading-relaxed flex-grow'>
+              <p className='text-sm leading-relaxed flex-grow text-justify'>
                 Chúng tôi giúp người dùng khám phá tiềm năng bản thân, chủ động kiểm soát hành trình phát triển cá nhân
                 và sống cuộc đời cân bằng, trọn vẹn hơn mỗi ngày.
               </p>
@@ -51,7 +51,7 @@ export function CoreValue() {
                 <br />
                 (Kết nối, có hệ sinh thái hỗ trợ)
               </p>
-              <p className='text-sm leading-relaxed flex-grow'>
+              <p className='text-sm leading-relaxed flex-grow text-justify'>
                 Chúng tôi xây dựng một cộng đồng gắn kết giữa chuyên gia, người dùng và nhà cung cấp dịch vụ, tạo thành
                 hệ sinh thái hỗ trợ phát triển toàn diện.
               </p>
@@ -67,7 +67,7 @@ export function CoreValue() {
                 <br />
                 (Đáng tin cậy, minh bạch)
               </p>
-              <p className='text-sm leading-relaxed flex-grow'>
+              <p className='text-sm leading-relaxed flex-grow text-justify'>
                 Chúng tôi luôn minh bạch, bảo mật, và đặt quyền lợi người dùng lên hàng đầu là nguyên tắc cốt lõi để xây
                 dựng niềm tin và giữ vững sự đồng hành lâu dài.
               </p>
@@ -83,7 +83,7 @@ export function CoreValue() {
                 <br />
                 (Ứng dụng công nghệ AI)
               </p>
-              <p className='text-sm leading-relaxed flex-grow'>
+              <p className='text-sm leading-relaxed flex-grow text-justify'>
                 Chúng tôi ứng dụng AI để cá nhân hóa trải nghiệm, dự đoán nhu cầu, và đưa ra giải pháp tối ưu, giúp
                 người dùng đưa ra quyết định tốt hơn và sống tích cực hơn.
               </p>

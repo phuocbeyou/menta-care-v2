@@ -10,7 +10,7 @@ export function FounderMessage() {
       </SlideUp>
 
       <p className='text-lg text-black leading-relaxed mb-4'>Kính chào Anh/Chị thành viên cộng đồng,</p>
-      <p className='text-lg text-black leading-relaxed mb-4'>
+      <p className='text-lg text-black leading-relaxed mb-4 text-justify'>
         Chúng tôi – đội ngũ sáng lập – luôn tin rằng sức mạnh bền vững không đến từ cá nhân đơn lẻ, mà được kết tinh khi
         mỗi chúng ta cùng san sẻ kinh nghiệm, trao đi sự thấu hiểu và nâng đỡ lẫn nhau. Tại “Nơi Chia Sẻ – Kết Nối”, mỗi
         câu chuyện của Anh Chị chính là viên <em>gạch vững chắc cho nền tảng chung</em>, và mỗi bài học từ cộng đồng là

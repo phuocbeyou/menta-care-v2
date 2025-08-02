@@ -15,7 +15,7 @@ export function About() {
           className='bg-primary rounded-2xl p-3 mb-6 md:mb-0 md:flex-1 text-center md:text-left'
           style={{ maxWidth: '320px' }}
         >
-          <p className='text-lg leading-relaxed'>
+          <p className='text-lg leading-relaxed text-justify'>
             Nền tảng “Nơi Chia Sẻ – Kết Nối” ứng dụng trí tuệ nhân tạo để mang đến không gian tương tác, học hỏi và hợp
             tác cho mọi chuyên gia nhân sự. Chỉ với vài thao tác đơn giản sau khi đăng nhập, bạn sẽ nhanh chóng kết nối,
             chia sẻ kinh nghiệm và tiếp cận nguồn tài nguyên chất lượng, cùng xây dựng mạng lưới chuyên nghiệp và bền

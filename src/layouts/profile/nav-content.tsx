@@ -12,6 +12,7 @@ import { RouterLink } from '@routes/components'
 
 import { Scrollbar } from '@components/scrollbar'
 import { Iconify } from '@src/components/iconify'
+import { useNavigate } from 'react-router-dom'
 
 // ----------------------------------------------------------------------
 
@@ -70,12 +71,20 @@ export function NavMobile({
 
 export function NavContent({ data, slots, sx }: NavContentProps) {
   const pathname = usePathname()
-
+  const navigate = useNavigate()
   return (
     <>
       {/* Logo */}
       <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', mt: 2 }}>
-        <Box component='img' src='/assets/images/logo/logo.png' alt='MentaCare Logo' sx={{ height: 97 }} />
+        <Box
+          component='img'
+          src='/assets/images/logo/logo.png'
+          alt='MentaCare Logo'
+          sx={{ height: 97 }}
+          className='cursor-pointer'
+          style={{ objectFit: 'cover' }}
+          onClick={() => navigate('/')}
+        />
       </Box>
 
       {slots?.topArea}

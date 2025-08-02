@@ -47,9 +47,11 @@ export function PhoneBanner() {
             <Typography
               variant='body1'
               sx={{
-                fontSize: { xs: '0.9rem', md: '1.5rem' },
+                fontSize: { xs: '0.9rem', md: '1.6rem' },
                 lineHeight: 1.6,
-                color: '#555'
+                color: '#555',
+                textAlign: 'justify',
+                textJustify: 'inter-word'
               }}
             >
               AI thông minh của chúng tôi sẽ phân tích nhu cầu của bạn và ngay lập tức kết nối bạn với các chuyên gia

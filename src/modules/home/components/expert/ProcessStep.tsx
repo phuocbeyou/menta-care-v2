@@ -18,7 +18,7 @@ export function ProcessStep() {
         <div className='bg-white rounded-[50px] max-w-[420px] mx-auto py-3 px-8 text-center text-black text-xl md:text-2xl font-semibold leading-4'>
           SÀNG LỌC HỒ SƠ VÀ KINH NGHIỆM
         </div>
-        <p className='mt-6 text-black text-xl md:text-2xl font-normal leading-relaxed'>
+        <p className='mt-6 text-black text-xl md:text-2xl font-normal leading-relaxed text-justify'>
           Mọi chuyên gia khi đăng ký tham gia MentaCare đều phải nộp một bộ hồ sơ chi tiết. Chúng tôi không chỉ xem xét
           kinh nghiệm làm việc mà còn đánh giá sâu về các case study thực tế, lĩnh vực chuyên môn và triết lý hành nghề
           của họ để đảm bảo sự phù hợp với các tiêu chuẩn của MentaCare.

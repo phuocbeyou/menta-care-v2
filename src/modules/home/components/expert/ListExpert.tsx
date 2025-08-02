@@ -85,8 +85,8 @@ export interface ExpertsRes {
   experts: Expert[]
 }
 
-export function ListExpert() {
-  const [value, setValue] = useState<number>(0) // Change to 0 for "Tất cả"
+export function ListExpert({ type }: { type: string | null }) {
+  const [value, setValue] = useState<string | number>(type || '')
   const [expertType, setExpertType] = useState<ExpertTypeRes['expert_types']>([])
   const [experts, setExperts] = useState<ExpertsRes['experts']>([])
   const [isLoadingTypes, setIsLoadingTypes] = useState(true)
@@ -98,6 +98,9 @@ export function ListExpert() {
         setIsLoadingTypes(true)
         const response = await callingAPI<ExpertTypeRes, object>(REQUEST_TYPE.get_expert_types, {})
         setExpertType(response.expert_types)
+        if (!type) {
+          setValue(response.expert_types[0].expert_type_id)
+        }
       } catch (error) {
         console.error('Error fetching expert types:', error)
       } finally {
@@ -111,7 +114,10 @@ export function ListExpert() {
     const fetchExperts = async () => {
       try {
         setIsLoadingExperts(true)
-        const selectedExpertType = value === 0 ? undefined : expertType[value - 1]?.name?.toLowerCase()
+        const selectedExpertType =
+          value === 0
+            ? undefined
+            : expertType.find((type) => type.expert_type_id === value)?.expert_type_id?.toLowerCase()
         const response = await callingAPI<ExpertsRes, ExpertsReq>(REQUEST_TYPE.get_experts, {
           request_type: REQUEST_TYPE.get_experts,
           expert_type: selectedExpertType,
@@ -125,29 +131,23 @@ export function ListExpert() {
         setIsLoadingExperts(false)
       }
     }
-    fetchExperts()
+    if (value) {
+      fetchExperts()
+    }
   }, [value, expertType])
 
   // Create categories from API data
   const categories = [
-    { id: 0, name: 'Tất cả' },
-    ...expertType.map((type, index) => ({
-      id: index + 1,
+    ...expertType.map((type) => ({
+      id: type.expert_type_id,
       name: type.name
     }))
   ]
 
-  // Filter experts based on selected category
-  const filteredExperts =
-    value === 0
-      ? experts
-      : experts.filter((expert) => {
-          const selectedTypeName = expertType[value - 1]?.name?.toLowerCase()
-          return expert.expert_types.some((type) => type.toLowerCase() === selectedTypeName)
-        })
+  const filteredExperts = experts
 
   return (
-    <div className='my-4 mb-14'>
+    <div className='my-4 mb-14' id='list-expert'>
       <div className='sm:hidden'>
         {isLoadingTypes ? (
           <Skeleton variant='rectangular' width='100%' height={56} sx={{ borderRadius: 1 }} />

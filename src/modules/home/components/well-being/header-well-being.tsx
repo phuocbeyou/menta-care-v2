@@ -4,6 +4,18 @@ import { Box, Button, Grid2, Stack } from '@mui/material'
 import { Fade } from '@src/components/animation/Fade'
 
 export function HeaderWellBeing() {
+  const scrollToCategoriesWellBeing = () => {
+    const categoriesWellBeing = document.getElementById('categories-well-being')
+    if (categoriesWellBeing) {
+      const elementTop = categoriesWellBeing.offsetTop
+      const offsetPosition = elementTop - 200
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      })
+    }
+  }
   return (
     <Grid2 container className='flex flex-col md:flex-row justify-between mb-20'>
       <Grid2 size={{ xs: 12, md: 6, lg: 5 }} className='md:w-1/2  h-[350px] md:h-[400px]'>
@@ -45,7 +57,7 @@ export function HeaderWellBeing() {
                 }
               }}
             >
-              <div className='flex items-center gap-2'>
+              <div className='flex items-center gap-2' onClick={scrollToCategoriesWellBeing}>
                 <div className='text-black text-sm md:text-lg font-medium'> CÙNG NGHE NHỮNG BẢN NHẠC NHẸ NHÀNG</div>
                 {/* next icon*/}
                 <Box

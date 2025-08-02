@@ -1,3 +1,4 @@
 export const REQUEST_TYPE = {
-  chat: 'chat'
+  chat: 'chat',
+  get_expert_types: 'get_expert_types'
 }

@@ -86,7 +86,15 @@ export function HomeNav() {
           <Box className='flex gap-1'>
             {/* Logo */}
             <SlideUp>
-              <Box component='img' src='/assets/images/logo/logo.png' alt='MentaCare Logo' sx={{ height: 97 }} />
+              <Box
+                component='img'
+                src='/assets/images/logo/logo.png'
+                alt='MentaCare Logo'
+                sx={{ height: 97 }}
+                className='cursor-pointer'
+                style={{ objectFit: 'cover' }}
+                onClick={() => navigate('/')}
+              />
             </SlideUp>
             {/* Menu */}
             <Stack direction='row' spacing={3} alignItems='center'>

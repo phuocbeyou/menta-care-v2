@@ -58,6 +58,7 @@ export default function Home() {
 
         <Box className='flex flex-col md:flex-row justify-between my-8 gap-4'>
           <Button
+            onClick={() => navigate('/become-partner')}
             variant='contained'
             sx={{
               bgcolor: 'secondary.main',

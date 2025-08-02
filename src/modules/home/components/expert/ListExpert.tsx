@@ -79,6 +79,7 @@ export interface Expert {
   skills: string[]
   description: string
   title: string
+  avatar_url: string
 }
 
 export interface ExpertsRes {

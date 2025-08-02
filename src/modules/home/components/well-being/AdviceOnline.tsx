@@ -1,9 +1,12 @@
 import { Box, Typography, Button } from '@mui/material'
 import InputBase from '../../../../components/input/InputBase'
+import { getAuthToken } from '@src/stores/authHelpers'
 
 export default function AdviceOnline() {
   return (
-    <section className='flex-1 bg-primary rounded-3xl p-3 mx-auto md:mx-0 flex flex-col mt-10 md:w-[50%]'>
+    <section
+      className={`flex-1 bg-primary rounded-3xl p-3 mx-auto md:mx-0 flex flex-col mt-10 md:w-[50%] ${getAuthToken() ? 'hidden' : ''}`}
+    >
       <div>
         <h2 className='font-semibold text-3xl mb-6 text-black leading-6 text-center '>
           “VẤN ĐỀ” hiện tại của bạn là gì?

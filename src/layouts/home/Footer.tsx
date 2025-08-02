@@ -210,6 +210,7 @@ export function HomeFooter() {
                     borderRadius: 99,
                     color: 'rgb(0, 84, 43)',
                     borderColor: 'white',
+                    display: isUserAuthenticated() ? 'none' : 'block',
                     bgcolor: 'white',
                     '&:hover': { textDecoration: 'underline' }
                   }}

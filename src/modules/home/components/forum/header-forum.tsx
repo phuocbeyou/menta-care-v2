@@ -2,6 +2,7 @@ import { SlideUp } from '@src/components/animation/SlideUp'
 
 import { Box, Button, Grid2, Stack } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
+import { getAuthToken } from '@src/stores/authHelpers'
 
 export function HeaderForum() {
   const navigate = useNavigate()
@@ -38,10 +39,11 @@ export function HeaderForum() {
                 fontSize: { xs: '0.7rem', lg: '0.9rem' },
                 '&:hover': {
                   backgroundColor: 'primary.main'
-                }
+                },
+                display: getAuthToken() ? 'none' : 'block'
               }}
             >
-              <div className='flex items-center gap-2'>
+              <div className={`flex items-center gap-2 `}>
                 <div className='text-black text-sm md:text-lg font-medium'> TẠO TÀI KHOẢN ĐỂ KẾT NỐI CỘNG ĐỒNG</div>
                 {/* next icon*/}
                 <Box

@@ -1,5 +1,4 @@
 import Box from '@mui/material/Box'
-import Button from '@mui/material/Button'
 import Stack from '@mui/material/Stack'
 import { SlideUp } from '@src/components/animation/SlideUp'
 import { CONFIG } from '@src/config-global'
@@ -96,7 +95,7 @@ export function ProfileNav() {
             </SlideUp>
             {/* Menu */}
             <Stack direction='row' spacing={3} alignItems='center'>
-              {navData.map((item) => (
+              {/* {[].map((item) => (
                 <Button
                   key={item.title}
                   href={item.path}
@@ -113,7 +112,7 @@ export function ProfileNav() {
                 >
                   {item.title}
                 </Button>
-              ))}
+              ))} */}
             </Stack>
           </Box>
           <AccountPopover data={[]} />

@@ -1,10 +1,11 @@
 import { Box, Button, Checkbox, Typography } from '@mui/material'
 import InputBase from '@src/components/input/InputBase'
 import { InputUpLoadFile } from '@src/components/input/InputUpLoadFile'
+import { getAuthToken } from '@src/stores/authHelpers'
 
 export function Form() {
   return (
-    <div className='mt-15' id='form-expert'>
+    <div className='mt-15' id='form-expert' style={{ display: getAuthToken() ? 'none' : 'block' }}>
       <div className='text-center text-2xl mb-8'>
         Chúng tôi tin rằng bằng cách đặt ra tiêu chuẩn cao, chúng tôi có thể đảm bảo mọi kết nối trên MentaCare đều là
         những kết nối giá trị, mang lại sự thay đổi thật sự.

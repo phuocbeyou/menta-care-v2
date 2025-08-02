@@ -30,7 +30,7 @@ interface MoodSaveRes {
   message: string
 }
 
-const MoodModal = forwardRef<MoodModalRef>((_, ref) => {
+const MoodModal = forwardRef<MoodModalRef, { fetching: () => void }>(({ fetching }, ref) => {
   const [open, setOpen] = useState(false)
   const [value, setValue] = useState(9)
   const [isLoading, setIsLoading] = useState(false)
@@ -48,6 +48,7 @@ const MoodModal = forwardRef<MoodModalRef>((_, ref) => {
       jwt_token: getAuthToken() || '',
       value: value
     })
+    await fetching()
     handleClose()
     setIsLoading(false)
   }

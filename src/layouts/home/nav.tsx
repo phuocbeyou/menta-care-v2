@@ -7,15 +7,17 @@ import { CONFIG } from '@src/config-global'
 import { MenuButton } from '../components/menu-button'
 import { useState } from 'react'
 import { useTheme } from '@mui/material/styles'
-import { Breakpoint, Toolbar } from '@mui/material'
+import { Breakpoint, SxProps, Toolbar } from '@mui/material'
 import { navData } from './config-nav-home'
 import { bgBlur } from '@src/theme/styles'
 import { NavMobile } from './nav-content'
 import { useNavigate } from 'react-router-dom'
 import { isUserAuthenticated } from '@src/stores/authHelpers'
 import { AccountPopover } from '../components/account-popover'
+import { usePathname } from '@src/routes/hooks'
+import { Theme } from '@emotion/react'
 
-function MenuLink({ children, href }: { children: React.ReactNode; href: string }) {
+function MenuLink({ children, href, sx }: { children: React.ReactNode; href: string; sx?: SxProps<Theme> }) {
   return (
     <Typography
       component='a'
@@ -25,7 +27,8 @@ function MenuLink({ children, href }: { children: React.ReactNode; href: string 
         fontWeight: 500,
         fontSize: '1.1rem',
         textDecoration: 'none',
-        '&:hover': { textDecoration: 'underline' }
+        '&:hover': { textDecoration: 'underline' },
+        ...sx
       }}
     >
       {children}
@@ -57,6 +60,8 @@ export function HomeNav() {
     }
   }
 
+  //get link to highlight menu
+  const pathname = usePathname()
   return (
     <Box className='sticky top-0 z-50'>
       {/* Nav Mobile  */}
@@ -98,11 +103,22 @@ export function HomeNav() {
             </SlideUp>
             {/* Menu */}
             <Stack direction='row' spacing={3} alignItems='center'>
-              {navData.map((item) => (
-                <MenuLink key={item.title} href={item.path}>
-                  {item.title}
-                </MenuLink>
-              ))}
+              {navData.map((item) => {
+                const isActive = item.path === pathname
+                return (
+                  <MenuLink
+                    key={item.title}
+                    href={item.path}
+                    sx={{
+                      color: isActive ? 'secondary.main' : 'inherit',
+                      fontWeight: isActive ? 700 : 500,
+                      '&:hover': { textDecoration: 'underline' }
+                    }}
+                  >
+                    {item.title}
+                  </MenuLink>
+                )
+              })}
             </Stack>
           </Box>
           {/* Button */}

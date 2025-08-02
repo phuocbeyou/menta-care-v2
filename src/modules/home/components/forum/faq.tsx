@@ -15,13 +15,13 @@ export function Faq() {
             </h2>
           </SlideUp>
           <div className='bg-white p-3 rounded-3xl'>
-            <a href='/auth' className='block bg-primary rounded-lg p-3 mb-3  text-black leading-tight text-lg'>
+            <a href='#' className='block bg-primary rounded-lg p-3 mb-3  text-black leading-tight text-lg'>
               <SlideUp>Đặt câu hỏi cho chuyên gia</SlideUp>
             </a>
-            <a href='/auth' className='block bg-primary rounded-lg p-3 mb-3  text-black leading-tight text-lg'>
+            <a href='#' className='block bg-primary rounded-lg p-3 mb-3  text-black leading-tight text-lg'>
               <SlideUp delay={0.1}>Cùng xây thư viện tài liệu</SlideUp>
             </a>
-            <a href='/auth' className='block bg-primary rounded-lg p-3 mb-3  text-black leading-tight text-lg'>
+            <a href='#' className='block bg-primary rounded-lg p-3 mb-3  text-black leading-tight text-lg'>
               <SlideUp delay={0.2}>Cùng chia sẻ Best Practises</SlideUp>
             </a>
             <a

@@ -1,4 +1,5 @@
 import { SlideUp } from '@src/components/animation/SlideUp'
+import { getAuthToken } from '@src/stores/authHelpers'
 import { useNavigate } from 'react-router-dom'
 
 export function Explore() {
@@ -52,7 +53,7 @@ export function Explore() {
       <div className='flex'>
         <button
           onClick={() => navigate('/auth')}
-          className='bg-secondary text-white font-semibold rounded-2xl md:w-[500px] w-full mx-auto py-2 text-center text-base leading-tight'
+          className={`bg-secondary text-white font-semibold rounded-2xl md:w-[500px] w-full mx-auto py-2 text-center text-base leading-tight cursor-pointer ${getAuthToken() ? 'hidden' : ''}`}
         >
           TẠO TÀI KHOẢN ĐỂ ĐƯỢC MỞ KHÓA TÍNH NĂNG
         </button>

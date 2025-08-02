@@ -1,5 +1,6 @@
 import { Box, Typography, Button } from '@mui/material'
 import InputBase from '../../../../components/input/InputBase'
+import { getAuthToken } from '@src/stores/authHelpers'
 
 export default function AdviceOnline() {
   return (
@@ -39,7 +40,9 @@ export default function AdviceOnline() {
       </section>
 
       {/* <!-- Right side --> */}
-      <section className='flex-1 bg-primary rounded-3xl p-3 mx-auto md:mx-0 flex flex-col '>
+      <section
+        className={`flex-1 bg-primary rounded-3xl p-3 mx-auto md:mx-0 flex flex-col ${getAuthToken() ? 'hidden' : ''}`}
+      >
         <div>
           <h2 className='font-semibold text-3xl mb-6 text-black leading-6 text-center '>
             Tham gia ngay để biết <br />

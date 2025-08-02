@@ -9,6 +9,7 @@ import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { callingAPI } from '@src/configs/axios/api'
 import { REQUEST_TYPE } from '../apis/const'
+import { OrderExpert } from './OrderExpert'
 
 export interface ExpertDetailReq {
   expert_id: string
@@ -41,6 +42,9 @@ const ExpertDetail = () => {
         <HeaderExpertDetail expert={expert} />
         <CvExpert expert={expert} />
         {/* <FormBooking /> */}
+        <div className='mt-10' id='form-booking-expert'>
+          <OrderExpert />
+        </div>
       </Box>
     </>
   )

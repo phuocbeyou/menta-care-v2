@@ -1,5 +1,4 @@
 import { Box } from '@mui/material'
-import { useNavigate } from 'react-router-dom'
 import { Expert } from '../expert/ListExpert'
 
 export interface HeaderExpertDetailProps {
@@ -7,17 +6,32 @@ export interface HeaderExpertDetailProps {
 }
 
 export function HeaderExpertDetail({ expert }: HeaderExpertDetailProps) {
-  const navigate = useNavigate()
+  const scrollToFormBooking = () => {
+    const formBooking = document.getElementById('form-booking-expert')
+    if (formBooking) {
+      const elementTop = formBooking.offsetTop
+      const offsetPosition = elementTop - 200
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      })
+    }
+  }
   return (
     <main className='flex flex-col md:flex-row gap-6 md:gap-12 mt-6'>
       {/* <!-- Left side --> */}
       <section className='md:w-1/2 flex flex-col items-center'>
         <Box
           component='img'
-          src='/assets/images/cv/cv-avt-tmp.jpg'
+          src={expert?.avatar_url}
           alt='Arrow'
           height={170}
+          width={170}
           sx={{ borderRadius: '100%', objectFit: 'cover' }}
+          onError={(e) => {
+            e.currentTarget.src = '/assets/images/cv/cv-avt-tmp.jpg'
+          }}
         />
 
         <h1 className='mt-4 text-secondary text-2xl font-semibold text-center'>{expert?.name}</h1>
@@ -42,9 +56,9 @@ export function HeaderExpertDetail({ expert }: HeaderExpertDetailProps) {
           </a>
         </div>
         <button
-          onClick={() => navigate('/order-expert')}
-          className='mt-8 bg-secondary hover:bg-green-700 text-white font-semibold text-2xl rounded-md px-6 py-2 w-full max-w-md'
+          className='mt-8 bg-secondary hover:bg-green-700 text-white font-semibold cursor-pointer text-2xl rounded-md px-6 py-2 w-full max-w-md'
           type='button'
+          onClick={scrollToFormBooking}
         >
           Đặt lịch ngay
         </button>

@@ -54,7 +54,7 @@ export function extractYouTubeVideoId(url: string): string | null {
  * Generate YouTube thumbnail URL from video ID
  */
 export function getYouTubeThumbnailUrl(videoId: string, options: YouTubeThumbnailOptions = {}): string {
-  const { quality = 'high', fallback = true } = options
+  const { quality = 'high' } = options
 
   if (!videoId || typeof videoId !== 'string') {
     throw new Error('Invalid video ID provided')

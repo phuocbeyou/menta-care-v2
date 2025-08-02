@@ -7,53 +7,17 @@ import { callingAPI } from '@src/configs/axios/api'
 import { REQUEST_TYPE } from '@src/modules/chatting/api/const'
 import { useNavigate } from 'react-router-dom'
 
-const categories = [
-  {
-    title: 'Tư vấn doanh nghiệp',
-    color: 1,
-    url: '#'
-  },
-  {
-    title: 'Life Coaching.',
-    color: 0,
-    url: '#'
-  },
-  {
-    title: 'Well-Being',
-    color: 1,
-    url: '#'
-  },
-  {
-    title: 'Hướng nghiệp',
-    color: 0,
-    url: '#'
-  },
-  {
-    title: 'Đào tạo kỹ năng',
-    color: 1,
-    url: '#'
-  },
-  {
-    title: 'Cố vấn chiến lược',
-    color: 0,
-    url: '#'
-  }
-]
-
 export default function CategoriesExpert() {
   const [expertType, setExpertType] = useState<ExpertTypeRes['expert_types']>([])
-  const [isLoadingTypes, setIsLoadingTypes] = useState(true)
   const navigate = useNavigate()
   useEffect(() => {
     const fetchExpertType = async () => {
       try {
-        setIsLoadingTypes(true)
         const response = await callingAPI<ExpertTypeRes, object>(REQUEST_TYPE.get_expert_types, {})
         setExpertType(response.expert_types)
       } catch (error) {
         console.error('Error fetching expert types:', error)
       } finally {
-        setIsLoadingTypes(false)
       }
     }
     fetchExpertType()

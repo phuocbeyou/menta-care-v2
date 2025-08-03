@@ -1,5 +1,206 @@
 import { Expert } from '../components/ListExpert'
 
+interface AudioItem {
+  title: string
+  time: string
+  image: string
+  isPlaying: boolean
+  divRef: null
+  uri: string
+}
+
+export interface Document {
+  id: string
+  title: string
+  description: string
+  downloadUrl: string
+}
+
+export const MOCK_MUSIC_DATA: AudioItem[] = [
+  {
+    title: 'Nhạc thiền thư giãn',
+    time: '12 phút',
+    image: '/assets/images/well-being/music.png',
+    isPlaying: false,
+    divRef: null,
+    uri: 'https://www.youtube.com/watch?v=x-hZGvMCe1g'
+  },
+  {
+    title: 'Âm thanh thiên nhiên',
+    time: '25 phút',
+    image: '/assets/images/well-being/music-moon.png',
+    isPlaying: false,
+    divRef: null,
+    uri: 'https://www.youtube.com/watch?v=lFcSrYw-ARY'
+  },
+  {
+    title: 'Nhạc piano êm dịu',
+    time: '18 phút',
+    image: '/assets/images/components/ai.png',
+    isPlaying: false,
+    divRef: null,
+    uri: 'https://www.youtube.com/watch?v=jfKfPfyJRdk'
+  },
+  {
+    title: 'Nhạc piano êm dịu',
+    time: '18 phút',
+    image: '/assets/images/components/ai.png',
+    isPlaying: false,
+    divRef: null,
+    uri: 'https://www.youtube.com/watch?v=jfKfPfyJRdk'
+  }
+]
+
+export const MOCK_PODCAST_DATA: AudioItem[] = [
+  {
+    title: 'Tâm lý học tích cực',
+    time: '35 phút',
+    image: '/assets/images/avatar/avatar-1.webp',
+    isPlaying: false,
+    divRef: null,
+    uri: 'https://www.youtube.com/watch?v=fLJBzhcSWTk'
+  },
+  {
+    title: 'Quản lý stress hiệu quả',
+    time: '28 phút',
+    image: '/assets/images/avatar/avatar-2.webp',
+    isPlaying: false,
+    divRef: null,
+    uri: 'https://www.youtube.com/watch?v=3nwwKbM_vJc'
+  },
+  {
+    title: 'Phát triển bản thân',
+    time: '42 phút',
+    image: '/assets/images/avatar/avatar-3.webp',
+    isPlaying: false,
+    divRef: null,
+    uri: 'https://www.youtube.com/watch?v=0hcczAtHDV4'
+  }
+]
+
+export const MOCK_YOGA_DATA: AudioItem[] = [
+  {
+    title: 'Yoga buổi sáng',
+    time: '15 phút',
+    image: '/assets/images/components/leaf-tree.svg',
+    isPlaying: false,
+    divRef: null,
+    uri: 'https://www.youtube.com/watch?v=v7AYKMP6rOE'
+  },
+  {
+    title: 'Yoga thư giãn tối',
+    time: '20 phút',
+    image: '/assets/images/well-being/music.png',
+    isPlaying: false,
+    divRef: null,
+    uri: 'https://www.youtube.com/watch?v=sTANio_2E0Q'
+  },
+  {
+    title: 'Yoga giãn cơ',
+    time: '30 phút',
+    image: '/assets/images/well-being/music-moon.png',
+    isPlaying: false,
+    divRef: null,
+    uri: 'https://www.youtube.com/watch?v=g_tea8ZNk5A'
+  }
+]
+
+export const MOCK_STORY_DATA: AudioItem[] = [
+  {
+    title: 'Chuyện cổ tích Việt Nam',
+    time: '22 phút',
+    image: '/assets/images/avatar/avatar-4.webp',
+    isPlaying: false,
+    divRef: null,
+    uri: 'https://www.youtube.com/watch?v=mPZkdNFkNps'
+  },
+  {
+    title: 'Truyện ngủ ngon cho người lớn',
+    time: '45 phút',
+    image: '/assets/images/avatar/avatar-5.webp',
+    isPlaying: false,
+    divRef: null,
+    uri: 'https://www.youtube.com/watch?v=1ZYbU82GVz4'
+  },
+  {
+    title: 'Câu chuyện thư giãn',
+    time: '33 phút',
+    image: '/assets/images/components/ai-box.png',
+    isPlaying: false,
+    divRef: null,
+    uri: 'https://www.youtube.com/watch?v=aEInLk7wLFg'
+  }
+]
+
+export const MOCK_DOCUMENTS: Document[] = [
+  {
+    id: '1',
+    title: 'Ebook Tổng Quan Phát Triển Bộ Não',
+    description:
+      'Cẩm nang toàn diện về phát triển nhận thức và kỹ năng tư duy cho mọi lứa tuổi. Khám phá những bí mật của bộ não và cách tối ưu hóa khả năng học tập.',
+    downloadUrl: '/documents/ebook-phat-trien-bo-nao.pdf'
+  },
+  {
+    id: '2',
+    title: 'Hướng Dẫn Quản Lý Cảm Xúc',
+    description:
+      'Học cách nhận biết, hiểu và điều chỉnh cảm xúc một cách hiệu quả. Bao gồm các kỹ thuật thực hành và bài tập cụ thể.',
+    downloadUrl: '/documents/quan-ly-cam-xuc.pdf'
+  },
+  {
+    id: '3',
+    title: 'Kỹ Thuật Thư Giãn và Thiền',
+    description:
+      'Tập hợp các phương pháp thư giãn, thiền định và giảm stress được chứng minh khoa học. Phù hợp cho người mới bắt đầu.',
+    downloadUrl: '/documents/ky-thuat-thu-gian.pdf'
+  },
+  {
+    id: '4',
+    title: 'Tự Tin Giao Tiếp Trong Công Việc',
+    description:
+      'Nâng cao kỹ năng giao tiếp, thuyết trình và tương tác hiệu quả trong môi trường làm việc. Bao gồm các tình huống thực tế.',
+    downloadUrl: '/documents/tu-tin-giao-tiep.pdf'
+  },
+  {
+    id: '5',
+    title: 'Phương Pháp Học Tập Hiệu Quả',
+    description:
+      'Khám phá các chiến lược học tập được khoa học chứng minh. Tối ưu hóa trí nhớ và khả năng tiếp thu kiến thức mới.',
+    downloadUrl: '/documents/phuong-phap-hoc-tap.pdf'
+  },
+  {
+    id: '6',
+    title: 'Quản Lý Thời Gian và Năng Suất',
+    description: 'Hướng dẫn chi tiết về cách sắp xếp thời gian, đặt ưu tiên và tăng năng suất làm việc hàng ngày.',
+    downloadUrl: '/documents/quan-ly-thoi-gian.pdf'
+  },
+  {
+    id: '7',
+    title: 'Xây Dựng Thói Quen Tích Cực',
+    description: 'Cách tạo lập và duy trì những thói quen tốt, loại bỏ thói quen xấu một cách bền vững và hiệu quả.',
+    downloadUrl: '/documents/xay-dung-thoi-quen.pdf'
+  },
+  {
+    id: '8',
+    title: 'Kỹ Năng Lãnh Đạo Cơ Bản',
+    description: 'Phát triển khả năng lãnh đạo và quản lý nhóm. Học cách truyền cảm hứng và dẫn dắt team hiệu quả.',
+    downloadUrl: '/documents/ky-nang-lanh-dao.pdf'
+  },
+  {
+    id: '9',
+    title: 'Chăm Sóc Sức Khỏe Tinh Thần',
+    description: 'Hướng dẫn toàn diện về cách duy trì và cải thiện sức khỏe tinh thần trong cuộc sống hiện đại.',
+    downloadUrl: '/documents/cham-soc-suc-khoe-tinh-than.pdf'
+  },
+  {
+    id: '10',
+    title: 'Tư Duy Sáng Tạo và Giải Quyết Vấn Đề',
+    description:
+      'Phát triển khả năng tư duy sáng tạo và tìm ra giải pháp cho các vấn đề phức tạp trong công việc và cuộc sống.',
+    downloadUrl: '/documents/tu-duy-sang-tao.pdf'
+  }
+]
+
 export const MOCK_EXPERTS: Expert[] = [
   {
     expert_id: '1',

@@ -3,7 +3,14 @@ import { callingAPI } from '@src/configs/axios/api'
 import { useState, useEffect, useRef } from 'react'
 import { REQUEST_TYPE } from './api/const'
 import { ResultAnalyze } from './ResultAnalyze'
-import { MOCK_EXPERTS } from './mock/const'
+import {
+  MOCK_EXPERTS,
+  MOCK_MUSIC_DATA,
+  MOCK_PODCAST_DATA,
+  MOCK_YOGA_DATA,
+  MOCK_STORY_DATA,
+  MOCK_DOCUMENTS
+} from './mock/const'
 
 interface Message {
   id: number
@@ -271,7 +278,16 @@ export const Chatting = () => {
         Kết quả phân tích
       </Button>
 
-      {showResultAnalyze && <ResultAnalyze experts={MOCK_EXPERTS} />}
+      {showResultAnalyze && (
+        <ResultAnalyze
+          experts={MOCK_EXPERTS}
+          musicData={MOCK_MUSIC_DATA}
+          podcastData={MOCK_PODCAST_DATA}
+          yogaData={MOCK_YOGA_DATA}
+          storyData={MOCK_STORY_DATA}
+          documents={MOCK_DOCUMENTS}
+        />
+      )}
     </Box>
   )
 }

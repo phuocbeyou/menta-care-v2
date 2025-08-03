@@ -43,7 +43,7 @@ const ExpertDetail = () => {
         <CvExpert expert={expert} />
         {/* <FormBooking /> */}
         <div className='mt-10' id='form-booking-expert'>
-          <OrderExpert />
+          <OrderExpert expert={expert} />
         </div>
       </Box>
     </>

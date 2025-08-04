@@ -16,6 +16,7 @@ import { useRouter, usePathname } from '@routes/hooks'
 
 import { _myAccount } from '@mock'
 import { useAuthStore, User } from '@src/stores'
+import { getAuthToken, parseJWTPayload } from '@src/stores/authHelpers'
 
 // ----------------------------------------------------------------------
 
@@ -52,6 +53,8 @@ export function AccountPopover({ data = [], sx, user, ...other }: AccountPopover
     [handleClosePopover, router]
   )
 
+  const userData = parseJWTPayload(getAuthToken() || '')
+
   return (
     <>
       <IconButton
@@ -66,7 +69,7 @@ export function AccountPopover({ data = [], sx, user, ...other }: AccountPopover
         }}
         {...other}
       >
-        <Avatar src={_myAccount.photoURL} alt={_myAccount.displayName} sx={{ width: 1, height: 1 }}>
+        <Avatar src={userData?.avatar_url || _myAccount.photoURL} alt={_myAccount.displayName} sx={{ width: 1, height: 1 }}>
           {_myAccount.displayName.charAt(0).toUpperCase()}
         </Avatar>
       </IconButton>
@@ -85,11 +88,11 @@ export function AccountPopover({ data = [], sx, user, ...other }: AccountPopover
       >
         <Box sx={{ p: 2, pb: 1.5 }}>
           <Typography variant='subtitle2' noWrap>
-            {_myAccount?.displayName}
+            {userData?.name || _myAccount?.displayName}
           </Typography>
 
           <Typography variant='body2' sx={{ color: 'text.secondary' }} noWrap>
-            {_myAccount?.email}
+            {userData?.email || _myAccount?.email}
           </Typography>
         </Box>
 

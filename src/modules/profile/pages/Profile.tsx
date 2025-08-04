@@ -12,11 +12,14 @@ import DiaryManagement from '../components/diary/DiaryManagement'
 import ComingSoon from '../components/resources/ComingSoon'
 import PersonalInfo from '../components/profile/PersonalInfo'
 import ChangePassword from '../components/password/ChangePassword'
+import ExpertProfile from '../components/expert/ExpertProfile'
+import AddAvailableSlots from '../components/expert/AddAvailableSlots'
+import AppointmentManagement from '../components/expert/AppointmentManagement'
 import { Box } from '@mui/material'
 import dayjs from 'dayjs'
 import { REQUEST_TYPE } from '@src/modules/home/apis/const'
 import { callingAPI } from '@src/configs/axios/api'
-import { getAuthToken } from '@src/stores/authHelpers'
+import { getAuthToken, parseJWTPayload } from '@src/stores/authHelpers'
 
 // Custom LinearProgress với custom color
 // const CustomLinearProgress = styled(LinearProgress, {
@@ -65,6 +68,9 @@ type ViewType =
   | 'yoga'
   | 'management'
   | 'podcast'
+  | 'expertProfile'
+  | 'addSlots'
+  | 'appointmentManagement'
 
 export default function Profile() {
   const modalRef = useRef<MoodModalRef>(null)
@@ -107,29 +113,37 @@ export default function Profile() {
         return <ManagementLibrary />
       case 'podcast':
         return <PodcastLibrary />
+      case 'expertProfile':
+        return <ExpertProfile />
+      case 'addSlots':
+        return <AddAvailableSlots />
+      case 'appointmentManagement':
+        return <AppointmentManagement />
       default:
         return <EmotionDashboard emotionDiaries={emotionDiaries} />
     }
   }
 
+  const isExpert = parseJWTPayload(getAuthToken() || '')?.role === 'expert'
+
   useEffect(() => {
     const checkAndOpenModal = async () => {
       try {
         const response = await fetching()
-        // Check if any diary entry was created today
+    
         const today = dayjs().startOf('day')
         const hasEntryToday = response.emotion_diaries.some((diary) => {
           const entryDate = dayjs.unix(Number(diary.created_time)).startOf('day')
           return entryDate.isSame(today)
         })
 
-        // Only open modal if no entry was created today
+     
         if (!hasEntryToday) {
           modalRef.current?.open()
         }
       } catch (error) {
         console.error('Error fetching emotion diaries:', error)
-        // Open modal on error as fallback
+   
         modalRef.current?.open()
       }
     }
@@ -145,7 +159,7 @@ export default function Profile() {
         <title> {`Profile - ${CONFIG.appName}`}</title>
       </Helmet>
       <div className='flex w-full flex-col sm:flex-row bg-white'>
-        <div className='flex flex-col gap-4 w-35 sm:border-r border-gray-200 p-4'>
+        <div className='flex flex-col gap-4 w-35 sm:border-r border-gray-200 p-4 max-h-screen overflow-y-auto'>
           <div>
             <div className='text-xl font-semibold'>Thông tin</div>
             <div className='mt-2 gap-2 flex flex-col'>
@@ -173,14 +187,6 @@ export default function Profile() {
               >
                 Quản lý đặt lịch
               </div>
-              {/* <div
-                className={`flex items-center gap-1 cursor-pointer hover:bg-gray-100 rounded-md p-2 transition-colors ${
-                  currentView === 'resources' ? 'bg-blue-50 border-l-4 border-blue-500' : ''
-                }`}
-                onClick={() => handleMenuClick('resources')}
-              >
-                Tài nguyên quản trị
-              </div> */}
               <div
                 className={`flex items-center gap-1 cursor-pointer hover:bg-gray-100 rounded-md p-2 transition-colors ${
                   currentView === 'profile' ? 'bg-gray-100 border-l-4 border-primary' : ''
@@ -199,6 +205,35 @@ export default function Profile() {
               </div>
             </div>
           </div>
+          {isExpert && <div>
+            <div className='text-xl font-semibold'>Chuyên gia</div>
+            <div className='mt-2 gap-2 flex flex-col'>
+              <div
+                className={`flex items-center gap-1 cursor-pointer hover:bg-gray-100 rounded-md p-2 transition-colors ${
+                  currentView === 'expertProfile' ? 'bg-gray-100 border-l-4 border-primary' : ''
+                }`}
+                onClick={() => handleMenuClick('expertProfile')}
+              >
+                Hồ sơ
+              </div>
+              <div
+                className={`flex items-center gap-1 cursor-pointer hover:bg-gray-100 rounded-md p-2 transition-colors ${
+                  currentView === 'addSlots' ? 'bg-gray-100 border-l-4 border-primary' : ''
+                }`}
+                onClick={() => handleMenuClick('addSlots')}
+              >
+                Thêm lịch trống
+              </div>
+              <div
+                className={`flex items-center gap-1 cursor-pointer hover:bg-gray-100 rounded-md p-2 transition-colors ${
+                  currentView === 'appointmentManagement' ? 'bg-gray-100 border-l-4 border-primary' : ''
+                }`}
+                onClick={() => handleMenuClick('appointmentManagement')}
+              >
+                Quản lý lịch hẹn
+              </div>
+            </div>
+          </div>}
           <div>
             <div className='text-xl font-semibold'>Thư viện của tôi</div>
             <div className='mt-2 gap-2 flex flex-col'>

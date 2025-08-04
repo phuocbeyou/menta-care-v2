@@ -5,9 +5,10 @@ import { useNavigate } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { useState } from 'react'
 import { InputPassword } from '@src/components/input'
-import { Dialog } from '@src/components/error-dialog'
+import { Dialog as ErrorDialog } from '@src/components/error-dialog'
 import { REQUEST_TYPE } from '../apis/const'
 import { callingAPI } from '@src/configs/axios/api'
+import PasscodeVerificationModal from '../components/PasscodeVerificationModal'
 
 interface SignUpReq {
   name: string
@@ -20,6 +21,8 @@ interface SignUpRes {
   user_id: string
 }
 
+
+
 export default function SignUpPage() {
   const navigate = useNavigate()
   const [name, setName] = useState('')
@@ -28,6 +31,10 @@ export default function SignUpPage() {
   const [confirmPassword, setConfirmPassword] = useState('')
   const [isAcceptTerms, setIsAcceptTerms] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
+  
+  // Passcode modal states
+  const [showPasscodeModal, setShowPasscodeModal] = useState(false)
+  const [userId, setUserId] = useState('')
 
   const submit = async () => {
     try {
@@ -39,13 +46,13 @@ export default function SignUpPage() {
       })
 
       if (response.message) {
-        Dialog.success(response.message)
-        // Optional: navigate to login or dashboard after successful registration
-        // navigate('/auth/signin')
+        setUserId(response.user_id)
+        setShowPasscodeModal(true)
+        ErrorDialog.success('Đăng ký thành công! Vui lòng nhập mã xác thực từ email/SMS.')
       }
     } catch (error) {
       console.log(error)
-      Dialog.error('Có lỗi xảy ra, vui lòng thử lại')
+      ErrorDialog.error('Có lỗi xảy ra, vui lòng thử lại')
     } finally {
       setIsLoading(false)
     }
@@ -57,49 +64,63 @@ export default function SignUpPage() {
     return emailRegex.test(email)
   }
 
+  // Handle successful verification
+  const handleVerificationSuccess = () => {
+    setShowPasscodeModal(false)
+    ErrorDialog.success('Xác thực thành công! Chuyển hướng đến trang đăng nhập...')
+    setTimeout(() => {
+      navigate('/auth')
+    }, 2000)
+  }
+
+  // Handle modal close
+  const handleModalClose = () => {
+    setShowPasscodeModal(false)
+  }
+
   const handleSignUp = async () => {
     // Check terms acceptance
     if (!isAcceptTerms) {
-      Dialog.error('Vui lòng đọc và xác nhận cam kết bảo mật')
+      ErrorDialog.error('Vui lòng đọc và xác nhận cam kết bảo mật')
       return
     }
 
     // Check name
     if (!name.trim()) {
-      Dialog.error('Vui lòng nhập tên đầy đủ')
+      ErrorDialog.error('Vui lòng nhập tên đầy đủ')
       return
     }
 
     // Check email
     if (!email.trim()) {
-      Dialog.error('Vui lòng nhập email')
+      ErrorDialog.error('Vui lòng nhập email')
       return
     }
 
     if (!isValidEmail(email)) {
-      Dialog.error('Email không đúng định dạng')
+      ErrorDialog.error('Email không đúng định dạng')
       return
     }
 
     // Check password
     if (!password) {
-      Dialog.error('Vui lòng nhập mật khẩu')
+      ErrorDialog.error('Vui lòng nhập mật khẩu')
       return
     }
 
     if (password.length < 6) {
-      Dialog.error('Mật khẩu phải có ít nhất 6 ký tự')
+      ErrorDialog.error('Mật khẩu phải có ít nhất 6 ký tự')
       return
     }
 
     // Check confirm password
     if (!confirmPassword) {
-      Dialog.error('Vui lòng nhập xác nhận mật khẩu')
+      ErrorDialog.error('Vui lòng nhập xác nhận mật khẩu')
       return
     }
 
     if (password !== confirmPassword) {
-      Dialog.error('Mật khẩu và xác nhận mật khẩu không khớp')
+      ErrorDialog.error('Mật khẩu và xác nhận mật khẩu không khớp')
       return
     }
 
@@ -292,6 +313,15 @@ export default function SignUpPage() {
           </div>
         </div>
       </Box>
+
+      {/* Passcode Verification Modal */}
+      <PasscodeVerificationModal
+        open={showPasscodeModal}
+        onClose={handleModalClose}
+        onSuccess={handleVerificationSuccess}
+        userId={userId}
+        email={email}
+      />
     </>
   )
 }

@@ -36,15 +36,15 @@ export default function Home() {
           <NavigateBox
             onClick={() => navigate('/expert')}
             className='w-full md:w-[30%]'
-            title='Ghép nối chuyên gia được hỗ trợ bởi AI'
-            icon='/assets/images/components/chip-ai.png'
-          />{' '}
-          <NavigateBox
-            onClick={() => {}}
-            className='w-full md:w-[30%]'
             title='Các chuyên gia hàng đầu trong từng lĩnh vực'
             icon='/assets/images/components/cer.png'
           />
+          <NavigateBox
+            onClick={() => navigate('/expert')}
+            className='w-full md:w-[30%]'
+            title='Ghép nối chuyên gia được hỗ trợ bởi AI'
+            icon='/assets/images/components/chip-ai.png'
+          />{' '}
         </Box>
 
         <PhoneBanner />

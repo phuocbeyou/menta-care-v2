@@ -21,8 +21,6 @@ interface SignUpRes {
   user_id: string
 }
 
-
-
 export default function SignUpPage() {
   const navigate = useNavigate()
   const [name, setName] = useState('')
@@ -31,7 +29,7 @@ export default function SignUpPage() {
   const [confirmPassword, setConfirmPassword] = useState('')
   const [isAcceptTerms, setIsAcceptTerms] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
-  
+
   // Passcode modal states
   const [showPasscodeModal, setShowPasscodeModal] = useState(false)
   const [userId, setUserId] = useState('')
@@ -277,7 +275,7 @@ export default function SignUpPage() {
             </Button>
             <div className='flex gap-3 mb-4'>
               <Box component='img' src='/assets/images/logo/fb.svg' alt='facebook' sx={{ width: 36, height: 36 }} />
-              <Box component='img' src='/assets/images/logo/print.svg' alt='print' sx={{ width: 36, height: 36 }} />
+              <Box component='img' src='/assets/images/logo/gg.png' alt='print' sx={{ width: 36, height: 36 }} />
               <Box
                 component='img'
                 src='/assets/images/logo/zalo.png'

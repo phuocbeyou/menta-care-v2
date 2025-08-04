@@ -14,7 +14,9 @@ export default function WellBeing() {
       <Box className='mx-auto px-3 py-6 flex flex-col bg-white'>
         <HeaderWellBeing />
         <CategoriesWellBeing />
-        <AdviceOnline />
+        <div className='mt-10 flex flex-col items-center'>
+          <AdviceOnline />
+        </div>
       </Box>
     </>
   )

@@ -137,9 +137,12 @@ export default function Page() {
               ĐĂNG NHẬP
             </Button>
             <div className='text-center text-secondary text-xl mt-4'> Đăng nhập khác</div>
+            <div className='flex justify-center items-center gap-2 mt-1'>
+              <div className='text-lg hover:underline cursor-pointer'>Đăng ký</div>
+            </div>
             <div className='flex gap-3 mb-6 justify-center items-center mt-4'>
               <Box component='img' src='/assets/images/logo/fb.svg' alt='facebook' sx={{ width: 36, height: 36 }} />
-              <Box component='img' src='/assets/images/logo/print.svg' alt='print' sx={{ width: 36, height: 36 }} />
+              <Box component='img' src='/assets/images/logo/gg.png' alt='print' sx={{ width: 36, height: 36 }} />
               <Box
                 component='img'
                 src='/assets/images/logo/zalo.png'

@@ -11,7 +11,7 @@ export const ItemBlog = ({ data }: BlogItemProps) => {
   const navigate = useNavigate()
   return (
     <article
-      className='bg-white rounded-md shadow-md overflow-hidden cursor-pointer hover:shadow-lg transition-all duration-300'
+      className='bg-white rounded-md shadow-md overflow-hidden cursor-pointer hover:shadow-lg transition-all duration-300 flex flex-col h-full'
       onClick={() => {
         navigate(`/blog/${data?.id}`)
       }}
@@ -19,7 +19,7 @@ export const ItemBlog = ({ data }: BlogItemProps) => {
       <div className='relative'>
         <img
           alt='People working with laptops and notebooks on wooden table, top view'
-          className='w-full h-40 object-cover'
+          className='w-full h-40 object-fill'
           src={data?.thumbnail_uri || '/assets/images/blog/avt-blog.png'}
           onError={(e) => (e.currentTarget.src = '/assets/images/blog/avt-blog.png')}
         />
@@ -38,7 +38,7 @@ export const ItemBlog = ({ data }: BlogItemProps) => {
         </div>
       </div>
       <div className='pt-5 px-5 pb-2 flex flex-col flex-1'>
-        <div>
+        <div className='flex-1'>
           <h3 className='font-semibold text-md leading-snug mb-2'>{data?.title}</h3>
           <p className='text-gray-500 text-sm leading-relaxed mb-1 line-clamp-3'>{data?.short_description}</p>
         </div>

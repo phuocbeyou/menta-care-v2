@@ -1,6 +1,3 @@
-// HorizontalScrollItems.tsx
-'use client'
-
 import { Box } from '@mui/material'
 import { ReactNode } from 'react'
 
@@ -32,20 +29,19 @@ export default function HorizontalScrollItems({
     }
   }
   return (
-    <Box
-      className={`w-full overflow-hidden py-8 ${className}`}
-      sx={{
-        '&:hover .scroll-content': {
-          animationPlayState: 'paused'
-        }
-      }}
-    >
+    <Box className={`w-full overflow-hidden py-8 ${className}`}>
       <div
         className='scroll-content flex'
         style={{
           animation: `scroll ${getSpeedDuration()}s linear infinite`,
           width: 'max-content',
           gap: `${gap * 0.25}rem`
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.animationPlayState = 'paused'
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.animationPlayState = 'running'
         }}
       >
         {/* Duplicate children for seamless loop */}

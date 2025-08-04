@@ -6,7 +6,7 @@ export function About() {
       <h3 className='text-center text-2xl mt-2 leading-tight'>
         <span className='font-semibold'>Nơi Chia Sẻ – Kết Nối</span>
       </h3>
-      <p className='text-center text-2xl mt-1 leading-tight max-w-2xl mx-auto'>
+      <p className='text-center text-2xl mt-1 leading-tight max-w-2xl mx-auto underline'>
         Giải pháp AI tiên phong kết nối &amp; phát triển cộng đồng HR
       </p>
 

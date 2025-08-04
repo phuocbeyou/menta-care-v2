@@ -12,13 +12,8 @@ import {
   getYouTubeVideoDuration
 } from '@src/shared/utils/youtube-thumbnail'
 
-const categories = [
-  { id: 'music' as const, label: 'Âm nhạc' },
-  { id: 'podcast' as const, label: 'Podcast' },
-  { id: 'diary' as const, label: 'Viết nhật ký cảm xúc' },
-  { id: 'yoga' as const, label: 'Yoga động tác thư giãn' },
-  { id: 'story' as const, label: 'Truyện ngủ ngon' }
-]
+// Fixed diary category
+const DIARY_CATEGORY = { id: 'diary' as const, label: 'Viết nhật ký cảm xúc' }
 
 interface AudioContentRes {
   items: {
@@ -32,9 +27,27 @@ interface AudioContentRes {
 }
 
 interface AudioContentReq {
-  content_type: string
+  content_type_id: string
   pagging: number
   amount: number
+}
+
+interface AudioContentTypesRes {
+  items: {
+    content_type_id: string
+    created_at: string
+    name: string
+  }[]
+}
+
+interface AudioContentTypesReq {
+  jwt_token: string
+  request_type: string
+}
+
+interface Category {
+  id: string
+  label: string
 }
 
 interface MappedAudioItem {
@@ -49,7 +62,9 @@ interface MappedAudioItem {
 const FALLBACK_IMAGE = 'https://storage.googleapis.com/a1aa/image/b5e67944-41ac-48ed-6c51-1512f815f13c.jpg'
 
 export function CategoriesWellBeing() {
-  const [selected, setSelected] = useState<'music' | 'podcast' | 'diary' | 'yoga' | 'story'>('music')
+  const [selected, setSelected] = useState<string>('diary') // Default to diary
+  const [categories, setCategories] = useState<Category[]>([DIARY_CATEGORY])
+  const [isLoadingCategories, setIsLoadingCategories] = useState(false)
   const [list, setList] = useState<MappedAudioItem[]>([])
   const [isLoading, setIsLoading] = useState(false)
   const swiperRef = useRef<any>(null)
@@ -84,12 +99,51 @@ export function CategoriesWellBeing() {
     return thumbnailUri || FALLBACK_IMAGE
   }
 
+  // Fetch categories from API on component mount
   useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        setIsLoadingCategories(true)
+        const response = await callingAPI<AudioContentTypesRes, AudioContentTypesReq>(
+          REQUEST_TYPE.get_audio_content_types,
+          {
+            jwt_token: '', // Will be handled by callingAPI
+            request_type: 'get_audio_content_types'
+          }
+        )
+
+        // Map API categories and combine with diary
+        const apiCategories: Category[] = (response.items || []).map((item) => ({
+          id: item.content_type_id,
+          label: item.name
+        }))
+
+        // Combine diary with API categories
+        setCategories([DIARY_CATEGORY, ...apiCategories])
+      } catch (error) {
+        console.error('Error fetching categories:', error)
+        // Keep only diary category if API fails
+        setCategories([DIARY_CATEGORY])
+      } finally {
+        setIsLoadingCategories(false)
+      }
+    }
+
+    fetchCategories()
+  }, [])
+
+  useEffect(() => {
+    // Skip API call for diary
+    if (selected === 'diary') {
+      setList([])
+      return
+    }
+
     const fetching = async () => {
       try {
         setIsLoading(true)
         const response = await callingAPI<AudioContentRes, AudioContentReq>(REQUEST_TYPE.get_audio_content, {
-          content_type: selected,
+          content_type_id: selected,
           pagging: 0,
           amount: 185200000
         })
@@ -169,21 +223,34 @@ export function CategoriesWellBeing() {
       <div className='flex flex-col sm:flex-row items-start sm:items-center justify-center gap-12'>
         {/* Left menu */}
         <nav className='flex flex-col gap-3 md:gap-5 w-full flex-2/3'>
-          {categories.map((category) => (
-            <div key={category.id} className='flex flex-col gap-3 md:gap-5'>
-              <hr
-                className={`border-t ${selected === category.id ? 'border-black border-[1.5px]' : 'border-gray-300'}`}
-              />
-              <div
-                className={`text-sm md:text-3xl uppercase tracking-wide leading-none cursor-pointer hover:underline ${
-                  selected === category.id ? 'text-black font-medium' : 'text-gray-400 font-light'
-                }`}
-                onClick={() => setSelected(category.id)}
-              >
-                {category.label}
-              </div>
-            </div>
-          ))}
+          {isLoadingCategories
+            ? Array.from({ length: 4 }).map((_, index) => (
+                <div key={index} className='flex flex-col gap-3 md:gap-5'>
+                  <hr className='border-t border-gray-300' />
+                  <Skeleton
+                    variant='text'
+                    width='60%'
+                    height={40}
+                    animation='pulse'
+                    sx={{ fontSize: { xs: '0.875rem', md: '1.875rem' } }}
+                  />
+                </div>
+              ))
+            : categories.map((category) => (
+                <div key={category.id} className='flex flex-col gap-3 md:gap-5'>
+                  <hr
+                    className={`border-t ${selected === category.id ? 'border-black border-[1.5px]' : 'border-gray-300'}`}
+                  />
+                  <div
+                    className={`text-sm md:text-3xl uppercase tracking-wide leading-none cursor-pointer hover:underline ${
+                      selected === category.id ? 'text-black font-medium' : 'text-gray-400 font-light'
+                    }`}
+                    onClick={() => setSelected(category.id)}
+                  >
+                    {category.label}
+                  </div>
+                </div>
+              ))}
         </nav>
 
         {/* Right content */}

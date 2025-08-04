@@ -1,5 +1,5 @@
 import { Box, Rating } from '@mui/material'
-import { Expert } from '../expert/ListExpert'
+import { ExperienceItem, Expert } from '../expert/ListExpert'
 
 const Line = () => {
   return (
@@ -11,12 +11,7 @@ const Line = () => {
 }
 
 interface ExperienceProps {
-  data: {
-    title: string
-    time: string
-    company: string
-    description: string
-  }[]
+  data: ExperienceItem[]
 }
 
 const Experience = ({ data }: ExperienceProps) => {
@@ -28,7 +23,7 @@ const Experience = ({ data }: ExperienceProps) => {
           <div className='relative' key={index}>
             <div className='absolute h-[14px] w-[14px] bg-gray-600 rounded-full -left-[24px] top-[5px]' />
             <h3 className='font-semibold text-gray-800'>{item.title}</h3>
-            <p className='italic text-gray-600 mb-1'>{item.company}</p>
+            <p className='italic text-gray-600 mb-1'>{item.organization}</p>
             <p className='text-sm text-gray-600 max-w-prose'>{item.description}</p>
           </div>
         ))}
@@ -135,9 +130,13 @@ export function CvExpert({ expert }: CvExpertProps) {
           <div>
             <h2 className='text-gray-700 font-semibold text-lg relative inline-block text-center w-full'>SKILLS</h2>
             <Line />
-            <ul className='text-center text-gray-600 space-y-3 text-base font-normal mt-2 !list-none'>
-              {expert?.skills.map((skill) => <li key={skill}>{skill}</li>)}
-            </ul>
+            <div className='text-center text-gray-600 space-y-3 text-base font-normal mt-2'>
+              {expert?.skills.map((skill) => (
+                <div key={skill} className='text-center'>
+                  {skill}
+                </div>
+              ))}
+            </div>
           </div>
         </section>
         {/* <!-- Right Panel --> */}
@@ -147,7 +146,7 @@ export function CvExpert({ expert }: CvExpertProps) {
             <h2 className='text-gray-700 font-semibold text-lg relative inline-block text-center w-full'>EXPERIENCE</h2>
             <Line />
 
-            <Experience data={ListExperience} />
+            <Experience data={expert?.experience || []} />
           </div>
           {/* <!-- CHỨNG CHỈ LIÊN QUAN --> */}
           <div>

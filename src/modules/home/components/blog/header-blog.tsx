@@ -137,22 +137,16 @@ export const HeaderBlog = () => {
       </div>
 
       <div className='py-6 px-4'>
-        <div className='grid grid-cols-2 sm:grid-cols-3 lg:flex lg:justify-center lg:gap-4 max-w-6xl mx-auto'>
+        <div className='flex flex-wrap justify-center gap-2 lg:gap-4 max-w-6xl mx-auto'>
           {isLoadingGroups
             ? // Loading skeleton cho categories
               Array.from({ length: 6 }).map((_, index) => (
-                <Skeleton
-                  key={index}
-                  variant='rectangular'
-                  width={140}
-                  height={32}
-                  sx={{ borderRadius: 20, margin: '4px' }}
-                />
+                <Skeleton key={index} variant='rectangular' width={140} height={36} sx={{ borderRadius: 20 }} />
               ))
             : categories.map((item) => (
                 <button
                   key={item.id}
-                  className={`text-green-900 border border-green-900 rounded-full px-4 py-1 text-sm lg:text-base whitespace-nowrap transition-all m-1  lg:m-0 duration-200 hover:bg-green-50 min-w-[120px] lg:min-w-[140px] ${
+                  className={`text-gray-700 border border-secondary rounded-full px-3 py-1 text-sm lg:text-base whitespace-nowrap transition-all cursor-pointer duration-200 hover:bg-green-50 ${
                     selectedCategory === item.id ? 'bg-secondary text-white hover:bg-secondary' : ''
                   }`}
                   onClick={() => {

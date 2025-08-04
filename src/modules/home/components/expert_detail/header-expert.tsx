@@ -76,9 +76,11 @@ export function HeaderExpertDetail({ expert }: HeaderExpertDetailProps) {
           {expert?.experience.map((item) => (
             <div className='flex flex-col gap-3 max-w-xl'>
               <div className='flex gap-6'>
-                <p className='font-semibold text-base min-w-[48px]'>{item.duration}</p>
+                <p className='font-semibold text-base min-w-[48px]'>
+                  {item.year_start} - {item.year_end}
+                </p>
                 <div>
-                  <p className='font-semibold text-base'>{item.position}</p>
+                  <p className='font-semibold text-base'>{item.title}</p>
                   <p className='text-gray-900 text-sm'>{item.organization}</p>
                 </div>
               </div>
@@ -98,10 +100,12 @@ export function HeaderExpertDetail({ expert }: HeaderExpertDetailProps) {
           {expert?.education.map((item) => (
             <div className='flex flex-col gap-3 max-w-xl'>
               <div className='flex gap-6'>
-                <p className='font-semibold text-base min-w-[48px]'>{item.year}</p>
+                <p className='font-semibold text-base min-w-[48px]'>
+                  {item.year_start} - {item.year_end}
+                </p>
                 <div>
-                  <p className='font-semibold text-base'>{item.institution}</p>
-                  <p className='text-gray-900 text-sm'>{item.degree}</p>
+                  <p className='font-semibold text-base'>{item.title}</p>
+                  <p className='text-gray-900 text-sm'>{item.address}</p>
                   {/* <p className='text-gray-900 text-sm'> (26 năm kinh nghiệm giảng dạy)</p> */}
                 </div>
               </div>

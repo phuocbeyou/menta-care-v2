@@ -14,7 +14,7 @@ export interface SoftwareGroupRes {
 }
 
 export interface SoftwareRes {
-  software: {
+  softwares: {
     created_at: string
     description: string
     id: string
@@ -31,7 +31,7 @@ export interface SoftwareReq {
 export function SoftwareCompany() {
   const [selectedMenu, setSelectedMenu] = useState<string>('')
   const [softwareGroups, setSoftwareGroups] = useState<SoftwareGroupRes['software_groups']>([])
-  const [software, setSoftware] = useState<SoftwareRes['software']>([])
+  const [software, setSoftware] = useState<SoftwareRes['softwares']>([])
   const [isLoadingGroups, setIsLoadingGroups] = useState(true)
   const [isLoadingSoftware, setIsLoadingSoftware] = useState(false)
 
@@ -62,7 +62,7 @@ export function SoftwareCompany() {
           const response = await callingAPI<SoftwareRes, SoftwareReq>(REQUEST_TYPE.get_softwares, {
             group_id: selectedMenu
           })
-          setSoftware(response.software)
+          setSoftware(response.softwares)
         } catch (error) {
           console.error('Error fetching software:', error)
           setSoftware([])
@@ -97,7 +97,7 @@ export function SoftwareCompany() {
             <button
               key={group.id}
               onClick={() => handleMenuClick(group.id)}
-              className={`rounded-3xl px-3 py-3 text-center text-xs sm:text-sm leading-relaxed font-normal max-w-[170px] whitespace-normal transition-all duration-200 ${
+              className={`rounded-3xl px-3 py-3 text-center text-xs sm:text-sm leading-relaxed font-normal transition-all duration-200 ${
                 selectedMenu === group.id
                   ? 'bg-secondary text-white'
                   : 'bg-white text-black border-2 border-secondary hover:bg-secondary hover:text-white'

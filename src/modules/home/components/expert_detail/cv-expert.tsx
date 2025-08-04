@@ -32,36 +32,36 @@ const Experience = ({ data }: ExperienceProps) => {
   )
 }
 
-const ListExperience = [
-  {
-    title: 'Product Design Manager',
-    time: '2016 - 2020',
-    company: 'Arowwai Industries',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet sem nec risus egestas accumsan. In enim nunc, tincidunt ut quam eget, luctus sollicitudin neque.'
-  },
-  {
-    title: 'Marketing Manager',
-    time: '2019 - 2020',
-    company: 'Arowwai Industries',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet sem nec risus egestas accumsan. In enim nunc, tincidunt ut quam eget, luctus sollicitudin neque.'
-  },
-  {
-    title: 'Marketing Manager',
-    time: '2017- 2019',
-    company: 'Arowwai Industries',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet sem nec risus egestas accumsan. In enim nunc, tincidunt ut quam eget, luctus sollicitudin neque.'
-  },
-  {
-    title: 'Marketing Manager',
-    time: '2016- 2017',
-    company: 'Arowwai Industries',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet sem nec risus egestas accumsan. In enim nunc, tincidunt ut quam eget, luctus sollicitudin neque.'
-  }
-]
+// const ListExperience = [
+//   {
+//     title: 'Product Design Manager',
+//     time: '2016 - 2020',
+//     company: 'Arowwai Industries',
+//     description:
+//       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet sem nec risus egestas accumsan. In enim nunc, tincidunt ut quam eget, luctus sollicitudin neque.'
+//   },
+//   {
+//     title: 'Marketing Manager',
+//     time: '2019 - 2020',
+//     company: 'Arowwai Industries',
+//     description:
+//       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet sem nec risus egestas accumsan. In enim nunc, tincidunt ut quam eget, luctus sollicitudin neque.'
+//   },
+//   {
+//     title: 'Marketing Manager',
+//     time: '2017- 2019',
+//     company: 'Arowwai Industries',
+//     description:
+//       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet sem nec risus egestas accumsan. In enim nunc, tincidunt ut quam eget, luctus sollicitudin neque.'
+//   },
+//   {
+//     title: 'Marketing Manager',
+//     time: '2016- 2017',
+//     company: 'Arowwai Industries',
+//     description:
+//       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet sem nec risus egestas accumsan. In enim nunc, tincidunt ut quam eget, luctus sollicitudin neque.'
+//   }
+// ]
 
 interface CvExpertProps {
   expert?: Expert

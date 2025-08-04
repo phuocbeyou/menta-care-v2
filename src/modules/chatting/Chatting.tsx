@@ -109,7 +109,7 @@ export const Chatting = () => {
 
   // Auto scroll when quick replies appear
   useEffect(() => {
-    if (availableOptions.length > 0) {
+    if (availableOptions?.length > 0) {
       setTimeout(() => {
         scrollToBottom()
       }, 100)
@@ -185,7 +185,7 @@ export const Chatting = () => {
               ref={messagesContainerRef}
               className='flex-1 space-y-3 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100'
             >
-              {messages.map((message) => (
+              {messages?.map((message) => (
                 <div key={message.id} className={`flex ${message.isBot ? 'justify-start' : 'justify-end'}`}>
                   <div className={`max-w-[320px] ${message.isBot ? 'w-full' : 'max-w-48'}`}>
                     <div
@@ -222,7 +222,7 @@ export const Chatting = () => {
               <div className='border-t border-gray-100 pt-3 pb-3 text-center'>
                 <p className='text-gray-500 text-xs mb-2'>Bạn có thể chọn một trong những câu trả lời sau:</p>
                 <div className='flex justify-center gap-2 flex-wrap'>
-                  {availableOptions.map((reply: string, index: number) => (
+                  {availableOptions?.map((reply: string, index: number) => (
                     <button
                       key={index}
                       className='bg-white text-gray-700 font-semibold text-xs rounded-full px-3 py-1 shadow-[0_2px_6px_rgb(0_0_0_/_0.1)] hover:shadow-[0_4px_8px_rgb(0_0_0_/_0.15)] transition-shadow disabled:opacity-50'

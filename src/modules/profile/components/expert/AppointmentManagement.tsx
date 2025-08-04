@@ -51,35 +51,43 @@ export default function AppointmentManagement() {
 
   const getStatusLabel = (status: string) => {
     switch (status) {
-      case 'pending': return 'Đang Chờ'
-      case 'confirmed': return 'Đã xác nhận'
-      case 'cancelled': return 'Đã hủy'
-      case 'completed': return 'Đã hoàn thành'
-      default: return status
+      case 'pending':
+        return 'Đang Chờ'
+      case 'confirmed':
+        return 'Đã xác nhận'
+      case 'cancelled':
+        return 'Đã hủy'
+      case 'completed':
+        return 'Đã hoàn thành'
+      default:
+        return status
     }
   }
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'pending': return 'warning'
-      case 'confirmed': return 'success'
-      case 'cancelled': return 'error'
-      case 'completed': return 'info'
-      default: return 'default'
+      case 'pending':
+        return 'warning'
+      case 'confirmed':
+        return 'success'
+      case 'cancelled':
+        return 'error'
+      case 'completed':
+        return 'info'
+      default:
+        return 'default'
     }
   }
 
   const handleStatusChange = (appointmentId: string, newStatus: 'confirmed' | 'cancelled' | 'completed') => {
-    setAppointments(prev => 
-      prev.map(appointment => 
-        appointment.id === appointmentId 
-          ? { ...appointment, status: newStatus }
-          : appointment
+    setAppointments((prev) =>
+      prev.map((appointment) =>
+        appointment.id === appointmentId ? { ...appointment, status: newStatus } : appointment
       )
     )
   }
 
-  const filteredAppointments = appointments.filter(appointment => {
+  const filteredAppointments = appointments.filter((appointment) => {
     if (filter === 'all') return true
     return appointment.status === filter
   })
@@ -94,25 +102,25 @@ export default function AppointmentManagement() {
         <Typography variant='h4' sx={{ fontWeight: 'bold', color: 'black' }}>
           Danh sách Lịch hẹn
         </Typography>
-        
+
         <FormControl size='small' sx={{ minWidth: 180 }}>
           <InputLabel>Lọc theo trạng thái:</InputLabel>
           <Select
             value={filter}
-            label="Lọc theo trạng thái:"
+            label='Lọc theo trạng thái:'
             onChange={(e) => setFilter(e.target.value as FilterStatus)}
           >
-            <MenuItem value="all">Tất cả</MenuItem>
-            <MenuItem value="pending">Đang chờ</MenuItem>
-            <MenuItem value="confirmed">Đã xác nhận</MenuItem>
-            <MenuItem value="cancelled">Đã hủy</MenuItem>
-            <MenuItem value="completed">Đã hoàn thành</MenuItem>
+            <MenuItem value='all'>Tất cả</MenuItem>
+            <MenuItem value='pending'>Đang chờ</MenuItem>
+            <MenuItem value='confirmed'>Đã xác nhận</MenuItem>
+            <MenuItem value='cancelled'>Đã hủy</MenuItem>
+            <MenuItem value='completed'>Đã hoàn thành</MenuItem>
           </Select>
         </FormControl>
       </div>
 
       <div className='grid gap-4'>
-        {filteredAppointments.length === 0 ? (
+        {filteredAppointments?.length === 0 ? (
           <Box
             sx={{
               textAlign: 'center',
@@ -124,10 +132,9 @@ export default function AppointmentManagement() {
               📅 Không có lịch hẹn nào
             </Typography>
             <Typography variant='body2' sx={{ color: 'black' }}>
-              {filter === 'all' 
+              {filter === 'all'
                 ? 'Chưa có lịch hẹn nào được đặt'
-                : `Không có lịch hẹn nào ở trạng thái "${getStatusLabel(filter)}"`
-              }
+                : `Không có lịch hẹn nào ở trạng thái "${getStatusLabel(filter)}"`}
             </Typography>
           </Box>
         ) : (
@@ -162,16 +169,12 @@ export default function AppointmentManagement() {
                   <div className='space-y-1 text-gray-700'>
                     <div className='flex items-center gap-2'>
                       <span>👤</span>
-                      <Typography variant='body2'>
-                        Khách hàng: {appointment.customerName}
-                      </Typography>
+                      <Typography variant='body2'>Khách hàng: {appointment.customerName}</Typography>
                     </div>
 
                     <div className='flex items-center gap-2'>
                       <span>📅</span>
-                      <Typography variant='body2'>
-                        Ngày: {formatDate(appointment.date)}
-                      </Typography>
+                      <Typography variant='body2'>Ngày: {formatDate(appointment.date)}</Typography>
                     </div>
 
                     <div className='flex items-center gap-2'>
@@ -183,17 +186,13 @@ export default function AppointmentManagement() {
 
                     <div className='flex items-center gap-2'>
                       <span>✉️</span>
-                      <Typography variant='body2'>
-                        Email/SĐT: {appointment.customerEmail}
-                      </Typography>
+                      <Typography variant='body2'>Email/SĐT: {appointment.customerEmail}</Typography>
                     </div>
 
                     {appointment.title && (
                       <div className='flex items-center gap-2'>
                         <span>💼</span>
-                        <Typography variant='body2'>
-                          Chức danh: {appointment.title}
-                        </Typography>
+                        <Typography variant='body2'>Chức danh: {appointment.title}</Typography>
                       </div>
                     )}
                   </div>
@@ -208,10 +207,10 @@ export default function AppointmentManagement() {
                         color='secondary'
                         size='small'
                         onClick={() => handleStatusChange(appointment.id, 'confirmed')}
-                        sx={{ 
+                        sx={{
                           borderRadius: 999,
                           minWidth: 100,
-                          height: 40,
+                          height: 40
                         }}
                       >
                         Xác nhận
@@ -221,10 +220,10 @@ export default function AppointmentManagement() {
                         color='error'
                         size='small'
                         onClick={() => handleStatusChange(appointment.id, 'cancelled')}
-                        sx={{ 
+                        sx={{
                           borderRadius: 999,
                           minWidth: 100,
-                          height: 40,
+                          height: 40
                         }}
                       >
                         Huỷ
@@ -239,7 +238,7 @@ export default function AppointmentManagement() {
                         color='primary'
                         size='small'
                         onClick={() => handleStatusChange(appointment.id, 'completed')}
-                        sx={{ 
+                        sx={{
                           borderRadius: 999,
                           minWidth: 100,
                           height: 40,
@@ -253,18 +252,16 @@ export default function AppointmentManagement() {
                         color='error'
                         size='small'
                         onClick={() => handleStatusChange(appointment.id, 'cancelled')}
-                        sx={{ 
+                        sx={{
                           borderRadius: 999,
                           minWidth: 100,
-                          height: 40,
+                          height: 40
                         }}
                       >
                         Huỷ
                       </Button>
                     </>
                   )}
-
-                 
                 </div>
               </div>
             </Card>
@@ -273,4 +270,4 @@ export default function AppointmentManagement() {
       </div>
     </div>
   )
-} 
+}

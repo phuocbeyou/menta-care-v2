@@ -161,7 +161,7 @@ export default function CalendarManagement() {
         }
 
         // Check if there are more items to load
-        setHasMore(newBookings.length === itemsPerPage)
+        setHasMore(newBookings?.length === itemsPerPage)
         setCurrentPage(page)
       }
     } catch (error) {
@@ -339,7 +339,7 @@ export default function CalendarManagement() {
       </div>
 
       {/* Load More Button */}
-      {!loading && hasMore && bookings.length > 0 && (
+      {!loading && hasMore && bookings?.length > 0 && (
         <Box sx={{ textAlign: 'center', mt: 4 }}>
           <Button
             variant='outlined'
@@ -367,7 +367,7 @@ export default function CalendarManagement() {
       )}
 
       {/* Empty State */}
-      {!loading && bookings.length === 0 && (
+      {!loading && bookings?.length === 0 && (
         <Box
           sx={{
             textAlign: 'center',

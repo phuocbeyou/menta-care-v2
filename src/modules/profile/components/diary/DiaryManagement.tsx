@@ -96,7 +96,7 @@ export default function DiaryManagement() {
         }
 
         // Check if there are more items to load
-        setHasMore(newDiaries.length === itemsPerPage)
+        setHasMore(newDiaries?.length === itemsPerPage)
         setCurrentPage(page)
       }
     } catch (error) {
@@ -104,7 +104,7 @@ export default function DiaryManagement() {
       // Fallback to mock data on error
       if (!isLoadMore) {
         setDiaries(MOCK_DIARY_DATA.slice(0, itemsPerPage))
-        setHasMore(MOCK_DIARY_DATA.length > itemsPerPage)
+        setHasMore(MOCK_DIARY_DATA?.length > itemsPerPage)
       }
     } finally {
       setLoading(false)
@@ -209,7 +209,7 @@ export default function DiaryManagement() {
       </div>
 
       {/* Load More Button */}
-      {!loading && hasMore && diaries.length > 0 && (
+      {!loading && hasMore && diaries?.length > 0 && (
         <Box sx={{ textAlign: 'center', mt: 4 }}>
           <Button
             variant='outlined'
@@ -237,7 +237,7 @@ export default function DiaryManagement() {
       )}
 
       {/* Empty State */}
-      {!loading && diaries.length === 0 && (
+      {!loading && diaries?.length === 0 && (
         <Box
           sx={{
             textAlign: 'center',

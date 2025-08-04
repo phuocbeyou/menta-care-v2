@@ -90,7 +90,7 @@ export const HeaderBlog = () => {
   const displayedArticles = filteredArticles.slice(0, displayCount)
 
   const handleLoadMore = () => {
-    setDisplayCount((prev) => Math.min(prev + 10, filteredArticles.length))
+    setDisplayCount((prev) => Math.min(prev + 10, filteredArticles?.length))
   }
 
   const hasMoreArticles = displayCount < filteredArticles.length

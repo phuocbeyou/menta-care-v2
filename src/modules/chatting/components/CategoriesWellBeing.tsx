@@ -129,7 +129,7 @@ export function CategoriesWellBeing({ musicData, podcastData, yogaData, storyDat
           try {
             const duration = await getVideoDuration(item.uri)
             setList((prevList) =>
-              prevList.map((prevItem, prevIndex) => (prevIndex === index ? { ...prevItem, time: duration } : prevItem))
+              prevList?.map((prevItem, prevIndex) => (prevIndex === index ? { ...prevItem, time: duration } : prevItem))
             )
           } catch (error) {
             console.warn('Error getting duration for item:', item.title, error)

@@ -65,15 +65,15 @@ export default function AddAvailableSlots() {
         setLoading(true)
 
         const expertId = 'current-expert-id' // Đợi thêm expert_id trong token rồi lấy ra
-        
+
         const response = await callingAPI<ExpertDetailRes, ExpertDetailReq>(REQUEST_TYPE.expert_details, {
           expert_id: expertId
         })
-        
+
         if (response.experts && response.experts.length > 0) {
           const expertData = response.experts[0]
           // setExpert(expertData)
-          
+
           // Convert slots from API format to component format
           if (expertData.slots && Array.isArray(expertData.slots)) {
             const apiSlots = expertData.slots as APISlot[]
@@ -88,10 +88,9 @@ export default function AddAvailableSlots() {
         setLoading(false)
       }
     }
-    
+
     fetchExpert()
   }, [])
-
 
   const validateDate = (date: string): string => {
     if (!date) return ''
@@ -105,31 +104,31 @@ export default function AddAvailableSlots() {
 
   const validateTimeSlot = (date: string, timeStart: string, timeEnd: string): string => {
     if (!date || !timeStart || !timeEnd) return ''
-    
+
     // Check if end time is after start time
     if (timeStart >= timeEnd) {
       return 'Giờ kết thúc phải sau giờ bắt đầu'
     }
 
     // Check for time overlap with existing slots
-    const existingSlotsForDate = slots.filter(slot => slot.date === date)
+    const existingSlotsForDate = slots.filter((slot) => slot.date === date)
     const newStart = dayjs(`${date} ${timeStart}`)
     const newEnd = dayjs(`${date} ${timeEnd}`)
 
     for (const slot of existingSlotsForDate) {
       const existingStart = dayjs(`${slot.date} ${slot.time_start}`)
       const existingEnd = dayjs(`${slot.date} ${slot.time_end}`)
-      
+
       // Check if times overlap
       if (
         (newStart.isBefore(existingEnd) && newEnd.isAfter(existingStart)) ||
-        (newStart.isSame(existingStart)) ||
-        (newEnd.isSame(existingEnd))
+        newStart.isSame(existingStart) ||
+        newEnd.isSame(existingEnd)
       ) {
         return `Thời gian trùng với slot ${slot.time_start} - ${slot.time_end}`
       }
     }
-    
+
     return ''
   }
 
@@ -138,12 +137,12 @@ export default function AddAvailableSlots() {
       ...formData,
       [field]: value
     }
-    
+
     setFormData(newFormData)
 
     // Validate in real-time
     const newErrors = { ...errors }
-    
+
     if (field === 'date') {
       newErrors.date = validateDate(value)
       // Also revalidate time when date changes
@@ -156,7 +155,7 @@ export default function AddAvailableSlots() {
       newErrors.time_start = timeError
       newErrors.time_end = ''
     }
-    
+
     setErrors(newErrors)
   }
 
@@ -164,7 +163,7 @@ export default function AddAvailableSlots() {
     // Final validation before adding
     const dateError = validateDate(formData.date)
     const timeError = validateTimeSlot(formData.date, formData.time_start, formData.time_end)
-    
+
     if (dateError || timeError) {
       setErrors({
         date: dateError,
@@ -179,10 +178,9 @@ export default function AddAvailableSlots() {
         id: `${formData.date}-${formData.time_start}-${Date.now()}`,
         ...formData
       }
-      
-      setSlots(prev => [...prev, newSlot])
-    
-      
+
+      setSlots((prev) => [...prev, newSlot])
+
       setFormData({ date: '', time_start: '', time_end: '' })
       setErrors({ date: '', time_start: '', time_end: '' })
       setShowForm(false)
@@ -196,8 +194,6 @@ export default function AddAvailableSlots() {
   const isFormValid = () => {
     return formData.date && formData.time_start && formData.time_end && !hasErrors()
   }
-
-
 
   const formatDate = (dateString: string) => {
     return dayjs(dateString).format('DD/MM/YYYY - dddd')
@@ -219,10 +215,10 @@ export default function AddAvailableSlots() {
             px: 3,
             py: 1.5,
             fontWeight: 'bold',
-            backgroundColor: 'secondary.main',
+            backgroundColor: 'secondary.main'
           }}
         >
-           Thêm lịch trống
+          Thêm lịch trống
         </Button>
       </div>
 
@@ -284,7 +280,7 @@ export default function AddAvailableSlots() {
                 setFormData({ date: '', time_start: '', time_end: '' })
                 setErrors({ date: '', time_start: '', time_end: '' })
               }}
-              sx={{ borderRadius: 999, backgroundColor: 'grey.300', color: 'black'}}
+              sx={{ borderRadius: 999, backgroundColor: 'grey.300', color: 'black' }}
             >
               Hủy
             </Button>
@@ -335,7 +331,7 @@ export default function AddAvailableSlots() {
                     {formatDate(date)}
                   </Typography>
                   <Chip
-                    label={`${dateSlots.length} slot${dateSlots.length > 1 ? 's' : ''}`}
+                    label={`${dateSlots?.length} slot${dateSlots?.length > 1 ? 's' : ''}`}
                     size='small'
                     color='primary'
                     variant='outlined'
@@ -372,4 +368,4 @@ export default function AddAvailableSlots() {
       </div>
     </div>
   )
-} 
+}

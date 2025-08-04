@@ -195,7 +195,7 @@ async function fetchDurationFromAPI(videoId: string, apiKey: string): Promise<st
 
     const data = await response.json()
 
-    if (data.items && data.items.length > 0) {
+    if (data.items && data.items?.length > 0) {
       const duration = data.items[0].contentDetails?.duration
       if (duration) {
         return parseISO8601Duration(duration)

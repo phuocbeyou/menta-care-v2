@@ -69,7 +69,11 @@ export function AccountPopover({ data = [], sx, user, ...other }: AccountPopover
         }}
         {...other}
       >
-        <Avatar src={userData?.avatar_url || _myAccount.photoURL} alt={_myAccount.displayName} sx={{ width: 1, height: 1 }}>
+        <Avatar
+          src={userData?.avatar_url || _myAccount.photoURL}
+          alt={_myAccount.displayName}
+          sx={{ width: 1, height: 1 }}
+        >
           {_myAccount.displayName.charAt(0).toUpperCase()}
         </Avatar>
       </IconButton>
@@ -96,7 +100,7 @@ export function AccountPopover({ data = [], sx, user, ...other }: AccountPopover
           </Typography>
         </Box>
 
-        {data.length > 0 && <Divider sx={{ borderStyle: 'dashed' }} />}
+        {data?.length > 0 && <Divider sx={{ borderStyle: 'dashed' }} />}
 
         <MenuList
           disablePadding
@@ -119,7 +123,7 @@ export function AccountPopover({ data = [], sx, user, ...other }: AccountPopover
             }
           }}
         >
-          {data.map((option) => (
+          {data?.map((option) => (
             <MenuItem
               key={option.label}
               selected={option.href === pathname}

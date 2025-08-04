@@ -28,7 +28,7 @@ export const ResultAnalyze = ({
   return (
     <div className='flex flex-col py-4 gap-4'>
       <div>
-        {experts && experts.length > 0 && (
+        {experts && experts?.length > 0 && (
           <div className='flex flex-col gap-4'>
             <div className='text-3xl font-bold text-secondary text-center w-[80%] mx-auto'>
               {`Sau khi phân tích nhu cầu của bạn, dưới đây là danh sách ${experts.length} chuyên gia phù hợp nhất.`}

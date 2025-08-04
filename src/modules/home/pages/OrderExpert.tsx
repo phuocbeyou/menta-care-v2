@@ -74,7 +74,7 @@ export function OrderExpert({ expert }: OrderExpertProps) {
 
   // Process slots data để group theo date
   const processedSlots = useMemo(() => {
-    if (!expertWithFakeSlots?.slots || expertWithFakeSlots.slots.length === 0) return {}
+    if (!expertWithFakeSlots?.slots || expertWithFakeSlots.slots?.length === 0) return {}
 
     const grouped: { [date: string]: Array<{ time_start: string; time_end: string }> } = {}
 
@@ -114,7 +114,7 @@ export function OrderExpert({ expert }: OrderExpertProps) {
 
       // Set default time slot
       const firstDateSlots = processedSlots[availableDates[0]]
-      if (firstDateSlots && firstDateSlots.length > 0) {
+      if (firstDateSlots && firstDateSlots?.length > 0) {
         setSelectedTimeSlot(`${firstDateSlots[0].time_start}-${firstDateSlots[0].time_end}`)
       }
     }
@@ -163,7 +163,7 @@ export function OrderExpert({ expert }: OrderExpertProps) {
     }
 
     // Validate slots selection if expert has slots
-    if (expertWithFakeSlots?.slots && expertWithFakeSlots.slots.length > 0) {
+    if (expertWithFakeSlots?.slots && expertWithFakeSlots.slots?.length > 0) {
       if (!selectedDate || !selectedTimeSlot) {
         Dialog.error('Vui lòng chọn ngày và giờ hẹn')
         return
@@ -225,7 +225,7 @@ export function OrderExpert({ expert }: OrderExpertProps) {
 
             {/* Slots Booking Section */}
             <Box sx={{ mt: 3 }}>
-              {!expertWithFakeSlots?.slots || expertWithFakeSlots.slots.length === 0 ? (
+              {!expertWithFakeSlots?.slots || expertWithFakeSlots.slots?.length === 0 ? (
                 <Typography
                   variant='body1'
                   sx={{
@@ -288,7 +288,7 @@ export function OrderExpert({ expert }: OrderExpertProps) {
                   </LocalizationProvider>
 
                   {/* Time Slot Selector */}
-                  {selectedDate && availableTimeSlots.length > 0 && (
+                  {selectedDate && availableTimeSlots?.length > 0 && (
                     <FormControl fullWidth>
                       <InputLabel>Chọn giờ</InputLabel>
                       <Select

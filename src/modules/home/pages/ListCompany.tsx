@@ -95,7 +95,7 @@ export default function ListCompany() {
                   </div>
                 </SwiperSlide>
               ))
-            ) : companies.length === 0 ? (
+            ) : companies?.length === 0 ? (
               <SwiperSlide style={{ height: 'auto', display: 'flex', justifyContent: 'center', width: '100%' }}>
                 <div className='w-full text-center py-12'>
                   <div className='flex flex-col items-center gap-3'>

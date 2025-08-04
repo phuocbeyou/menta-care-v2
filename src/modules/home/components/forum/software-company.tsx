@@ -42,7 +42,7 @@ export function SoftwareCompany() {
         const response = await callingAPI<SoftwareGroupRes, object>(REQUEST_TYPE.get_software_groups, {})
         setSoftwareGroups(response.software_groups)
         // Set first group as default
-        if (response.software_groups.length > 0) {
+        if (response?.software_groups?.length > 0) {
           setSelectedMenu(response.software_groups[0].id)
         }
       } catch (error) {
@@ -88,7 +88,7 @@ export function SoftwareCompany() {
           Array.from({ length: 6 }).map((_, index) => (
             <Skeleton key={index} variant='rectangular' width={170} height={60} sx={{ borderRadius: '24px' }} />
           ))
-        ) : softwareGroups.length === 0 ? (
+        ) : softwareGroups?.length === 0 ? (
           <div className='w-full text-center py-4'>
             <p className='text-gray-500'>Không có danh mục nào</p>
           </div>
@@ -131,7 +131,7 @@ export function SoftwareCompany() {
                 </div>
               </SwiperSlide>
             ))
-          ) : software.length === 0 ? (
+          ) : software?.length === 0 ? (
             <SwiperSlide style={{ height: 'auto', display: 'flex', justifyContent: 'center', width: '100%' }}>
               <div className='w-full text-center py-12'>
                 <div className='flex flex-col items-center gap-3'>
@@ -142,7 +142,7 @@ export function SoftwareCompany() {
               </div>
             </SwiperSlide>
           ) : (
-            software.map((item) => (
+            software?.map((item) => (
               <SwiperSlide
                 key={item.id}
                 style={{ height: 'auto', display: 'flex', justifyContent: 'center', width: 'auto' }}

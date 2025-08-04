@@ -219,7 +219,7 @@ export function CategoriesWellBeing() {
                     <SkeletonItem key={index} />
                   ))}
                 </div>
-              ) : list.length > 0 ? (
+              ) : list?.length > 0 ? (
                 // Actual Content
                 <Swiper
                   ref={swiperRef}

@@ -1,0 +1,10 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["9UF74XMVEH.fulfillment.hasaki.vn.dev"],
+        "components": [{ "/": "/callback*" }]
+      }
+    ]
+  }
+}
